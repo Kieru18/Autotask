@@ -48,6 +48,4 @@ public class Animal extends DatabaseObject{
     public void setLegCount(int legCount) {
         this.legCount = legCount;
     }
-
-
 }
