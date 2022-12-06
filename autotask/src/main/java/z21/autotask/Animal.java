@@ -10,10 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@Data @Entity
+@AllArgsConstructor @NoArgsConstructor
 @Table(name = "animals")
 public class Animal {
 
