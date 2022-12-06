@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Integer> {
-    @Query(value = "SELECT * FROM animals WHERE name = ?1", nativeQuery = true)
+    @Query
     List<Animal> findByName(String name);
 
     /* @Query(value = "SELECT name FROM animals WHERE name = ?1", nativeQuery = true)
