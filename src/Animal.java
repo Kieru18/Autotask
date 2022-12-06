@@ -48,4 +48,12 @@ public class Animal extends DatabaseObject{
     public void setLegCount(int legCount) {
         this.legCount = legCount;
     }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "Animal[animalId=%d, name='%s', color='%s', legCount=%d]",
+            animalId, name, color, legCount);
+    }
+
 }

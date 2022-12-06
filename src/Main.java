@@ -1,19 +1,24 @@
 import java.sql.SQLException;
+import java.util.List;
 
 public class Main {
+    static private AnimalDAO dao = null;
+    static private DBContext dbcon = null;
     public static void main(String[] argv) throws SQLException{
-        //dbcon = new DBContext();
-        dao = new BookStoreDAO();
-        dao.createTable();
+        dbcon = new DBContext();
+        dao = new AnimalDAO();
         dao.setConn(dbcon.getConnection());
         
-        Book book = new Book();
-        book.setISBN("978-0544003415");
-        book.setTitle("The Lord of the Rings");
-        book.setPages(1216);
-        dao.insertBook(book);
+        Animal animal = new Animal();
+        animal.setName("Kitku");
+        animal.setLegCount(4);
+        animal.setColor("rainbow");
+        //dao.insertAnimal(animal);
         
-        List<Book> books = dao.getAllBooks();
+        List<Animal> animals = dao.getAllAnimals();
+        for (Animal an : animals){
+            System.out.println(an.toString() + "\n");
+        }
 
     }
 }
