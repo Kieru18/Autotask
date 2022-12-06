@@ -54,4 +54,33 @@ public class AnimalDAO {
          }
          return animals;
     }
+
+    public Animal getAnimalById(int animalId) {
+        Animal animal = new Animal();
+        if (conn != null) {
+            PreparedStatement pstmt = null;
+            try {
+                pstmt = conn.prepareStatement("SELECT * FROM animals WHERE animal_id = ?");
+                pstmt.setInt(1, animalId);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    animal.setAnimalId(rs.getInt("animal_id"));
+                    animal.setName(rs.getString("name"));
+                    animal.setColor(rs.getString("color"));
+                    animal.setLegCount(rs.getInt("leg_count"));
+                } else
+                    System.out.println("No animal with given ID found.");
+            } catch (SQLException e) {
+                //log.error("Unable to create the database table", e);
+                System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+            } finally {
+                if (pstmt != null) {
+                try { pstmt.close();
+                } catch (SQLException e) {
+                    }
+                }
+            }
+         }
+         return animal;
+    }
 }

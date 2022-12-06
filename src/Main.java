@@ -20,5 +20,7 @@ public class Main {
             System.out.println(an.toString() + "\n");
         }
 
+        Animal animalWithId7 = dao.getAnimalById(7);
+            System.out.println(animalWithId7.toString() + "\n");
     }
 }
