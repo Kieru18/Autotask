@@ -11,11 +11,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Integer> {
+    @Query(value = "SELECT * FROM animals WHERE name = ?1", nativeQuery = true)
+    List<Animal> findByName(String name);
+    /* 
+    @Query("SELECT t FROM Tutorial t WHERE t.title LIKE %?1%")
+    List<Tutorial> findByTitleLike(String title);
 
-    // List<Animal> findByName(String name);
-  
-    // Animal findById(int id);
-
-    // @Query("SELECT color FROM animals WHERE color = :color")
-    // Stream<Animal> findByColor(@Param("color") String color);
+    @Query("SELECT t FROM Tutorial t WHERE LOWER(t.title) LIKE LOWER(CONCAT('%', ?1,'%'))")
+    List<Tutorial> findByTitleLikeCaseInsensitive(String title); */
   }

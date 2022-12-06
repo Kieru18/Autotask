@@ -12,31 +12,30 @@ import jakarta.persistence.Table;
 public class Animal {
 
     @Id
-    @Column(name = "animal_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer animalId;
+    private Integer animal_id;
     private String name;
     private String color;
-    private Integer legCount;
+    private Integer leg_count;
 
     protected Animal() {};
 
     public Animal(int animalId, String name, String color, int legCount) {
-        this.animalId = animalId;
+        this.animal_id = animalId;
         this.name = name;
         this.color = color;
-        this.legCount = legCount;
+        this.leg_count = legCount;
     }
 
     @Override
     public String toString() {
         return String.format(
             "Animal[animalId=%d, name='%s', color='%s', legCount=%d]",
-            animalId, name, color, legCount);
+            animal_id, name, color, leg_count);
     }
 
     public int getAnimalId() {
-        return this.animalId;
+        return this.animal_id;
     }
     public String getName() {
         return this.name;
@@ -45,11 +44,11 @@ public class Animal {
         return this.color;
     }
     public int getLegCount() {
-        return this.legCount;
+        return this.leg_count;
     }
 
     public void setAnimalId(int animalId) {
-        this.animalId = animalId;
+        this.animal_id = animalId;
     }
 
     public void setName(String name) {
@@ -61,6 +60,6 @@ public class Animal {
     }
 
     public void setLegCount(int legCount) {
-        this.legCount = legCount;
+        this.leg_count = legCount;
     }
 }
