@@ -1,5 +1,6 @@
 package z21.autotask;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,8 +18,8 @@ public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NonNull private Integer animal_id;
+    @NonNull @Column(name = "animal_id") private Integer animalId;
     private String name;
     private String color;
-    private Integer leg_count;
+    @Column(name = "leg_count") private Integer legCount;
 }
