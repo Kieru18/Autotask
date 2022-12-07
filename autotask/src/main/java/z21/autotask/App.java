@@ -22,9 +22,13 @@ public class App {
 
     @GetMapping("/animals")
     public String animals(@RequestParam(value = "name", defaultValue = "null") String name) {
-        List<Animal> listAnimals = null;
+        List<Animal> listAnimals = null; 
         
-        listAnimals = animalRepository.findByName(name);
+        if (name.equals("null")) {
+            listAnimals = animalRepository.findAll();
+        } else {
+            listAnimals = animalRepository.findByName(name);
+        }
         
         String result = "";
         for(Animal animal: listAnimals)
@@ -35,10 +39,10 @@ public class App {
     }
 
     @GetMapping("/legcolor")
-    public String legcolor() {
+    public String legcolor(@RequestParam(value = "legCount", defaultValue = "0") String legCount, 
+                           @RequestParam(value = "color", defaultValue = "null") String color) {
         List<Animal> listAnimals = null;
-        
-        listAnimals = animalRepository.findLegsColor(4, "black");
+        listAnimals = animalRepository.findLegsColor(Integer.parseInt(legCount), color);
         
         String result = "";
         for(Animal animal: listAnimals)
