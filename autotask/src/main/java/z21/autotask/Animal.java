@@ -21,11 +21,4 @@ public class Animal {
     private String name;
     private String color;
     private Integer leg_count;
-
-    @Override
-    public String toString() {
-        return String.format(
-            "Animal[animalId=%d, name='%s', color='%s', legCount=%d]",
-            animal_id, name, color, leg_count);
-    }
 }
