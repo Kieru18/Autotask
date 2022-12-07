@@ -15,10 +15,12 @@ import lombok.NonNull;
 @Table(name = "animals")
 public class Animal {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NonNull private Integer animal_id;
     private String name;
     private String color;
     private Integer leg_count;
+
 }
