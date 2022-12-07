@@ -1,54 +1,25 @@
 package z21.autotask;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.vaadin.flow.theme.lumo.Lumo;
+import java.lang.String;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import com.vaadin.flow.component.dependency.NpmPackage;
+import com.vaadin.flow.component.page.AppShellConfigurator;
+import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.theme.Theme;
 
 
 @SpringBootApplication
-@RestController
-public class App {
+@Theme(variant = Lumo.DARK)
+@PWA(name = "Autotask - manage your work", shortName = "Autotask", offlineResources = {})
+@NpmPackage(value = "line-awesome", version = "1.3.0")
+public class App implements AppShellConfigurator {
 
-    @Autowired
-    AnimalRepository animalRepository;
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
 
-    @GetMapping("/animals")
-    public String animals(@RequestParam(value = "name", defaultValue = "null") String name) {
-        List<Animal> listAnimals = null; 
-        
-        if (name.equals("null")) {
-            listAnimals = animalRepository.findAll();
-        } else {
-            listAnimals = animalRepository.findByName(name);
-        }
-        
-        String result = "";
-        for(Animal animal: listAnimals)
-        {
-            result += animal.toString() + "<br/>";
-        }
-        return "List of animals:  <br/> " + result;
-    }
 
-    @GetMapping("/legcolor")
-    public String legcolor(@RequestParam(value = "legCount", defaultValue = "0") String legCount, 
-                           @RequestParam(value = "color", defaultValue = "null") String color) {
-        List<Animal> listAnimals = null;
-        listAnimals = animalRepository.findLegsColor(Integer.parseInt(legCount), color);
-        
-        String result = "";
-        for(Animal animal: listAnimals)
-        {
-            result += animal.toString() + "<br/>";
-        }
-        return "List of animals:  <br/> " + result;
-    }
 }

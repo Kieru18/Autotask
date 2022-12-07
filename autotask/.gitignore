@@ -15,6 +15,7 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
+/.idea
 *.iws
 *.iml
 *.ipr
@@ -31,7 +32,8 @@ build/
 
 ### VS Code ###
 .vscode/
-/node_modules/
+
+node_modules
 /package-lock.json
-/vite.config.ts
 /vite.generated.ts
+/vite.config.ts
