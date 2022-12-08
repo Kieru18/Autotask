@@ -16,7 +16,7 @@ import z21.autotask.DataService;
 import java.util.List;
 
 @PageTitle("List of all animals")
-@Route(value = "/animals")
+@Route(value = "/animals", layout = MainLayout.class)
 public class ListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Animal> grid = new Grid<>(Animal.class);
