@@ -9,8 +9,11 @@
     Nazwa Aplikacji: AutoTask
 
 # Technologia:
-    - Java
+    - Java, Maven
     - SWING
+    - Springboot
+    - Vaadin - GUI
+    - Hibernate (JPA) - dostęp do bazy danych
 
 # Funkcjonalności:
 ## Panel logowania:
