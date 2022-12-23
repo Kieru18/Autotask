@@ -21,19 +21,19 @@ public class AnimalFormView extends FormLayout {
     public AnimalFormView(DataService dataService) {
         this.dataService = dataService;
 
-        TextField idTF = new TextField("Animal ID:");
+        // TextField idTF = new TextField("Animal ID:");
         TextField nameTF = new TextField("Animal name:");
         TextField colorTF = new TextField("Animal color:");
         TextField legCountTF = new TextField("Number of legs:");
         Button addButton = new Button("Add");
 
         addButton.addClickListener(click -> {
-            int animalId = Integer.parseInt(idTF.getValue());
+            // int animalId = Integer.parseInt(idTF.getValue());
             int numberOfLegs = Integer.parseInt(legCountTF.getValue());
-            dataService.addAnimal(animalId, nameTF.getValue(), colorTF.getValue(), numberOfLegs);
+            dataService.addAnimal(nameTF.getValue(), colorTF.getValue(), numberOfLegs);
 
             Notification.show("Succesfully added new Animal to database!");
         });
-        add(idTF,nameTF,colorTF, legCountTF, addButton);
+        add(nameTF, colorTF, legCountTF, addButton);
     }
 }

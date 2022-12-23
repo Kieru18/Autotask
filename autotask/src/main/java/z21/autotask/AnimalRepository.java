@@ -27,7 +27,6 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     @Query(value = "SELECT * FROM animals WHERE leg_count = ?1 AND color = ?2", nativeQuery = true)
     List<Animal> findLegsColor(Integer legCount, String color);
 
-
-    @Modifying @Query(value = "INSERT INTO animals (animal_id,  name,  color, leg_count) VALUES (:animal_id, :name, :color, :leg_count )", nativeQuery = true)
-    void insertAnimal(@Param("animal_id") Integer animalId, @Param("name") String name, @Param("color")  String color, @Param("leg_count") Integer legCount);
+    @Modifying @Query(value = "INSERT INTO animals (name,  color, leg_count) VALUES (:name, :color, :leg_count )", nativeQuery = true)
+    void insertAnimal(@Param("name") String name, @Param("color")  String color, @Param("leg_count") Integer legCount);
 }
