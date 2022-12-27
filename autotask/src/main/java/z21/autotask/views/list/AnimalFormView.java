@@ -1,7 +1,6 @@
 package z21.autotask.views.list;
 
 
-import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
@@ -9,17 +8,16 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import z21.autotask.Animal;
 import z21.autotask.DataService;
 
 @Route(value = "/animalForm", layout = MainLayout.class)
 public class AnimalFormView extends FormLayout {
 
-    private DataService dataService;
+    // private DataService dataService;
 
     @Autowired
     public AnimalFormView(DataService dataService) {
-        this.dataService = dataService;
+        // this.dataService = dataService;
 
         TextField idTF = new TextField("Animal ID:");
         TextField nameTF = new TextField("Animal name:");

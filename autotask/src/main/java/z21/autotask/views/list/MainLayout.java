@@ -6,7 +6,6 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.router.HighlightCondition;
 import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 
@@ -32,6 +31,7 @@ public class MainLayout extends AppLayout {
         RouterLink listView = new RouterLink("AnimalList", ListView.class);
         listView.setHighlightCondition(HighlightConditions.sameLocation());
         addToDrawer(new VerticalLayout(listView), new RouterLink("AnimalForm", AnimalFormView.class));
+        addToDrawer(new VerticalLayout(listView), new RouterLink("Task Generator", TaskFormView.class));
 
     }
 }
