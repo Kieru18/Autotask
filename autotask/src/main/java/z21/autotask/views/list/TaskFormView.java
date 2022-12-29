@@ -17,6 +17,7 @@ import com.vaadin.flow.router.Route;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 // import z21.autotask.DataService;
@@ -64,7 +65,15 @@ public class TaskFormView extends VerticalLayout {
     {
         ArrayList<String> animals = getAniamalArrayList();
         MultiSelectComboBox<String> MSCBanimals = new MultiSelectComboBox<>("Animals"); // TODO change String to Animal class
-        MSCBanimals.setItems(animals);                                                        // TODO change animals  to data provider
+        MSCBanimals.setItems(animals);  // TODO change animals  to data provider
+        MSCBanimals.addSelectionListener(e-> {
+            Optional<String> recentlySelectedValue = e.getFirstSelectedItem();
+            // TODO get associated locaction of selected animal and update this function
+            if(recentlySelectedValue.isPresent())
+            {
+                CBwhere.setValue("Lokalizacja Pierwszego zwierzaczka: " + recentlySelectedValue.get());
+            }
+        });
         return MSCBanimals;
     }
 
