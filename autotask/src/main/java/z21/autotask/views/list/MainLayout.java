@@ -14,11 +14,11 @@ public class MainLayout extends AppLayout {
 
 
     public MainLayout() {
-        createHeader();
         createDrawer();
+        createHeader();
     }
 
-    private void createDrawer() {
+    private void createHeader() {
         H1 title = new H1("AutoTask");
         HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), title);
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
@@ -27,11 +27,15 @@ public class MainLayout extends AppLayout {
         addToNavbar(header);
     }
 
-    private void createHeader() {
+    private void createDrawer() {
+        VerticalLayout links = new VerticalLayout();
         RouterLink listView = new RouterLink("AnimalList", ListView.class);
+        RouterLink AnimalForm = new RouterLink("AnimalForm", AnimalFormView.class);
+        RouterLink TaskGenerator = new RouterLink("Task Generator", TaskFormView.class);
         listView.setHighlightCondition(HighlightConditions.sameLocation());
-        addToDrawer(new VerticalLayout(listView), new RouterLink("AnimalForm", AnimalFormView.class));
-        addToDrawer(new VerticalLayout(listView), new RouterLink("Task Generator", TaskFormView.class));
-
+        AnimalForm.setHighlightCondition(HighlightConditions.sameLocation());
+        TaskGenerator.setHighlightCondition(HighlightConditions.sameLocation());
+        links.add(listView, AnimalForm, TaskGenerator);
+        addToDrawer(links);
     }
 }
