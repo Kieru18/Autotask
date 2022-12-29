@@ -87,17 +87,16 @@ public class TaskFormView extends VerticalLayout {
         String[] employee_names = new String[] {"Jacek Kochanowski","Katarzyna Dąb","Krystian Fach","Aleksandra Chuligan"};
         return new ArrayList<>(Arrays.asList(employee_names));
     }
+    private ArrayList<String> getTaskGroupArrayList()
+    {
+        String[] taskGroups = new String[] {"Sprzątanie Toalet","Karmienie","Zastrzyk","Obsługa Kasy", "Uzupełnianie Wody"};
+        return new ArrayList<>(Arrays.asList(taskGroups));
+    }
 
     private ComboBox<String> prepareTaskGroupComboBox(){
-        ArrayList<String> taskGroups = new ArrayList<>();
-        taskGroups.add("Karmienie");
-        ComboBox<String> CBtaskGroup = new ComboBox<>("What to do");                 // TD change ComboBox<String> to ComboBox<TaskGroup>
-        CBtaskGroup.setAllowCustomValue(true);
-        CBtaskGroup.addCustomValueSetListener(e -> {
-            String customValue = e.getDetail();
-            taskGroups.add(customValue);
-            CBtaskGroup.setItems(taskGroups);
-            CBtaskGroup.setValue(customValue);});
+        ArrayList<String> taskGroups = getTaskGroupArrayList();
+        ComboBox<String> CBtaskGroup = new ComboBox<>("Task Group");                 // TD change ComboBox<String> to ComboBox<TaskGroup>
+        CBtaskGroup.setItems(taskGroups);
         return CBtaskGroup;
     }
     private ComboBox<String> prepareWhereComboBox(){
