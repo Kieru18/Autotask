@@ -1,8 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="autotask" id="F7B79914-3A7C-986B-0B33-BD5784D9A4CB" version="3.5">
-<createdBy>jakub</createdBy>
-<createdTime>2022-12-29 17:59:05 UTC</createdTime>
-<ownerDesignName>autotask</ownerDesignName>
-<capitalNames>false</capitalNames>
-<designId>F7B79914-3A7C-986B-0B33-BD5784D9A4CB</designId>
-</OSDM_Design>
