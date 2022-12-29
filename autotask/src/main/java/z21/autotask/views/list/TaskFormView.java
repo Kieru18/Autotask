@@ -24,7 +24,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Route(value = "/TaskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
     // private DataService dataService;
-
+    private MultiSelectComboBox<String> MSCBwho;
+    private MultiSelectComboBox<String> MSCBanimals;
+    private ComboBox<String> CBtaskGroup;
+    private ComboBox<String> CBwhere;
+    private DateTimePicker DTPwhen;
+    private TextArea TADescription;
+    HorizontalLayout buttons;
 
 
     @Autowired
@@ -33,13 +39,13 @@ public class TaskFormView extends VerticalLayout {
 
         FormLayout taskForm = new FormLayout();
 
-        MultiSelectComboBox<String> MSCBwho = prepareWhoMultiSelectComboBox();
-        MultiSelectComboBox<String> MSCBanimals = prepareAnimalsMultiSelectComboBox();
-        ComboBox<String> CBtaskGroup = prepareTaskGroupComboBox();
-        ComboBox<String> CBwhere = prepareWhereComboBox();
-        DateTimePicker DTPwhen = prepareWhenDateTimePicker();
-        TextArea TADescription = prepareDescriptionTextArea();
-        HorizontalLayout buttons = prepareButtons();
+        MSCBwho = prepareWhoMultiSelectComboBox();
+        MSCBanimals = prepareAnimalsMultiSelectComboBox();
+        CBtaskGroup = prepareTaskGroupComboBox();
+        CBwhere = prepareWhereComboBox();
+        DTPwhen = prepareWhenDateTimePicker();
+        TADescription = prepareDescriptionTextArea();
+        buttons = prepareButtons();
 
         taskForm.add(MSCBwho, CBtaskGroup,MSCBanimals, CBwhere, TADescription, DTPwhen, buttons);
 
