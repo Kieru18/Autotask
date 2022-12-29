@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AA4D8E3D-B985-35B3-3146-77A840C8E11A" name="employees">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:08:12 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="employee_id" id="151B62D2-FA8B-B6E3-670C-D85ACFFAC6B5">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:08:23 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="first_name" id="5CD7B974-EF02-F173-D4C3-8677F7331B12">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:08:39 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="last_name" id="64BEC790-6498-33DE-8013-36DA1F7503F3">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:09:05 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="gender" id="4116D168-B559-42C9-C8B6-31CF5B2A1FFB">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:09:44 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="birth_date" id="9931F51D-50AD-4BD2-016B-BEFD36601CAB">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:10:05 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="position_id" id="6CD9EFF8-6CB8-22AC-BF76-7EB558BFBA44">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:05:38 UTC</createdTime>
+<generatorID>7D35C6DE-1F66-5A97-3081-7511FF88C906</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>5B2C0E76-09D6-9756-941E-9C62ADA4FA54</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status_id" id="5DDFBD59-F395-C9B2-EA33-008DB3532195">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:08:06 UTC</createdTime>
+<generatorID>322EA0E4-3346-3E4C-E22F-37F260F6D227</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>1454AA4B-5C88-D72E-ECF8-3037AD0B111F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="user_id" id="1C4CEB6C-515F-C889-B5F9-0507C4CB6095">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:08:23 UTC</createdTime>
+<generatorID>AD10A7B9-5F74-6197-5FC5-51D86F9C8B10</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>D7A56FEB-FA90-0FCB-9BEB-13011ABC830C</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="058AFEC7-C3AF-F854-256E-DA2034ECA59A" name="employees PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:08:36 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>151B62D2-FA8B-B6E3-670C-D85ACFFAC6B5</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

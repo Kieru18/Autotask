@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="755A7831-BE17-7250-4BE2-0B81483EFD2D" name="animals">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>8A9FFAE1-AA40-6FED-D2B3-589DAF7634BF</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="animal_id" id="EFBC9612-3CF9-36EB-D015-43BEE5D78F29">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>913CF6BE-71B8-F1D5-3D32-EC238FB03D39</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="7E3F5407-92B2-CA69-B83C-DC2DDA7338D9">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>640E2531-A94D-3993-4E78-3D0C70F2B6B9</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="birth_date" id="87BC0917-7028-878A-4685-DE45FBB20427">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>AC6BDE72-577B-C988-49F0-60E22C457F21</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="weight" id="5348C6AC-E99D-230E-5E6D-4C463D59561F">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>4CDA7DCC-B0C7-AF56-22E2-DD7D50B9F8F7</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="locations_location_id" id="A5098C2D-D2AE-6267-7446-DE2022223B46">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>48029EB4-EC81-AB7F-6DE3-5C9E94A395FC</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="35650347-BD39-FAFC-1FE7-8E4E02409155" referredColumn="BF37B64E-2F49-C193-BE83-FDA69CCC5285"/>
+</associations>
+</Column>
+<Column name="species_species_id" id="E2E83427-8952-56FD-70EF-BA32C59C1D7E">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>3FE109C5-53CB-D5C1-BF2F-72BC41E36D5E</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D0A686E3-386A-90BE-1A1F-312578A50B22" referredColumn="09216A98-4921-1EAD-21D9-C14AE8D939DE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="480E6EEE-87DD-47AE-645E-2E2D4B2B770D" name="animals_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>7CF43494-988B-EC1A-E957-AB88529F3810</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFBC9612-3CF9-36EB-D015-43BEE5D78F29"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2ECFE1A9-BFA7-6BF1-A4BF-DFCD07C24D66" name="animals_locations_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>245BB323-7419-C192-FCE0-80BADF3DF894</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5098C2D-D2AE-6267-7446-DE2022223B46"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="80641E4F-45CF-A30B-3A7D-4E682ED74935" name="animals_species_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>B690199F-BA09-4647-65EB-3B73A70BC681</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E2E83427-8952-56FD-70EF-BA32C59C1D7E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="2D1D5255-2E1C-A36E-95B7-5F0C99421F98" name="species">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 18:12:24 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="472716E4-FCBE-3A55-97A6-9CFC97AE1FEF" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="species_id" id="D66D8878-B359-8527-1875-3F2E4D06CA2E">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 18:13:12 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="472716E4-FCBE-3A55-97A6-9CFC97AE1FEF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="7ABCD272-8D94-AD9C-2BFF-B8E49F2E70AE">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 18:13:32 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="472716E4-FCBE-3A55-97A6-9CFC97AE1FEF" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="food_type" id="7F640331-5223-6C3D-A104-917A02E6E235">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:06:34 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="472716E4-FCBE-3A55-97A6-9CFC97AE1FEF" value="true"/>
+</engineerTo>
+<constraintName>foods</constraintName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<listOfValues>
+<valueDef value="carnivore" description=""/>
+<valueDef value="herbivore" description=""/>
+<valueDef value="omnivore" description=""/>
+</listOfValues>
+<defaultValue>omnivore</defaultValue>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="average_lifespan" id="1B7634FA-2295-1B72-E8C3-84DB7C969EE2">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:09:49 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="472716E4-FCBE-3A55-97A6-9CFC97AE1FEF" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="0EAC293B-5FBF-F534-7C1E-74A473B617B1" name="species PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 18:13:27 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="472716E4-FCBE-3A55-97A6-9CFC97AE1FEF" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D66D8878-B359-8527-1875-3F2E4D06CA2E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

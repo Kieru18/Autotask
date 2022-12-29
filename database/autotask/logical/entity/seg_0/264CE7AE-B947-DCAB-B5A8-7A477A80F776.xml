@@ -1,0 +1,98 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="264CE7AE-B947-DCAB-B5A8-7A477A80F776" name="users">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:14:07 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="user_id" id="D7A56FEB-FA90-0FCB-9BEB-13011ABC830C">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:14:21 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="login" id="D4418191-75D9-B969-0332-C8BCCD00A37D">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:14:41 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="21C27983-77B6-4393-2153-217F9AEFE645">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:15:27 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="role" id="42E75373-E9C4-E031-6661-439A12CDE413">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:17:00 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="mail" id="CFF78959-3FA9-BCF1-D299-3CDE862724F7">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:57:47 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7A681925-856D-81DB-FD4B-C2C8F8059C67" name="users PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 19:14:29 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D7A56FEB-FA90-0FCB-9BEB-13011ABC830C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

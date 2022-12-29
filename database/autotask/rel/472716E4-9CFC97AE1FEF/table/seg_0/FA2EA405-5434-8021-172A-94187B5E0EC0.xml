@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FA2EA405-5434-8021-172A-94187B5E0EC0" name="locations">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:20:48 UTC</createdTime>
+<generatorID>E7B3C838-850F-BE95-801B-12085430CD20</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="location_id" id="B6079F7A-7140-698B-AC70-D5EE364AE9B5">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:20:48 UTC</createdTime>
+<generatorID>A1DC8282-158A-0777-A701-CAC08CC2AB68</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="E58784C7-135F-FC35-1A65-055788DE068D">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:20:48 UTC</createdTime>
+<generatorID>68492EFF-E74F-01DF-3FC5-5D80CF774025</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="latitude" id="140B203C-ED5C-23AF-AF97-64F64EEDC1C0">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:20:48 UTC</createdTime>
+<generatorID>EB1F376E-DEB7-F358-B8A2-BFDD1DAFC036</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="longitude" id="9BED9163-7FC2-49DB-E6A8-0631AF2C8870">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:20:48 UTC</createdTime>
+<generatorID>97AE977D-99A9-591F-1482-181C126C9993</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="985C981A-1973-3276-4DB9-2ADFE65EFBF8" name="locations_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:20:48 UTC</createdTime>
+<generatorID>2A1D0860-B356-1291-325E-5895F170CE11</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B6079F7A-7140-698B-AC70-D5EE364AE9B5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

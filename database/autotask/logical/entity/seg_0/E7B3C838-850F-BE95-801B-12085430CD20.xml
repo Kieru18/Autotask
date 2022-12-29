@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E7B3C838-850F-BE95-801B-12085430CD20" name="locations">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>B82AC5E9-25CA-DD17-3E30-EA50C6A778D4</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="location_id" id="A1DC8282-158A-0777-A701-CAC08CC2AB68">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>0673AECF-C266-9BFB-532E-F06842BCE3E7</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="68492EFF-E74F-01DF-3FC5-5D80CF774025">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>4F9E4CA3-760D-A57E-F20C-5215670C0D74</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="latitude" id="EB1F376E-DEB7-F358-B8A2-BFDD1DAFC036">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:41:01 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="longitude" id="97AE977D-99A9-591F-1482-181C126C9993">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:41:19 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2A1D0860-B356-1291-325E-5895F170CE11" name="locations PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>02CD86E2-6450-3D18-AE57-B18E3497E2E0</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>A1DC8282-158A-0777-A701-CAC08CC2AB68</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

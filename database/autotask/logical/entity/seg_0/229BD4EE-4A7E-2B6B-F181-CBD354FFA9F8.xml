@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="229BD4EE-4A7E-2B6B-F181-CBD354FFA9F8" name="task_status">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>8AB9AB9A-BDC3-3662-0837-97397F1F5101</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="status_id" id="B06AFBE1-39B4-6194-88F9-C8A1EB1D8899">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>2514EFE4-F392-A889-395C-9CB1CB114022</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="description" id="7E19D15A-B587-E30F-CA0A-C2EE7C16C74E">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>F84F14FC-AB69-EE67-C22C-B3AD5B1E5016</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="198AF0A2-7CC6-D6DD-40E9-BA699AC7004B" name="task status PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>F073AF1B-97C3-D5FF-300E-35B32E6A79EA</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B06AFBE1-39B4-6194-88F9-C8A1EB1D8899</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

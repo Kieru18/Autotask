@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6D0B62FE-189D-47D5-2910-1E044E7CF126" name="task_types">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>F2B2A9EA-F95F-9650-D935-648B23B7D7B1</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="type_id" id="C7A5D199-5F7C-A182-6639-B092D24699A5">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>07272A6D-BBCD-F9A9-5278-D9721810EE2F</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="6B0471B0-03ED-FE56-5F6E-0AA33472D916">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>C22963DC-91F3-65A4-AC93-D03706A7908C</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="550B507F-2F98-FDFF-6D27-F1888DE2AFBC">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>1DE976C0-A904-B55D-1FEA-454CC4311C32</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150 CHAR</dataTypeSize>
+<ownDataTypeParameters>150 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="base_priority" id="25E995F7-8024-461A-793C-CE9B08406E7F">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>8A1744B9-A789-3A19-BADF-F4DA95302148</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="frequency" id="030A22B1-9015-1C3B-9BD9-98A27AA53805">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>D67E9158-7B1C-15FC-357E-CFDB799FCFB0</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tasks_task_id" id="842D895F-417A-E7BD-6F99-D854A83EBA7B">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>9BA15BDD-C651-803E-C1FE-98C3ECCD1528</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="59CAD05B-73C1-1CA2-9ED5-AAF08E7C54AA" referredColumn="3B17A925-A7D5-FF29-F4BB-A1184D2A76A3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BEF2F9FD-4A8B-DA58-534A-C2801880F7E1" name="task_types_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>60BAAB27-ADC2-6CB6-CD66-4A36BEEBEE0A</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C7A5D199-5F7C-A182-6639-B092D24699A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="11D129DD-3FE8-5B8F-D450-6A5841F9683F" name="task_types_tasks_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>E2DEEDBA-45B3-DDBD-94E4-421F84A78033</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="842D895F-417A-E7BD-6F99-D854A83EBA7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

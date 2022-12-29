@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A639212B-EAC6-4F95-3B8E-DCC6D3EC9ECA" name="positions">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>105CEE92-1045-7757-B021-339FC603AB77</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="position_id" id="79CA4C88-E5D8-5C34-0616-2DC31236FE24">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>5B2C0E76-09D6-9756-941E-9C62ADA4FA54</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="F32A1662-0D5B-E4D6-B0FB-AB28C539BE12">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>D1D95792-CE88-1234-1464-174708C6110F</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="photo" id="C6A8DF97-D163-B1C4-A386-7A17979A84B8">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>B9910693-C995-14BE-2BB3-61DB6F390EEC</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT010</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8397565F-B2C5-5BD1-4226-5E7849783137" name="positions_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>927D9F24-1F7C-F4C2-C9ED-485FC4126B03</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79CA4C88-E5D8-5C34-0616-2DC31236FE24"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

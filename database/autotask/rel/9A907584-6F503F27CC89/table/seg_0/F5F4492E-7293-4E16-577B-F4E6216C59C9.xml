@@ -1,0 +1,175 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F5F4492E-7293-4E16-577B-F4E6216C59C9" name="employees">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>AA4D8E3D-B985-35B3-3146-77A840C8E11A</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="employee_id" id="45347CF4-3E64-0F6C-FDEB-D03F1523686D">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>151B62D2-FA8B-B6E3-670C-D85ACFFAC6B5</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="first_name" id="316E7817-8EA1-019D-62C6-361F6FED7E5D">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>5CD7B974-EF02-F173-D4C3-8677F7331B12</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 CHAR</dataTypeSize>
+<ownDataTypeParameters>25 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="last_name" id="BE42EFC5-ECA7-AF29-4290-AC5A48A1EA55">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>64BEC790-6498-33DE-8013-36DA1F7503F3</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40 CHAR</dataTypeSize>
+<ownDataTypeParameters>40 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gender" id="5612DEBE-5E79-FCC3-FA04-00B0E2C1113B">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>4116D168-B559-42C9-C8B6-31CF5B2A1FFB</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="birth_date" id="B6CA2B55-8867-617B-6B30-6500B3F6729E">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>9931F51D-50AD-4BD2-016B-BEFD36601CAB</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="positions_position_id" id="3A0B5AC3-82CE-BE08-014F-7440AEA69499">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>6CD9EFF8-6CB8-22AC-BF76-7EB558BFBA44</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1B55D696-3D55-6EDD-2466-9A80539B2534" referredColumn="79CA4C88-E5D8-5C34-0616-2DC31236FE24"/>
+</associations>
+</Column>
+<Column name="emp_status_status_id" id="883A4D79-2ACA-9B60-BBE9-9934DF02E78C">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>5DDFBD59-F395-C9B2-EA33-008DB3532195</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="31BA35A1-3B12-08A0-100B-B903215A26A2" referredColumn="C1FCE703-5298-C17E-ACBA-BB16B51CC8C2"/>
+</associations>
+</Column>
+<Column name="users_user_id" id="626E79E9-3E84-A63E-722D-A3B370F946A5">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>1C4CEB6C-515F-C889-B5F9-0507C4CB6095</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20DF28E5-3D7D-BD75-FABC-0561BA1DF38D" referredColumn="50169FD4-A44B-C40F-D483-CCDD136C025F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5E1AD32A-693A-188A-7B7C-8FA2346E80AB" name="employees_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>058AFEC7-C3AF-F854-256E-DA2034ECA59A</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45347CF4-3E64-0F6C-FDEB-D03F1523686D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C74F5748-09F3-8641-9196-3B5752F790AE" name="employees__IDX">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>AD10A7B9-5F74-6197-5FC5-51D86F9C8B10</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="626E79E9-3E84-A63E-722D-A3B370F946A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FBCAC920-D304-B0D9-06C8-63D9FDFFC4A6" name="employees_positions_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>7D35C6DE-1F66-5A97-3081-7511FF88C906</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3A0B5AC3-82CE-BE08-014F-7440AEA69499"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C3C00503-8F9A-954D-6500-B79545071960" name="employees_emp_status_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>322EA0E4-3346-3E4C-E22F-37F260F6D227</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="883A4D79-2ACA-9B60-BBE9-9934DF02E78C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="34FCB129-F1FC-EA54-5FAE-DF480AF24E5B" name="employees_users_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:13:52 UTC</createdTime>
+<generatorID>AD10A7B9-5F74-6197-5FC5-51D86F9C8B10</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="626E79E9-3E84-A63E-722D-A3B370F946A5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

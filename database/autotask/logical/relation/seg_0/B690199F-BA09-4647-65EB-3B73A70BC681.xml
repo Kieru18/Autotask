@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="species_to_animal" directorySegmentName="seg_0" id="B690199F-BA09-4647-65EB-3B73A70BC681">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:05:27 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<sourcePk>0EAC293B-5FBF-F534-7C1E-74A473B617B1</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>2D1D5255-2E1C-A36E-95B7-5F0C99421F98</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8A9FFAE1-AA40-6FED-D2B3-589DAF7634BF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

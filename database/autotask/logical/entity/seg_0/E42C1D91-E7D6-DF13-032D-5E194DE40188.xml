@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E42C1D91-E7D6-DF13-032D-5E194DE40188" name="emp_assignments">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>69A39C66-655F-37B8-FD19-D8E93B6E0A9C</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="task_id" id="47C2DD04-403D-68D9-34AC-146A01D7C205">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:10:13 UTC</createdTime>
+<generatorID>CCA84ECD-FEEA-494F-8115-77D45513917C</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>2EB1934E-A9F7-DA9B-6131-EE8B05E43F65</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="employee_id" id="89C05B21-0FF5-9FCE-653F-2C27506F1B30">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:10:23 UTC</createdTime>
+<generatorID>9500AE63-6CBB-0E70-C95C-F8449E060BBE</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>151B62D2-FA8B-B6E3-670C-D85ACFFAC6B5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2CDD5217-3963-42F5-BB4B-6C90630D60EC" name="emp_assignments PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:10:13 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>47C2DD04-403D-68D9-34AC-146A01D7C205</attributeRef>
+<attributeRef>89C05B21-0FF5-9FCE-653F-2C27506F1B30</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

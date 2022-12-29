@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="64643114-C185-225F-AB94-ED7BD2B54AB2" name="animal_assignments">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 20:31:10 UTC</createdTime>
+<generatorID>B9A6577F-4FCF-E4B6-B0DE-F27D85F44852</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="animal_id" id="DABD7672-CC50-3D5E-56F6-4A4FAFF88085">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:09:23 UTC</createdTime>
+<generatorID>70AB2F79-7683-594E-F28E-7575F89B9800</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>913CF6BE-71B8-F1D5-3D32-EC238FB03D39</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="task_id" id="BFE1437F-F6E8-DF3C-D0DE-CC0E347B96A2">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:10:00 UTC</createdTime>
+<generatorID>74518F55-DDDD-27D3-C019-D648D621711B</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<referedAttribute>2EB1934E-A9F7-DA9B-6131-EE8B05E43F65</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F9064771-68F9-E105-0A91-F9539608D45F" name="animal_assignments PK">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:09:23 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>DABD7672-CC50-3D5E-56F6-4A4FAFF88085</attributeRef>
+<attributeRef>BFE1437F-F6E8-DF3C-D0DE-CC0E347B96A2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="assign_animal_task" directorySegmentName="seg_0" id="70AB2F79-7683-594E-F28E-7575F89B9800">
+<createdBy>jakub</createdBy>
+<createdTime>2022-12-29 23:09:23 UTC</createdTime>
+<ownerDesignName>autotask</ownerDesignName>
+<engineerTo>
+<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+</engineerTo>
+<sourcePk>7CF43494-988B-EC1A-E957-AB88529F3810</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>8A9FFAE1-AA40-6FED-D2B3-589DAF7634BF</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>64643114-C185-225F-AB94-ED7BD2B54AB2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
