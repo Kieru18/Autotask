@@ -91,7 +91,12 @@ public class TaskFormView extends VerticalLayout {
     {
         String[] taskGroups = new String[] {"Sprzątanie Toalet","Karmienie","Zastrzyk","Obsługa Kasy", "Uzupełnianie Wody"};
         return new ArrayList<>(Arrays.asList(taskGroups));
+    }    private ArrayList<String> getLocationArrayList()
+    {
+        String[] locations = new String[] {"Wybieg Słonia","Kawiarenka","","Kasy", "Toalety"};
+        return new ArrayList<>(Arrays.asList(locations));
     }
+
 
     private ComboBox<String> prepareTaskGroupComboBox(){
         ArrayList<String> taskGroups = getTaskGroupArrayList();
@@ -100,16 +105,9 @@ public class TaskFormView extends VerticalLayout {
         return CBtaskGroup;
     }
     private ComboBox<String> prepareWhereComboBox(){
-        ArrayList<String> locations = new ArrayList<>();
-        locations.add("Wybieg dla Słonia");
+        ArrayList<String> locations = getLocationArrayList();
         ComboBox<String> CBwhere = new ComboBox<>("Where");
         CBwhere.setItems(locations);
-        CBwhere.setAllowCustomValue(true);
-        CBwhere.addCustomValueSetListener(e -> {
-            String customValue = e.getDetail();
-            locations.add(customValue);
-            CBwhere.setItems(locations);
-            CBwhere.setValue(customValue);});
         return CBwhere;
     }
     private DateTimePicker prepareWhenDateTimePicker()
