@@ -18,6 +18,7 @@ import com.vaadin.flow.router.Route;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 // import z21.autotask.DataService;
@@ -52,6 +53,7 @@ public class TaskFormView extends VerticalLayout {
 
         H1 title = new H1("Task Generator");
         add(title, taskForm);
+        setMargin(true);
     }
 
     private MultiSelectComboBox<String> prepareWhoMultiSelectComboBox(){
@@ -93,7 +95,7 @@ public class TaskFormView extends VerticalLayout {
         return new ArrayList<>(Arrays.asList(taskGroups));
     }    private ArrayList<String> getLocationArrayList()
     {
-        String[] locations = new String[] {"Wybieg Słonia","Kawiarenka","","Kasy", "Toalety"};
+        String[] locations = new String[] {"Wybieg Słonia","Kawiarenka","Kasy", "Toalety"};
         return new ArrayList<>(Arrays.asList(locations));
     }
 
@@ -137,12 +139,31 @@ public class TaskFormView extends VerticalLayout {
         buttons.add(BSubmit, BClear);
 
         BSubmit.addClickListener(click -> {
-            // TD collect all data from form components, validate each input and if correct make Task class object and send to database
-            Notification.show("Not implemented: Submit");
+            // TODO collect all data from form components, validate each input and if correct make Task class object and send to database
+            Set<String> selectedAnimals = MSCBanimals.getSelectedItems(); // TODO change String to Animal
+            Set<String> selectedEmployees = MSCBwho.getSelectedItems(); // TODO change String to Employee
+            String selectedLocation = CBwhere.getValue();               // TODO change String to Location
+            String selectedTaskGroup = CBtaskGroup.getValue();          // TODO change String to TaskGroup
+            LocalDateTime startOfTaskTime = LocalDateTime.now();        // TODO change LocalDateTime to class that best suits DataBase
+            LocalDateTime selectedDeadline = DTPwhen.getValue();        // TODO change LocalDateTime to class that best suits DataBase
+            String description = TADescription.getValue();              // THAT IS GOOOD DO NOT CHANGE
+            // TODO make Task object and try to insert it into database, send information for employees to update their task list
+
+            // temporary notification
+            String joined_animals = String.join(",", selectedAnimals);
+            String joined_employees = String.join(",", selectedEmployees);
+            Notification.show("Employees: " + joined_employees + " \n have to do: "+ selectedTaskGroup + "\n near: " + selectedLocation + "\n Selected Animals:" + joined_animals+"\nStart: "+ startOfTaskTime.toString() + " and deadline is: "+selectedDeadline);
         });
         BClear.addClickListener(click -> {
-            // TD clear TADescription, CBwho, CBtaskGroup, CBwhere. DTPwhen set to default
-            Notification.show("Not implemented: Clear");
+            // TODO clear TADescription, CBwho, CBtaskGroup, CBwhere. DTPwhen set to default
+            MSCBanimals.clear();
+            MSCBwho.clear();
+            CBwhere.clear();
+            CBtaskGroup.clear();
+            DTPwhen.setValue(LocalDateTime.now());
+            TADescription.clear();
+
+            Notification.show("All components should be cleared :)");
         });
         return buttons;
     }
