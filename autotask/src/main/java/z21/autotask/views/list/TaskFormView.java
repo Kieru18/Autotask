@@ -54,15 +54,9 @@ public class TaskFormView extends VerticalLayout {
     }
 
     private MultiSelectComboBox<String> prepareWhoMultiSelectComboBox(){
-        ArrayList<String> employees = new ArrayList<>();
-        employees.add("Pracownik1");
-        MultiSelectComboBox<String> MSCBwho = new MultiSelectComboBox<>("Who");                 // TD change ComboBox<String> to ComboBox<Employee>
-        MSCBwho.setAllowCustomValue(true);
-        MSCBwho.addCustomValueSetListener(e -> {
-            String customValue = e.getDetail();
-            employees.add(customValue);
-            MSCBwho.setItems(employees);
-            MSCBwho.setValue(customValue);});
+        ArrayList<String> employees = getEmployeesArrayList();
+        MultiSelectComboBox<String> MSCBwho = new MultiSelectComboBox<>("Who");  // TODO change String to Animal class
+        MSCBwho.setItems(employees);                                                  // TODO change animals  to data provider
         return MSCBwho;
     }
 
@@ -70,11 +64,7 @@ public class TaskFormView extends VerticalLayout {
     {
         ArrayList<String> animals = getAniamalArrayList();
         MultiSelectComboBox<String> MSCBanimals = new MultiSelectComboBox<>("Animals"); // TODO change String to Animal class
-        MSCBanimals.setItems(animals); // TODO change animals  to data provider
-                                        /*
-                                        *                   MSCBanimals.setItems(DataService.getAnimals());
-                                                            MSCBanimals.setItemLabelGenerator(Animal::getName);
-                                        * */
+        MSCBanimals.setItems(animals);                                                        // TODO change animals  to data provider
         return MSCBanimals;
     }
 
@@ -82,6 +72,11 @@ public class TaskFormView extends VerticalLayout {
     {
         String[] animal_names = new String[] {"Koza1","MiśPolarnyJacek","MałpkaStefan","JeżRysiek"};
         return new ArrayList<>(Arrays.asList(animal_names));
+    }
+    private ArrayList<String> getEmployeesArrayList()
+    {
+        String[] employee_names = new String[] {"Jacek Kochanowski","Katarzyna Dąb","Krystian Fach","Aleksandra Chuligan"};
+        return new ArrayList<>(Arrays.asList(employee_names));
     }
 
     private ComboBox<String> prepareTaskGroupComboBox(){
