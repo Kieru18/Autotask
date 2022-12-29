@@ -14,20 +14,18 @@ public class MainLayout extends AppLayout {
 
 
     public MainLayout() {
-        createDrawer();
-        createHeader();
-    }
-
-    private void createHeader() {
         H1 title = new H1("AutoTask");
-        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), title);
+        DrawerToggle linksDT = new DrawerToggle();
+        HorizontalLayout header = new HorizontalLayout(linksDT, title);
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(title);
         header.setWidthFull();
         addToNavbar(header);
+
+        createNavigationDrawer();
     }
 
-    private void createDrawer() {
+    private void createNavigationDrawer() {
         VerticalLayout links = new VerticalLayout();
         RouterLink listView = new RouterLink("AnimalList", ListView.class);
         RouterLink AnimalForm = new RouterLink("AnimalForm", AnimalFormView.class);
