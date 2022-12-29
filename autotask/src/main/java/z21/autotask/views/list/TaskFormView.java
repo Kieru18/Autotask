@@ -6,6 +6,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.combobox.MultiSelectComboBox;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
 import com.vaadin.flow.component.html.H1;
 import java.time.LocalDateTime;
@@ -15,6 +16,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 // import z21.autotask.DataService;
@@ -22,6 +26,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Route(value = "/TaskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
     // private DataService dataService;
+    private MultiSelectComboBox<String> MSCBwho;
+    private MultiSelectComboBox<String> MSCBanimals;
+    private ComboBox<String> CBtaskGroup;
+    private ComboBox<String> CBwhere;
+    private DateTimePicker DTPwhen;
+    private TextArea TADescription;
+    HorizontalLayout buttons;
+
 
     @Autowired
     public TaskFormView() {
@@ -29,53 +41,75 @@ public class TaskFormView extends VerticalLayout {
 
         FormLayout taskForm = new FormLayout();
 
-        ComboBox<String> CBwho = prepareWhoComboBox();
-        ComboBox<String> CBtaskGroup = prepareTaskGroupComboBox();
-        ComboBox<String> CBwhere = prepareWhereComboBox();
-        DateTimePicker DTPwhen = prepareWhenDateTimePicker();
-        TextArea TADescription = prepareDescriptionTextArea();
-        HorizontalLayout buttons = prepareButtons();
+        MSCBwho = prepareWhoMultiSelectComboBox();
+        MSCBanimals = prepareAnimalsMultiSelectComboBox();
+        CBtaskGroup = prepareTaskGroupComboBox();
+        CBwhere = prepareWhereComboBox();
+        DTPwhen = prepareWhenDateTimePicker();
+        TADescription = prepareDescriptionTextArea();
+        buttons = prepareButtons();
 
-        taskForm.add(CBwho, CBtaskGroup, CBwhere, TADescription, DTPwhen, buttons);
+        taskForm.add(MSCBwho, CBtaskGroup,MSCBanimals, CBwhere, TADescription, DTPwhen, buttons);
 
         H1 title = new H1("Task Generator");
         add(title, taskForm);
+        setMargin(true);
     }
 
-    private ComboBox<String> prepareWhoComboBox(){
-        ArrayList<String> employees = new ArrayList<String>();
-        employees.add("Pracownik1");
-        ComboBox<String> CBwho = new ComboBox<>("Who");                 // TD change ComboBox<String> to ComboBox<Employee>
-        CBwho.setAllowCustomValue(true);
-        CBwho.addCustomValueSetListener(e -> {
-            String customValue = e.getDetail();
-            employees.add(customValue);
-            CBwho.setItems(employees);
-            CBwho.setValue(customValue);});
-        return CBwho;
+    private MultiSelectComboBox<String> prepareWhoMultiSelectComboBox(){
+        ArrayList<String> employees = getEmployeesArrayList();
+        MultiSelectComboBox<String> MSCBwho = new MultiSelectComboBox<>("Who");  // TODO change String to Animal class
+        MSCBwho.setItems(employees);                                                  // TODO change animals  to data provider
+        return MSCBwho;
     }
+
+    private MultiSelectComboBox<String> prepareAnimalsMultiSelectComboBox()
+    {
+        ArrayList<String> animals = getAniamalArrayList();
+        MultiSelectComboBox<String> MSCBanimals = new MultiSelectComboBox<>("Animals"); // TODO change String to Animal class
+        MSCBanimals.setItems(animals);  // TODO change animals  to data provider
+        MSCBanimals.addSelectionListener(e-> {
+            Optional<String> recentlySelectedValue = e.getFirstSelectedItem();
+            // TODO get associated locaction of selected animal and update this function
+            if(recentlySelectedValue.isPresent())
+            {
+                CBwhere.setValue("Lokalizacja Pierwszego zwierzaczka: " + recentlySelectedValue.get());
+            }
+        });
+        return MSCBanimals;
+    }
+
+    private ArrayList<String> getAniamalArrayList()
+    {
+        String[] animal_names = new String[] {"Koza1","MiśPolarnyJacek","MałpkaStefan","JeżRysiek"};
+        return new ArrayList<>(Arrays.asList(animal_names));
+    }
+    private ArrayList<String> getEmployeesArrayList()
+    {
+        String[] employee_names = new String[] {"Jacek Kochanowski","Katarzyna Dąb","Krystian Fach","Aleksandra Chuligan"};
+        return new ArrayList<>(Arrays.asList(employee_names));
+    }
+    private ArrayList<String> getTaskGroupArrayList()
+    {
+        String[] taskGroups = new String[] {"Sprzątanie Toalet","Karmienie","Zastrzyk","Obsługa Kasy", "Uzupełnianie Wody"};
+        return new ArrayList<>(Arrays.asList(taskGroups));
+    }    private ArrayList<String> getLocationArrayList()
+    {
+        String[] locations = new String[] {"Wybieg Słonia","Kawiarenka","Kasy", "Toalety"};
+        return new ArrayList<>(Arrays.asList(locations));
+    }
+
+
     private ComboBox<String> prepareTaskGroupComboBox(){
-        ArrayList<String> taskGroups = new ArrayList<String>();
-        taskGroups.add("Karmienie");
-        ComboBox<String> CBtaskGroup = new ComboBox<>("What to do");                 // TD change ComboBox<String> to ComboBox<TaskGroup>
-        CBtaskGroup.setAllowCustomValue(true);
-        CBtaskGroup.addCustomValueSetListener(e -> {
-            String customValue = e.getDetail();
-            taskGroups.add(customValue);
-            CBtaskGroup.setItems(taskGroups);
-            CBtaskGroup.setValue(customValue);});
+        ArrayList<String> taskGroups = getTaskGroupArrayList();
+        ComboBox<String> CBtaskGroup = new ComboBox<>("Task Group");                 // TD change ComboBox<String> to ComboBox<TaskGroup>
+        CBtaskGroup.setItems(taskGroups);
         return CBtaskGroup;
     }
     private ComboBox<String> prepareWhereComboBox(){
-        ArrayList<String> locations = new ArrayList<String>();
-        locations.add("Wybieg dla Słonia");
-        ComboBox<String> CBwhere = new ComboBox<>("Where");                 // TD change ComboBox<String> to ComboBox<Locations>
-        CBwhere.setAllowCustomValue(true);
-        CBwhere.addCustomValueSetListener(e -> {
-            String customValue = e.getDetail();
-            locations.add(customValue);
-            CBwhere.setItems(locations);
-            CBwhere.setValue(customValue);});
+        ArrayList<String> locations = getLocationArrayList();
+        ComboBox<String> CBwhere = new ComboBox<>("Where");
+        CBwhere.setItems(locations);
         return CBwhere;
     }
     private DateTimePicker prepareWhenDateTimePicker()
@@ -105,12 +139,31 @@ public class TaskFormView extends VerticalLayout {
         buttons.add(BSubmit, BClear);
 
         BSubmit.addClickListener(click -> {
-            // TD collect all data from form components, validate each input and if correct make Task class object and send to database
-            Notification.show("Not implemented: Submit");
+            // TODO collect all data from form components, validate each input and if correct make Task class object and send to database
+            Set<String> selectedAnimals = MSCBanimals.getSelectedItems(); // TODO change String to Animal
+            Set<String> selectedEmployees = MSCBwho.getSelectedItems(); // TODO change String to Employee
+            String selectedLocation = CBwhere.getValue();               // TODO change String to Location
+            String selectedTaskGroup = CBtaskGroup.getValue();          // TODO change String to TaskGroup
+            LocalDateTime startOfTaskTime = LocalDateTime.now();        // TODO change LocalDateTime to class that best suits DataBase
+            LocalDateTime selectedDeadline = DTPwhen.getValue();        // TODO change LocalDateTime to class that best suits DataBase
+            String description = TADescription.getValue();              // THAT IS GOOOD DO NOT CHANGE
+            // TODO make Task object and try to insert it into database, send information for employees to update their task list
+
+            // temporary notification
+            String joined_animals = String.join(",", selectedAnimals);
+            String joined_employees = String.join(",", selectedEmployees);
+            Notification.show("Employees: " + joined_employees + " \n have to do: "+ selectedTaskGroup + "\n near: " + selectedLocation + "\n Selected Animals:" + joined_animals+"\nStart: "+ startOfTaskTime.toString() + " and deadline is: "+selectedDeadline);
         });
         BClear.addClickListener(click -> {
-            // TD clear TADescription, CBwho, CBtaskGroup, CBwhere. DTPwhen set to default
-            Notification.show("Not implemented: Clear");
+            // TODO clear TADescription, CBwho, CBtaskGroup, CBwhere. DTPwhen set to default
+            MSCBanimals.clear();
+            MSCBwho.clear();
+            CBwhere.clear();
+            CBtaskGroup.clear();
+            DTPwhen.setValue(LocalDateTime.now());
+            TADescription.clear();
+
+            Notification.show("All components should be cleared :)");
         });
         return buttons;
     }

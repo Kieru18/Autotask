@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="8F19938D-F69B-1895-F370-012D978E9DA6">
-<createdBy>jakub</createdBy>
-<createdTime>2022-12-29 17:59:05 UTC</createdTime>
-<ownerDesignName>autotask</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>

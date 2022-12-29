@@ -14,5 +14,8 @@ public class DataService {
     public List<Animal> getAll(){
         return animalRepository.findAll();
     }
-    public void addAnimal(Integer animalId, String name, String color, Integer legCount){ animalRepository.insertAnimal(animalId,name,color, legCount); return;}
+    
+    public void addAnimal(String name, String color, Integer legCount) {
+        animalRepository.insertAnimal(name, color, legCount);
+    }
 }
