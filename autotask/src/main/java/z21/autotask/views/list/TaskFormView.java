@@ -6,6 +6,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.combobox.MultiSelectComboBox;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
 import com.vaadin.flow.component.html.H1;
 import java.time.LocalDateTime;
@@ -29,30 +30,31 @@ public class TaskFormView extends VerticalLayout {
 
         FormLayout taskForm = new FormLayout();
 
-        ComboBox<String> CBwho = prepareWhoComboBox();
+        MultiSelectComboBox<String> MSCBwho = prepareWhoMultiSelectComboBox();
+        // MultiSelectComboBox<String> MSCBanimals = prepareAnimalsMultiSelectComboBox();
         ComboBox<String> CBtaskGroup = prepareTaskGroupComboBox();
         ComboBox<String> CBwhere = prepareWhereComboBox();
         DateTimePicker DTPwhen = prepareWhenDateTimePicker();
         TextArea TADescription = prepareDescriptionTextArea();
         HorizontalLayout buttons = prepareButtons();
 
-        taskForm.add(CBwho, CBtaskGroup, CBwhere, TADescription, DTPwhen, buttons);
+        taskForm.add(MSCBwho, CBtaskGroup, CBwhere, TADescription, DTPwhen, buttons);
 
         H1 title = new H1("Task Generator");
         add(title, taskForm);
     }
 
-    private ComboBox<String> prepareWhoComboBox(){
+    private MultiSelectComboBox<String> prepareWhoMultiSelectComboBox(){
         ArrayList<String> employees = new ArrayList<String>();
         employees.add("Pracownik1");
-        ComboBox<String> CBwho = new ComboBox<>("Who");                 // TD change ComboBox<String> to ComboBox<Employee>
-        CBwho.setAllowCustomValue(true);
-        CBwho.addCustomValueSetListener(e -> {
+        MultiSelectComboBox<String> MSCBwho = new MultiSelectComboBox<>("Who");                 // TD change ComboBox<String> to ComboBox<Employee>
+        MSCBwho.setAllowCustomValue(true);
+        MSCBwho.addCustomValueSetListener(e -> {
             String customValue = e.getDetail();
             employees.add(customValue);
-            CBwho.setItems(employees);
-            CBwho.setValue(customValue);});
-        return CBwho;
+            MSCBwho.setItems(employees);
+            MSCBwho.setValue(customValue);});
+        return MSCBwho;
     }
     private ComboBox<String> prepareTaskGroupComboBox(){
         ArrayList<String> taskGroups = new ArrayList<String>();
@@ -69,7 +71,8 @@ public class TaskFormView extends VerticalLayout {
     private ComboBox<String> prepareWhereComboBox(){
         ArrayList<String> locations = new ArrayList<String>();
         locations.add("Wybieg dla Słonia");
-        ComboBox<String> CBwhere = new ComboBox<>("Where");                 // TD change ComboBox<String> to ComboBox<Locations>
+        ComboBox<String> CBwhere = new ComboBox<>("Where");
+        CBwhere.setItems(locations);
         CBwhere.setAllowCustomValue(true);
         CBwhere.addCustomValueSetListener(e -> {
             String customValue = e.getDetail();
