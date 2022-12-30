@@ -20,27 +20,44 @@ import java.util.Arrays;
 @Route(value = "/Employees", layout = MainLayout.class)
 public class EmployeeView extends Div {
 
-    public EmployeeView() {
-        Tab available = new Tab(VaadinIcon.CHECK.create(), new Span("Available"));
-        Tab cos = new Tab();
-        Tab unavailable = new Tab(VaadinIcon.CLOSE.create(), new Span("Unavailable"));
-        Tab all = new Tab(VaadinIcon.USERS.create(), new Span("All"));
+    private final Tab available;
+    private final Tab unavailable;
+    private final Tab all;
+    private final VerticalLayout content = new VerticalLayout();
 
-        // Set the icon on top
-        for (Tab tab : new Tab[] { available, unavailable, all }) {
-            tab.addThemeVariants(TabVariant.LUMO_ICON_ON_TOP);
+    private final VerticalLayout contentAvailable;
+    private final VerticalLayout contentUnavailable;
+    private final VerticalLayout contentAll;
+    private void setContent(Tab tab) {
+        content.removeAll();
+
+        if (tab.equals(all)) {
+            content.add(contentAll);
+        } else if (tab.equals(available)) {
+            content.add(contentAvailable);
+        } else {
+            content.add(contentUnavailable);
         }
-        VerticalLayout availableEmployees = getEmployeesCards(getAvailableEmployees());
-        VerticalLayout unavailableEmployees = getEmployeesCards(getUnavailableEmployees());
-        VerticalLayout allEmployees = getEmployeesCards(getAllEmployees());
+    }
+    public EmployeeView() {
+        available = new Tab("Available");
+        unavailable = new Tab("Unavailable");
+        all = new Tab("All");
 
-        available.add(availableEmployees);
-        unavailable.add(unavailableEmployees);
-        all.add(allEmployees);
+//        // Set the icon on top
+//        for (Tab tab : new Tab[] { available, unavailable, all }) {
+//            tab.addThemeVariants(TabVariant.LUMO_ICON_ON_TOP);
+//        }
+        contentAvailable = getEmployeesCards(getAvailableEmployees());
+        contentUnavailable = getEmployeesCards(getUnavailableEmployees());
+        contentAll = getEmployeesCards(getAllEmployees());
 
         Tabs tabs = new Tabs(all, available, unavailable);
+        tabs.addSelectedChangeListener(
+                event -> setContent(event.getSelectedTab()));
         tabs.setSelectedTab(all);
-        add(tabs);
+        setContent(tabs.getSelectedTab());
+        add(tabs, content);
     }
     private VerticalLayout getEmployeesCards(ArrayList<String> employees)
     {
