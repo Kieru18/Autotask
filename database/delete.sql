@@ -25,3 +25,15 @@ BEGIN
   END LOOP;
 END;
 /
+
+/* clear data from tables */
+DECLARE
+  CURSOR c_tables IS
+  SELECT table_name
+  FROM user_tables;
+BEGIN
+  FOR a_table IN c_tables LOOP
+    EXECUTE IMMEDIATE 'TRUNCATE TABLE ' || a_table.table_name;
+  END LOOP;
+END;
+/
