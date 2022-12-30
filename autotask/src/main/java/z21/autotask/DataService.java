@@ -3,7 +3,8 @@ package z21.autotask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import z21.autotask.orm.Animal;
+import z21.autotask.repositories.AnimalRepository;
 import java.util.List;
 
 @Service

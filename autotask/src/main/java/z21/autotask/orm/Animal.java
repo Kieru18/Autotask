@@ -1,5 +1,6 @@
-package z21.autotask;
+package z21.autotask.orm;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ public class Animal {
     @SequenceGenerator(name = "animals_seq", sequenceName = "animals_seq", allocationSize = 1)
     @NonNull @Column(name = "animal_id") private Integer animalId;
     private String name;
-    private String color;
-    @Column(name = "leg_count") private Integer legCount;
+    @Column(name = "birth_date") private Date birthDate;
+    private Float weight;
+    
 }
