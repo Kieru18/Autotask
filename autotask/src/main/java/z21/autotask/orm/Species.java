@@ -33,7 +33,7 @@ public class Species {
     private String foodType;
 
     @Column(name = "average_lifespan") 
-    private Float averageLifespan;
+    private Integer averageLifespan;
 
     @OneToMany(mappedBy = "speciesId")
     private List<Animal> animals;

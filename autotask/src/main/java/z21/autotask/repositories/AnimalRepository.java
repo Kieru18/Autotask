@@ -24,10 +24,10 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     List<Animal> findByName(String name);
 
     @Query
-    List<Animal> findByLocationId(Location locationId);
+    List<Animal> findByLocationId(Integer locationId);
 
     @Query
-    List<Animal> findBySpeciesId(Species speciesId);
+    List<Animal> findBySpeciesId(Integer speciesId);
 
     @Query
     List<Animal> findByWeight(Float weight);
@@ -39,8 +39,8 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     @Query(value = "SELECT * FROM animals WHERE weight = ?1 AND name = ?2", nativeQuery = true)
     List<Animal> findWeightName(Float weight, String name);
 
-    @Modifying @Query(value = "INSERT INTO animals (name,  locationId, speciesId, weight, birthDate) VALUES (:name, :locationId, :speciesId, :weight, :birthDate )", nativeQuery = true)
-    void insertAnimal(@Param("name") String name, @Param("locationId")  Location locationId, @Param("speciesId") Species speciesId,
+    @Modifying @Query(value = "INSERT INTO animals (name,  location_id, species_id, weight, birth_date) VALUES (:name, :locationId, :speciesId, :weight, :birthDate )", nativeQuery = true)
+    void insertAnimal(@Param("name") String name, @Param("locationId")  Integer locationId, @Param("speciesId") Integer speciesId,
                       @Param("weight") Float weight, @Param("birthDate") Date birthDate);
 
 }

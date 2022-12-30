@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import z21.autotask.orm.Animal;
 import z21.autotask.repositories.AnimalRepository;
+
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,7 +18,7 @@ public class DataService {
         return animalRepository.findAll();
     }
     
-    public void addAnimal(String name, String color, Integer legCount) {
-        animalRepository.insertAnimal(name, color, legCount);
+    public void addAnimal(String name,  Integer locationId, Integer speciesId, Float weight, Date birthDate) {
+        animalRepository.insertAnimal(name, locationId, speciesId, weight, birthDate);
     }
 }
