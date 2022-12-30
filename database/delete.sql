@@ -1,3 +1,5 @@
+DROP SEQUENCE animals_seq;
+
 DECLARE
   CURSOR c_tables IS
     SELECT table_name
