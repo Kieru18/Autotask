@@ -25,7 +25,7 @@ public class Species {
     @SequenceGenerator(name = "species_seq", sequenceName = "species_seq", allocationSize = 1)
     @NonNull 
     @Column(name = "species_id") 
-    private Integer speciesID;
+    private Integer speciesId;
 
     private String name;
 

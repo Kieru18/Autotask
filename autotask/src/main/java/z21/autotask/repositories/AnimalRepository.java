@@ -1,5 +1,6 @@
 package z21.autotask.repositories;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.orm.Animal;
+import z21.autotask.orm.Location;
+import z21.autotask.orm.Species;
 
 @Transactional @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Integer> {
@@ -21,14 +24,23 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     List<Animal> findByName(String name);
 
     @Query
-    List<Animal> findByLegCount(Integer legCount);
+    List<Animal> findByLocationId(Location locationId);
 
     @Query
-    List<Animal> findByColor(String color);
+    List<Animal> findBySpeciesId(Species speciesId);
 
-    @Query(value = "SELECT * FROM animals WHERE leg_count = ?1 AND color = ?2", nativeQuery = true)
-    List<Animal> findLegsColor(Integer legCount, String color);
+    @Query
+    List<Animal> findByWeight(Float weight);
 
-    @Modifying @Query(value = "INSERT INTO animals (name,  color, leg_count) VALUES (:name, :color, :leg_count )", nativeQuery = true)
-    void insertAnimal(@Param("name") String name, @Param("color")  String color, @Param("leg_count") Integer legCount);
+    @Query
+    List<Animal> findByBirthDate(Date birthDate);
+
+
+    @Query(value = "SELECT * FROM animals WHERE weight = ?1 AND name = ?2", nativeQuery = true)
+    List<Animal> findWeightName(Float weight, String name);
+
+    @Modifying @Query(value = "INSERT INTO animals (name,  locationId, speciesId, weight, birthDate) VALUES (:name, :locationId, :speciesId, :weight, :birthDate )", nativeQuery = true)
+    void insertAnimal(@Param("name") String name, @Param("locationId")  Location locationId, @Param("speciesId") Species speciesId,
+                      @Param("weight") Float weight, @Param("birthDate") Date birthDate);
+
 }
