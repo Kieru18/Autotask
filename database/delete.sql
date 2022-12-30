@@ -1,14 +1,20 @@
+SELECT * FROM user_sequences ;
+
+/* delete all user-defined sequences */
 DECLARE
   CURSOR c_sequences IS
     SELECT sequence_name
     FROM user_sequences;
 BEGIN
     FOR a_sequence IN c_sequences LOOP
-      EXECUTE IMMEDIATE 'DROP SEQUENCE ' || a_sequence.sequence_name;
+      IF a_sequence.sequence_name NOT LIKE 'ISEQ%' THEN
+        EXECUTE IMMEDIATE 'DROP SEQUENCE ' || a_sequence.sequence_name;
+      END IF; 
     END LOOP;
 END;
 /
 
+/* delete all tables */
 DECLARE
   CURSOR c_tables IS
     SELECT table_name

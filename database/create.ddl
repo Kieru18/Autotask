@@ -51,6 +51,21 @@ CREATE TABLE emp_status (
 
 ALTER TABLE emp_status ADD CONSTRAINT emp_status_pk PRIMARY KEY ( status_id );
 
+CREATE SEQUENCE emp_status_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER emp_status_trg
+  BEFORE INSERT ON emp_status
+  FOR EACH ROW
+BEGIN
+  SELECT emp_status_seq.NEXTVAL INTO :new.status_id FROM dual;
+END;
+/
+
 
 /* employees */
 CREATE TABLE employees (
@@ -66,6 +81,21 @@ CREATE TABLE employees (
 
 ALTER TABLE employees ADD CONSTRAINT employees_pk PRIMARY KEY ( employee_id );
 
+CREATE SEQUENCE employees_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER employees_trg
+  BEFORE INSERT ON employees
+  FOR EACH ROW
+BEGIN
+  SELECT employees_seq.NEXTVAL INTO :new.employee_id FROM dual;
+END;
+/
+
 
 /* locations */
 CREATE TABLE locations (
@@ -77,6 +107,21 @@ CREATE TABLE locations (
 
 ALTER TABLE locations ADD CONSTRAINT locations_pk PRIMARY KEY ( location_id );
 
+CREATE SEQUENCE locations_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER locations_trg
+  BEFORE INSERT ON locations
+  FOR EACH ROW
+BEGIN
+  SELECT locations_seq.NEXTVAL INTO :new.location_id FROM dual;
+END;
+/
+
 
 /* positions */
 CREATE TABLE positions (
@@ -87,6 +132,23 @@ CREATE TABLE positions (
 
 ALTER TABLE positions ADD CONSTRAINT positions_pk PRIMARY KEY ( position_id );
 
+CREATE SEQUENCE positions_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER positions_trg
+  BEFORE INSERT ON positions
+  FOR EACH ROW
+BEGIN
+  SELECT positions_seq.NEXTVAL INTO :new.position_id FROM dual;
+END;
+/
+
+
+/* species */
 CREATE TABLE species (
     species_id        NUMBER NOT NULL,
     name              VARCHAR2(40 CHAR) NOT NULL,
@@ -94,12 +156,25 @@ CREATE TABLE species (
     average_lifespan  NUMBER
 );
 
-
-/* species */
 ALTER TABLE species
     ADD CONSTRAINT foods CHECK ( food_type IN ( 'carnivore', 'herbivore', 'omnivore' ) );
 
 ALTER TABLE species ADD CONSTRAINT species_pk PRIMARY KEY ( species_id );
+
+CREATE SEQUENCE species_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER species_trg
+  BEFORE INSERT ON species
+  FOR EACH ROW
+BEGIN
+  SELECT species_seq.NEXTVAL INTO :new.species_id FROM dual;
+END;
+/
 
 
 /* task_status */
@@ -109,6 +184,21 @@ CREATE TABLE task_status (
 );
 
 ALTER TABLE task_status ADD CONSTRAINT task_status_pk PRIMARY KEY ( status_id );
+
+CREATE SEQUENCE task_status_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER task_status_trg
+  BEFORE INSERT ON task_status
+  FOR EACH ROW
+BEGIN
+  SELECT task_status_seq.NEXTVAL INTO :new.status_id FROM dual;
+END;
+/
 
 
 /* task types */
@@ -122,6 +212,21 @@ CREATE TABLE task_types (
 );
 
 ALTER TABLE task_types ADD CONSTRAINT task_types_pk PRIMARY KEY ( type_id );
+
+CREATE SEQUENCE task_types_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER task_types_trg
+  BEFORE INSERT ON task_types
+  FOR EACH ROW
+BEGIN
+  SELECT task_types_seq.NEXTVAL INTO :new.type_id FROM dual;
+END;
+/
 
 
 /* tasks */
@@ -138,6 +243,21 @@ CREATE TABLE tasks (
 
 ALTER TABLE tasks ADD CONSTRAINT tasks_pk PRIMARY KEY ( task_id );
 
+CREATE SEQUENCE tasks_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER tasks_trg
+  BEFORE INSERT ON tasks
+  FOR EACH ROW
+BEGIN
+  SELECT tasks_seq.NEXTVAL INTO :new.task_id FROM dual;
+END;
+/
+
 
 /* users */
 CREATE TABLE users (
@@ -149,6 +269,21 @@ CREATE TABLE users (
 );
 
 ALTER TABLE users ADD CONSTRAINT users_pk PRIMARY KEY ( user_id );
+
+CREATE SEQUENCE users_seq
+  START WITH 1
+  INCREMENT BY 1
+  NOCACHE
+  NOCYCLE  
+;
+
+CREATE OR REPLACE TRIGGER users_trg
+  BEFORE INSERT ON users
+  FOR EACH ROW
+BEGIN
+  SELECT users_seq.NEXTVAL INTO :new.user_id FROM dual;
+END;
+/
 
 
 -- foreign keys
