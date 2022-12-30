@@ -1,4 +1,13 @@
-DROP SEQUENCE animals_seq;
+DECLARE
+  CURSOR c_sequences IS
+    SELECT sequence_name
+    FROM user_sequences;
+BEGIN
+    FOR a_sequence IN c_sequences LOOP
+      EXECUTE IMMEDIATE 'DROP SEQUENCE ' || a_sequence.sequence_name;
+    END LOOP;
+END;
+/
 
 DECLARE
   CURSOR c_tables IS
