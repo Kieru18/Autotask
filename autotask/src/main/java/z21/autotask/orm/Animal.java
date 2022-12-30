@@ -40,8 +40,5 @@ public class Animal {
     @Column(name = "birth_date") 
     private Date birthDate;
 
-    private Float weight;
-
-    // species_id
-    
+    private Float weight;    
 }
