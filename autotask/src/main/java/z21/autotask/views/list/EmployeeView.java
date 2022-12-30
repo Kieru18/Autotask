@@ -40,14 +40,15 @@ public class EmployeeView extends Div {
         }
     }
     public EmployeeView() {
-        available = new Tab("Available");
-        unavailable = new Tab("Unavailable");
-        all = new Tab("All");
+        available = new Tab(VaadinIcon.CHECK.create(), new Span("Available"));
+        unavailable = new Tab(VaadinIcon.CLOSE.create(), new Span("Unavailable"));
+        all = new Tab(VaadinIcon.USERS.create(), new Span("All"));
 
-//        // Set the icon on top
-//        for (Tab tab : new Tab[] { available, unavailable, all }) {
-//            tab.addThemeVariants(TabVariant.LUMO_ICON_ON_TOP);
-//        }
+        // Set the icon on top
+        for (Tab tab : new Tab[] { available, unavailable, all }) {
+            tab.addThemeVariants(TabVariant.LUMO_ICON_ON_TOP);
+        }
+
         contentAvailable = getEmployeesCards(getAvailableEmployees());
         contentUnavailable = getEmployeesCards(getUnavailableEmployees());
         contentAll = getEmployeesCards(getAllEmployees());
