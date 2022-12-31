@@ -13,7 +13,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.orm.Animal;
+import z21.autotask.entities.Animal;
 import z21.autotask.DataService;
 
 import java.util.List;

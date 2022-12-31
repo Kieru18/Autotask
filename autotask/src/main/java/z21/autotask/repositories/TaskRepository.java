@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.orm.Task;
+import z21.autotask.entities.Task;
 
 
 @Transactional @Repository

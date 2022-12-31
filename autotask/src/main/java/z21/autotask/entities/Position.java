@@ -1,4 +1,4 @@
-package z21.autotask.orm;
+package z21.autotask.entities;
 
 import javax.persistence.*;
 import lombok.AllArgsConstructor;

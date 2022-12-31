@@ -11,9 +11,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.orm.Animal;
-import z21.autotask.orm.Location;
-import z21.autotask.orm.Species;
+import z21.autotask.entities.Animal;
+import z21.autotask.entities.Location;
+import z21.autotask.entities.Species;
 
 public interface SpeciesRepository extends JpaRepository<Species, Integer>  {
     @Query
