@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @Route(value = "/TaskList", layout = MainLayout.class)
-public class TaskListView extends Div {
+public class TaskListView extends HorizontalLayout {
 
     private final Tab pending;
     private final Tab completed;
@@ -50,7 +50,11 @@ public class TaskListView extends Div {
                 event -> setContent(event.getSelectedTab()));
         tabs.setSelectedTab(pending);
         setContent(tabs.getSelectedTab());
-        add(tabs, content);
+
+        Div tabs_and_task_accordion = new Div();
+        tabs_and_task_accordion.add(tabs,content);
+        // add(tabs, content);
+        add(tabs_and_task_accordion);
     }
     private VerticalLayout getAccordion(ArrayList<String> tasks)
     {
