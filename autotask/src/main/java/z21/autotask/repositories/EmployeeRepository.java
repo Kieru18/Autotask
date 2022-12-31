@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.orm.Employee;
+import z21.autotask.entities.Employee;
 
 
 @Transactional @Repository
@@ -31,7 +31,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 
     @Modifying @Query(value = "INSERT INTO employees (first_name,  last_name, gender, birth_date) VALUES (:firstName, :lastName, :gender, :birthDate )", nativeQuery = true)
-    void insertEmployee(@Param("first_name") String firstName, @Param("last_name")  String lastName, @Param("gender") char gender,
-                       @Param("birth_date") Date birthDate);
+    void insertEmployee(@Param("first_name") String firstName, 
+                        @Param("last_name")  String lastName, 
+                        @Param("gender")     char gender,
+                        @Param("birth_date") Date birthDate);
 
 }

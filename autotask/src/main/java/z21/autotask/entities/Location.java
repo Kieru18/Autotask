@@ -1,4 +1,4 @@
-package z21.autotask.orm;
+package z21.autotask.entities;
 
 import java.util.List;
 

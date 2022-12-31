@@ -1,4 +1,5 @@
-package z21.autotask.orm;
+package z21.autotask.entities;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,15 +15,19 @@ import lombok.NonNull;
 
 @Data @Entity
 @AllArgsConstructor @NoArgsConstructor
-@Table(name = "emp_status")
-public class EmpStatus {
+@Table(name = "users")
+public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emp_status_seq")
-    @SequenceGenerator(name = "emp_status_seq", sequenceName = "emp_status_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
+    @SequenceGenerator(name = "users_seq", sequenceName = "users_seq", allocationSize = 1)
     @NonNull
-    @Column(name = "status_id")
-    private Integer statusId;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    private String description;
+    private String login;
+    private String password;
+    private String role;
+    private String mail;
+
 }

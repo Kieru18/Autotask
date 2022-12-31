@@ -10,7 +10,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import z21.autotask.orm.Animal;
+import z21.autotask.entities.Animal;
 import z21.autotask.DataService;
 
 import java.util.List;

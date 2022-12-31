@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.orm.EmpStatus;
+import z21.autotask.entities.EmpStatus;
 
 @Transactional @Repository
 public interface EmpStatusRepository extends JpaRepository<EmpStatus, Integer> {

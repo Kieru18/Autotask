@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.orm.Position;
+import z21.autotask.entities.Position;
 
 @Transactional @Repository
 public interface PositionRepository extends JpaRepository<Position, Integer> {

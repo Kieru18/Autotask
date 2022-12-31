@@ -1,4 +1,4 @@
-package z21.autotask.orm;
+package z21.autotask.entities;
 
 import java.util.Date;
 import javax.persistence.Column;
