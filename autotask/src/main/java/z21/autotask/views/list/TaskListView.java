@@ -13,6 +13,7 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
+import org.springframework.web.method.support.CompositeUriComponentsContributor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ import java.util.Arrays;
 @Route(value = "/TaskList", layout = MainLayout.class)
 public class TaskListView extends HorizontalLayout {
 
+    // private ArrayList<ArrayList<Button>> buttonMap;
     private final Tab pending;
     private final Tab completed;
     private final VerticalLayout content = new VerticalLayout();
@@ -54,7 +56,42 @@ public class TaskListView extends HorizontalLayout {
         Div tabs_and_task_accordion = new Div();
         tabs_and_task_accordion.add(tabs,content);
         // add(tabs, content);
-        add(tabs_and_task_accordion);
+
+        add(tabs_and_task_accordion, getButtonMapLayout(getDescribedLocalizations()));
+    }
+    private ArrayList<ArrayList<String>> getDescribedLocalizations()
+    {
+        ArrayList<ArrayList<String>> map = new ArrayList<>();
+        int p = 0;
+        for(int x =0; x< 12; x++)
+        {
+            ArrayList<String> row = new ArrayList<>();
+            for(int y=0; y < 12; y++)
+            {
+                p = 12*y+x;
+                row.add(Integer.toString(p));
+            }
+            map.add(row);
+        }
+        return  map;
+    }
+    private VerticalLayout getButtonMapLayout(ArrayList<ArrayList<String>> describedLocations)
+    {
+        VerticalLayout buttonMapLayout = new VerticalLayout();
+        for(ArrayList<String> rows : describedLocations)
+        {
+            ArrayList<Button> button_row = new ArrayList<>();
+            HorizontalLayout button_row_layout = new HorizontalLayout();
+            for(String location_summary : rows)
+            {
+                Button localization = new Button(location_summary);
+                button_row.add(localization);
+                button_row_layout.add(localization);
+            }
+            buttonMapLayout.add(button_row_layout);
+            // buttonMap.add(button_row);
+        }
+        return buttonMapLayout;
     }
     private VerticalLayout getAccordion(ArrayList<String> tasks)
     {
