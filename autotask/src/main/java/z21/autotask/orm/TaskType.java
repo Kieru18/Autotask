@@ -1,5 +1,6 @@
 package z21.autotask.orm;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,24 +17,23 @@ import lombok.NonNull;
 
 @Data @Entity
 @AllArgsConstructor @NoArgsConstructor
-@Table(name = "species")
-public class Species {
+@Table(name = "task_types")
+public class TaskType {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "species_seq")
-    @SequenceGenerator(name = "species_seq", sequenceName = "species_seq", allocationSize = 1)
-    @NonNull 
-    @Column(name = "species_id") 
-    private Integer speciesId;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_types_seq")
+    @SequenceGenerator(name = "task_types_seq", sequenceName = "task_types_seq", allocationSize = 1)
+    @NonNull
+    @Column(name = "type_id")
+    private Integer typeId;
 
     private String name;
 
-    @Column(name = "food_type") 
-    private String foodType;
+    private String description;
 
-    @Column(name = "average_lifespan") 
-    private Integer averageLifespan;
+    @Column(name = "base_priority")
+    private Integer basePriority;
 
-    @OneToMany(mappedBy = "speciesId")
-    private List<Animal> animals;
+    private SimpleDateFormat frequency;
+
 }
