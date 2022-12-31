@@ -11,8 +11,6 @@ import com.vaadin.flow.router.RouterLink;
 
 public class MainLayout extends AppLayout {
 
-
-
     public MainLayout() {
         H1 title = new H1("AutoTask");
         DrawerToggle linksDT = new DrawerToggle();

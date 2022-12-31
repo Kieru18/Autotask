@@ -24,8 +24,6 @@ public class AnimalFormView extends FormLayout {
 
         Locale polishLocale = new Locale("pl", "PL");
 
-
-
         TextField nameTF = new TextField("Animal name:");
         TextField locationIdTF = new TextField("Animal habitat ID:");
         TextField speciesIdTF = new TextField("Species: ");

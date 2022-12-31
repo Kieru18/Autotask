@@ -40,7 +40,10 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     List<Animal> findWeightName(Float weight, String name);
 
     @Modifying @Query(value = "INSERT INTO animals (name,  location_id, species_id, weight, birth_date) VALUES (:name, :locationId, :speciesId, :weight, :birthDate )", nativeQuery = true)
-    void insertAnimal(@Param("name") String name, @Param("location_id")  Integer locationId, @Param("species_id") Integer speciesId,
-                      @Param("weight") Float weight, @Param("birth_date") Date birthDate);
+    void insertAnimal(@Param("name") String name, 
+                      @Param("location_id") Integer locationId, 
+                      @Param("species_id") Integer speciesId,
+                      @Param("weight") Float weight, 
+                      @Param("birth_date") Date birthDate);
 
 }

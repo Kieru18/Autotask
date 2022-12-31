@@ -27,6 +27,6 @@ public interface SpeciesRepository extends JpaRepository<Species, Integer>  {
 
 
     @Modifying @Query(value = "INSERT INTO species (name, food_type, average_lifespan) VALUES (:name, :foodType, :averageLifespan)", nativeQuery = true)
-    void insertAnimal(@Param("name") String name, @Param("food_type")  String foodType, @Param("average_lifespan")  Integer averageLifespan);
+    void insertSpecies(@Param("name") String name, @Param("food_type")  String foodType, @Param("average_lifespan")  Integer averageLifespan);
 
 }
