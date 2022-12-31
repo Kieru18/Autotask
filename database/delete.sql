@@ -1,4 +1,4 @@
-SELECT * FROM user_sequences ;
+-- SELECT * FROM user_sequences ;
 
 /* delete all user-defined sequences */
 DECLARE
