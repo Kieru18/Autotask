@@ -14,7 +14,7 @@ public class DataService {
     @Autowired
     AnimalRepository animalRepository;
 
-    public List<Animal> getAll(){
+    public List<Animal> getAll() {
         return animalRepository.findAll();
     }
     

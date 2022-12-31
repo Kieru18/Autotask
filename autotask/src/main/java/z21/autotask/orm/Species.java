@@ -9,6 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,5 +40,7 @@ public class Species {
     private Integer averageLifespan;
 
     @OneToMany(mappedBy = "speciesId")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @Transient
     private List<Animal> animals;
 }
