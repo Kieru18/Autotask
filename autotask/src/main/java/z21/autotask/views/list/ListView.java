@@ -8,7 +8,10 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+
+import org.hibernate.annotations.LazyCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Animal;
 import z21.autotask.DataService;
@@ -33,11 +36,13 @@ public class ListView extends VerticalLayout {
         add(getToolbar(), grid);
     }
 
+    @Transactional
     private void configureGrid() {
         grid.addClassNames("animals-grid");
         grid.setSizeFull();
 
         List<Animal> listOfAnimals = dataService.getAll();
+
         grid.setItems(listOfAnimals);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
     }

@@ -31,8 +31,10 @@ public interface TaskTypeRepository extends JpaRepository<TaskType, Integer> {
     List<TaskType> findByFrequency(SimpleDateFormat frequency);
 
 
-    @Modifying @Query(value = "INSERT INTO task_types (name,  description, base_priority, frequency) VALUES (:name, :description, :basePriority, :frequency )", nativeQuery = true)
-    void insertTaskType(@Param("name") String name, @Param("description")  String description, @Param("base_priority") Integer basePriority,
+    @Modifying @Query(value = "INSERT INTO task_types (name,  description, base_priority, frequency) VALUES (:name, :description, :base_priority, :frequency)", nativeQuery = true)
+    void insertTaskType(@Param("name") String name, 
+                        @Param("description") String description,
+                        @Param("base_priority") Integer basePriority,
                         @Param("frequency") SimpleDateFormat frequency);
 
 }

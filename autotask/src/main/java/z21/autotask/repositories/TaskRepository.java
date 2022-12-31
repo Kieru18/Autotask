@@ -34,8 +34,11 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
     List<Task> findByPriority(Integer priority);
 
 
-    @Modifying @Query(value = "INSERT INTO tasks (description, date_start, date_end, deadline, priority ) VALUES (:description, :dateStart, :dateEnd, :deadline, :priority )", nativeQuery = true)
-    void insertTask(@Param("description") String description, @Param("date_start")  Date dateStart, @Param("date_end") Date dateEnd,
-                        @Param("deadline") Date deadline, @Param("priority") Integer priority);
+    @Modifying @Query(value = "INSERT INTO tasks (description, date_start, date_end, deadline, priority) VALUES (:description, :date_start, :date_end, :deadline, :priority)", nativeQuery = true)
+    void insertTask(@Param("description") String description, 
+                    @Param("date_start") Date dateStart, 
+                    @Param("date_end") Date dateEnd,
+                    @Param("deadline") Date deadline, 
+                    @Param("priority") Integer priority);
 
 }

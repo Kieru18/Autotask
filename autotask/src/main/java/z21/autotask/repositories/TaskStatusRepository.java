@@ -22,6 +22,6 @@ public interface TaskStatusRepository extends JpaRepository<TaskStatus, Integer>
     List<TaskStatus> findByDescription(String description);
 
     @Modifying @Query(value = "INSERT INTO task_status (description) VALUES (:description)", nativeQuery = true)
-    void insertTaskStatus(@Param("description")  String description);
+    void insertTaskStatus(@Param("description") String description);
 
 }

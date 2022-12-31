@@ -31,6 +31,8 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
 
 
     @Modifying @Query(value = "INSERT INTO locations (name, latitude, longitude) VALUES (:name, :latitude, :longitude)", nativeQuery = true)
-    void insertAnimal(@Param("name") String name, @Param("latitude")  Float latitude, @Param("longitude")  Float longitude);
+    void insertLocation(@Param("name") String name, 
+                        @Param("latitude") Float latitude, 
+                        @Param("longitude") Float longitude);
 
 }

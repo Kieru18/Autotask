@@ -30,10 +30,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     List<Employee> findByBirthDate(Date birthDate);
 
 
-    @Modifying @Query(value = "INSERT INTO employees (first_name,  last_name, gender, birth_date) VALUES (:firstName, :lastName, :gender, :birthDate )", nativeQuery = true)
+    @Modifying @Query(value = "INSERT INTO employees (first_name, last_name, gender, birth_date) VALUES (:first_name, :last_name, :gender, :birth_date)", nativeQuery = true)
     void insertEmployee(@Param("first_name") String firstName, 
-                        @Param("last_name")  String lastName, 
-                        @Param("gender")     char gender,
+                        @Param("last_name") String lastName, 
+                        @Param("gender") char gender,
                         @Param("birth_date") Date birthDate);
 
 }
