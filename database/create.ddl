@@ -207,8 +207,7 @@ CREATE TABLE task_types (
     name           VARCHAR2(30 CHAR),
     description    VARCHAR2(150 CHAR),
     base_priority  NUMBER NOT NULL,
-    frequency      DATE,
-    task_id        NUMBER
+    frequency      DATE
 );
 
 ALTER TABLE task_types ADD CONSTRAINT task_types_pk PRIMARY KEY ( type_id );
@@ -238,7 +237,8 @@ CREATE TABLE tasks (
     deadline     DATE,
     priority     NUMBER,
     location_id  NUMBER NOT NULL,
-    status_id    NUMBER NOT NULL
+    status_id    NUMBER NOT NULL,
+    type_id      NUMBER NOT NULL
 );
 
 ALTER TABLE tasks ADD CONSTRAINT tasks_pk PRIMARY KEY ( task_id );
@@ -323,10 +323,6 @@ ALTER TABLE employees
     ADD CONSTRAINT employees_users_fk FOREIGN KEY ( user_id )
         REFERENCES users ( user_id );
 
-ALTER TABLE task_types
-    ADD CONSTRAINT task_types_tasks_fk FOREIGN KEY ( task_id )
-        REFERENCES tasks ( task_id );
-
 ALTER TABLE tasks
     ADD CONSTRAINT tasks_locations_fk FOREIGN KEY ( location_id )
         REFERENCES locations ( location_id );
@@ -334,3 +330,7 @@ ALTER TABLE tasks
 ALTER TABLE tasks
     ADD CONSTRAINT tasks_task_status_fk FOREIGN KEY ( status_id )
         REFERENCES task_status ( status_id );
+
+ALTER TABLE tasks
+    ADD CONSTRAINT tasks_task_types_fk FOREIGN KEY ( type_id )
+        REFERENCES task_types ( type_id );

@@ -1,0 +1,175 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="00407368-27C7-362D-0B7C-6B4283A4718B" name="tasks">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>FDD42080-68EB-AEED-7C25-CCFE7DF43668</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="task_id" id="7BBC3103-4DDC-0F0C-2941-10085D5AF8BF">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>2EB1934E-A9F7-DA9B-6131-EE8B05E43F65</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="description" id="3EA7A3A1-FB15-830F-B84B-8730ECEF0DA4">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>70B3C9ED-A32E-6010-050C-5C169B6F67BF</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_start" id="B1E0CE8E-8577-4B8C-914A-208D402EA294">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>AAC7576B-A771-784E-825A-0D4A00C5501A</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="date_end" id="361C755B-5235-A632-ECAF-E56914FD9076">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>0F2FC8AF-EA65-541E-E640-D3E5B521840F</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="deadline" id="F085C8D8-55EB-2BE4-BB65-E7FCCA323116">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>633C2E43-2ACD-2602-824C-C5CED9FF6635</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="priority" id="D8F64F4A-47F8-B5AF-28B7-3B9734F1F778">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>6850716C-38DB-B9B8-EF9C-3F7EFDE2EE2E</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="locations_location_id" id="B049AC9C-BBB4-9BAD-18CC-3997B47BA6C4">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>FD19DE5A-2A52-CD67-E26C-22CA5336D5BF</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B31CB2A0-0BEE-8C80-6247-7F00F6D31068" referredColumn="B477E087-F335-3DC1-47ED-9F1745A05CEA"/>
+</associations>
+</Column>
+<Column name="task_status_status_id" id="1F5367F5-32E8-1829-B19A-71689E0AF69C">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>1DFEF7CF-D3EE-102A-3A0C-3B1CC7CD1A1E</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EC900642-28FE-748A-1B90-58E7179046D5" referredColumn="770AC710-F296-8A33-4C37-F78DAF7141A9"/>
+</associations>
+</Column>
+<Column name="task_types_type_id" id="D7D10ACA-4590-E75A-8D57-7328BD81F1C8">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>0A07EF88-217A-59FE-4230-B5D44DF66473</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="271A3B98-E4A1-FAF1-15CF-C0D8B50B436F" referredColumn="7B6809D2-1A41-6490-8326-D263496004AE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="47DDA034-DB8F-0038-DF20-1F0D1880BE0B" name="tasks_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>21B1C636-8B37-CC15-C802-71966B1E7337</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BBC3103-4DDC-0F0C-2941-10085D5AF8BF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="942F5424-BC8E-171D-24EC-DEE25E4E9EA0" name="tasks_locations_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>9331863F-F1F1-9E17-AA8C-EB0690B874E8</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B049AC9C-BBB4-9BAD-18CC-3997B47BA6C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9406D6CD-B0DD-E17F-F1D7-B2911B372B5B" name="tasks_task_status_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>6FC2089A-F722-5904-0914-6F1AD6794080</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1F5367F5-32E8-1829-B19A-71689E0AF69C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D2A2D0D5-BDE4-E245-C438-82B15B3FB081" name="tasks_task_types_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>E2DEEDBA-45B3-DDBD-94E4-421F84A78033</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D7D10ACA-4590-E75A-8D57-7328BD81F1C8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
