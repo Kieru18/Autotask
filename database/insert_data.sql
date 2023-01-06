@@ -23,3 +23,35 @@ INSERT INTO animals VALUES (1, 'Valor', '04/02/2022', 2.1, 1, 1);
 INSERT INTO animals VALUES (1, 'Snek', '10/02/2019', 6.9, 2, 2);
 
 commit;
+
+SELECT * FROM emp_status;
+-- emp_status: status_id, description
+INSERT INTO emp_status VALUES(1, 'available');
+INSERT INTO emp_status VALUES(1, 'working');
+INSERT INTO emp_status VALUES(1, 'unavailable');
+
+commit;
+
+SELECT * FROM positions;
+-- positions: position_id, name, photo
+INSERT INTO positions (name) VALUES('manager');
+INSERT INTO positions (name) VALUES('worker');
+INSERT INTO positions (name) VALUES('conservator of surfaces');
+
+commit;
+
+SELECT * FROM users;
+-- users: user_id, login, password, role, mail
+INSERT INTO users VALUES(1, 'magick', 'Jp2G|\/|D', 'user', 'paktof@onika.pl');
+
+commit;
+
+SELECT * FROM employees;
+-- employees; employee_id, first_name, last_name, gender, birth_date, position_id, status_id, user_id
+INSERT INTO employees VALUES(1, 'Piotr', '£uszcz', 'M', '18/03/1978', 3, 1, 1);
+INSERT INTO employees VALUES(1, 'Jan', 'Kowalski', 'M', '01/02/1999', 2, 1, 2);
+
+commit;
+
+
+
