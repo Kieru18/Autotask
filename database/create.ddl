@@ -127,7 +127,7 @@ END;
 CREATE TABLE positions (
     position_id  NUMBER NOT NULL,
     name         VARCHAR2(25 CHAR) NOT NULL,
-    photo        BLOB
+    photo        VARCHAR2(100 CHAR)
 );
 
 ALTER TABLE positions ADD CONSTRAINT positions_pk PRIMARY KEY ( position_id );

@@ -34,15 +34,16 @@ commit;
 
 SELECT * FROM positions;
 -- positions: position_id, name, photo
-INSERT INTO positions (name) VALUES('manager');
-INSERT INTO positions (name) VALUES('worker');
-INSERT INTO positions (name) VALUES('conservator of surfaces');
+INSERT INTO positions VALUES(1, 'manager', 'mng.jpg');
+INSERT INTO positions VALUES(1, 'worker', 'work.jpg');
+INSERT INTO positions VALUES(1, 'conservator of surfaces', 'flatty.jpg');
 
 commit;
 
 SELECT * FROM users;
 -- users: user_id, login, password, role, mail
 INSERT INTO users VALUES(1, 'magick', 'Jp2G|\/|D', 'user', 'paktof@onika.pl');
+INSERT INTO users VALUES(1, 'jkowal', 'password', 'admin', 'jkowal@uwu.com');
 
 commit;
 
