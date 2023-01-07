@@ -31,11 +31,11 @@ public class Animal {
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "location_id", referencedColumnName = "location_id")
-    private Location locationId;
+    private Location location;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "species_id", referencedColumnName = "species_id")
-    private Species speciesId;
+    private Species species;
 
     @Column(name = "birth_date") 
     private Date birthDate;

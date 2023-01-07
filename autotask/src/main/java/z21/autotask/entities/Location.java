@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public class Location {
     private Float latitude;
     private Float longitude;
 
-    @OneToMany(mappedBy = "locationId")
+    @OneToMany(mappedBy = "locationId", fetch = FetchType.LAZY)
     @LazyCollection(LazyCollectionOption.FALSE)
     @Transient
     private List<Animal> animals;
