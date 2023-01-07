@@ -92,4 +92,10 @@ public class DataService {
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
 
+    public List<Employee> getUnavailableEmployees() { //TODO add finding by available status
+        return employeeRepository.findAll();
+    }
+    public List<Employee> getAvailableEmployees() {  //TODO add finding by unavailable status
+        return employeeRepository.findAll();
+    }
 }

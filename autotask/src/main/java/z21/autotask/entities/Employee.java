@@ -49,4 +49,21 @@ public class Employee {
     @OneToOne(optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
+
+    public String getFullName() {
+       String fName = this.firstName + " " + this.lastName;
+       return fName;
+    }
+
+    public String getPictureUrl() {
+        return "src/main/resources/images" + this.position.getPhoto();
+    }
+
+    public String getProfession() {
+        return this.position.getName();
+    }
+
+    public String getEmail() {
+        return this.user.getMail();
+    }
 }

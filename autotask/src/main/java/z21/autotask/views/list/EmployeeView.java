@@ -13,13 +13,20 @@ import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.server.VaadinService;
+import org.springframework.beans.factory.annotation.Autowired;
+import z21.autotask.entities.Employee;
+import z21.autotask.service.DataService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Route(value = "/Employees", layout = MainLayout.class)
 public class EmployeeView extends Div {
 
+
+    private final DataService dataService;
     private final Tab available;
     private final Tab unavailable;
     private final Tab all;
@@ -39,7 +46,9 @@ public class EmployeeView extends Div {
             content.add(contentUnavailable);
         }
     }
-    public EmployeeView() {
+    @Autowired
+    public EmployeeView(DataService dataService) {
+        this.dataService = dataService;
         available = new Tab(VaadinIcon.CHECK.create(), new Span("Available"));
         unavailable = new Tab(VaadinIcon.CLOSE.create(), new Span("Unavailable"));
         all = new Tab(VaadinIcon.USERS.create(), new Span("All"));
@@ -60,62 +69,57 @@ public class EmployeeView extends Div {
         setContent(tabs.getSelectedTab());
         add(tabs, content);
     }
-    private VerticalLayout getEmployeesCards(ArrayList<String> employees)
+    private VerticalLayout getEmployeesCards(List<Employee> employees)
     {
         VerticalLayout verticalLayoutEmployees = new VerticalLayout();
-        for(String employee : employees)
+        for(Employee employee : employees)
         {
             verticalLayoutEmployees.add(createEmployeeCardComponent(employee));
         }
         return verticalLayoutEmployees;
     }
-    private HorizontalLayout createEmployeeCardComponent(String person)
+    private HorizontalLayout createEmployeeCardComponent(Employee person)
     {
         HorizontalLayout cardLayout = new HorizontalLayout();
         cardLayout.setMargin(true);
 
-//        Avatar avatar = new Avatar(person.getFullName(),
-//                person.getPictureUrl());
-        Avatar avatar = new Avatar(person); // TODO change String person to Employee person
+        Avatar avatar = new Avatar(person.getFullName());
+        avatar.setImage(person.getPictureUrl());
+
         avatar.setHeight("64px");
         avatar.setWidth("64px");
 
         VerticalLayout infoLayout = new VerticalLayout();
         infoLayout.setSpacing(false);
         infoLayout.setPadding(false);
-//        infoLayout.getElement().appendChild(
-//                ElementFactory.createStrong(person.getFullName()));
         infoLayout.getElement().appendChild(
-                ElementFactory.createStrong(person + "Name"));
-        // infoLayout.add(new Div(new Text(person.getProfession())));
-        infoLayout.add(new Div(new Text(person + "Position")));
+                ElementFactory.createStrong(person.getFullName()));
+        infoLayout.add(new Div(new Text(person.getProfession())));
+
 
         VerticalLayout contactLayout = new VerticalLayout();
         contactLayout.setSpacing(false);
         contactLayout.setPadding(false);
-        // contactLayout.add(new Div(new Text(person.getEmail())));
-        contactLayout.add(new Div(new Text(person + "Email")));
-        // contactLayout.add(new Div(new Text(person.getAddress().getPhone())));
-        contactLayout.add(new Div(new Text(person + "Contact Details")));
+        contactLayout.add(new Div(new Text(person.getEmail())));
         infoLayout.add(new Details("Contact information", contactLayout));
 
         cardLayout.add(avatar, infoLayout);
         return cardLayout;
     }
 
-    private ArrayList<String> getAvailableEmployees()
+    private List<Employee> getAvailableEmployees()
     {
-        String[] ava_employees = new String[] {"Krysia Nowak","Jacek Placek","Malina Przytyła","Jan Ogórek"};
-        return new ArrayList<>(Arrays.asList(ava_employees));
+        List<Employee> availableEmployees = dataService.getAllEmployees();
+        return availableEmployees;
     }
-    private ArrayList<String> getUnavailableEmployees()
+    private List<Employee> getUnavailableEmployees()
     {
-        String[] unava_employees = new String[] {"Iwo Franz","Kuba Niejadek","Piotr Grzeczny","Lidia Pałąk"};
-        return new ArrayList<>(Arrays.asList(unava_employees));
+        List<Employee> unavailableEmployees = dataService.getUnavailableEmployees();
+        return unavailableEmployees;
     }
-    private ArrayList<String> getAllEmployees()
+    private List<Employee> getAllEmployees()
     {
-        String[] all_employees = new String[] {"Krysia Nowak","Jacek Placek","Malina Przytyła","Jan Ogórek","Iwo Franz","Kuba Niejadek","Piotr Grzeczny","Lidia Pałąk"};
-        return new ArrayList<>(Arrays.asList(all_employees));
+        List<Employee> allEmployees = dataService.getAvailableEmployees();
+        return allEmployees;
     }
 }
