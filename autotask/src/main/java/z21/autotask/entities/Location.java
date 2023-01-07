@@ -23,7 +23,6 @@ import lombok.NonNull;
 import lombok.ToString;
 
 @Data @Entity
-@ToString(exclude = {"animals", "tasks"})
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "locations")
 public class Location {
@@ -38,15 +37,5 @@ public class Location {
     private String name;
     private Float latitude;
     private Float longitude;
-
-    @OneToMany(mappedBy = "locationId")
-    // @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    private List<Animal> animals;
-
-    @OneToMany(mappedBy = "locationId", fetch = FetchType.LAZY)
-    // @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    private List<Task> tasks;
 
 }

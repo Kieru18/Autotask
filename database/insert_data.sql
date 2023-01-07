@@ -52,6 +52,7 @@ SELECT * FROM users;
 -- users: user_id, login, password, role, mail
 INSERT INTO users VALUES(1, 'magick', 'Jp2G|\/|D', 'user', 'paktof@onika.pl');
 INSERT INTO users VALUES(1, 'jkowal', 'password', 'admin', 'jkowal@uwu.com');
+INSERT INTO users VALUES(1, 'bugatti', 'HUSTLE4LIFE', 'gigachad', 'andrew@hustleacademy.org');
 
 commit;
 
@@ -59,6 +60,7 @@ SELECT * FROM employees;
 -- employees; employee_id, first_name, last_name, gender, birth_date, position_id, status_id, user_id
 INSERT INTO employees VALUES(1, 'Piotr', '£uszcz', 'M', '18/03/1978', 3, 1, 1);
 INSERT INTO employees VALUES(1, 'Jan', 'Kowalski', 'M', '01/02/1999', 2, 1, 2);
+INSERT INTO employees VALUES(1, 'Andrzej', 'Tatowski', 'M', '01/12/1986', 1, 3, 3); 
 
 commit;
 
