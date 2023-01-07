@@ -20,14 +20,14 @@ import java.util.List;
 
 @PageTitle("List of all animals")
 @Route(value = "/animals", layout = MainLayout.class)
-public class ListView extends VerticalLayout {
+public class AnimalListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Animal> grid = new Grid<>(Animal.class);
     TextField filterText = new TextField();
 
 
     @Autowired
-    public ListView(DataService dataService) {
+    public AnimalListView(DataService dataService) {
         this.dataService = dataService;
         addClassName("list-view");
         setSizeFull();

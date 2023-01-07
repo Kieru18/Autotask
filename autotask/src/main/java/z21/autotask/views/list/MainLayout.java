@@ -23,7 +23,7 @@ public class MainLayout extends AppLayout {
                 createTab(VaadinIcon.USERS, "Employees", EmployeeView.class),
                 createTab(VaadinIcon.FORM, "Task Form", TaskFormView.class),
                 createTab(VaadinIcon.HAMMER, "Add Animal", AnimalFormView.class),
-                createTab(VaadinIcon.TWITTER, "Animals", ListView.class));
+                createTab(VaadinIcon.TWITTER, "Animals", AnimalListView.class));
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;
     }
