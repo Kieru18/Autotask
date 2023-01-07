@@ -20,7 +20,7 @@ public class MainLayout extends AppLayout {
     private Tabs getLinkTabs() {
         Tabs tabs = new Tabs();
         tabs.add(createTab(VaadinIcon.TASKS, "Task List", AnimalListView.class), // TODO change AnimalFormView.class to main view - TasksView.class
-                createTab(VaadinIcon.USERS, "Employees", EmployeeView.class),
+                createTab(VaadinIcon.USERS, "Employees", EmployeesView.class),
                 createTab(VaadinIcon.FORM, "Task Form", TaskFormView.class),
                 createTab(VaadinIcon.HAMMER, "Add Animal", AnimalFormView.class),
                 createTab(VaadinIcon.TWITTER, "Animals", AnimalListView.class));

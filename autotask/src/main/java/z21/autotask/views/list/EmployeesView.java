@@ -13,7 +13,6 @@ import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.StreamResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.Employee;
 import z21.autotask.service.DataService;
@@ -21,7 +20,7 @@ import z21.autotask.service.DataService;
 import java.util.List;
 
 @Route(value = "/Employees", layout = MainLayout.class)
-public class EmployeeView extends Div {
+public class EmployeesView extends Div {
 
 
     private final DataService dataService;
@@ -45,7 +44,7 @@ public class EmployeeView extends Div {
         }
     }
     @Autowired
-    public EmployeeView(DataService dataService) {
+    public EmployeesView(DataService dataService) {
         this.dataService = dataService;
         available = new Tab(VaadinIcon.CHECK.create(), new Span("Available"));
         unavailable = new Tab(VaadinIcon.CLOSE.create(), new Span("Unavailable"));
