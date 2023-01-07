@@ -9,21 +9,19 @@ import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
-import com.vaadin.flow.router.HighlightConditions;
 import com.vaadin.flow.router.RouterLink;
 
 public class MainLayout extends AppLayout {
 
     private Tabs getLinkTabs() {
         Tabs tabs = new Tabs();
-        tabs.add(createTab(VaadinIcon.TASKS, "Task List", AnimalFormView.class), // TODO change AnimalFormView.class to main view - TasksView.class
+        tabs.add(createTab(VaadinIcon.TASKS, "Task List", AnimalListView.class), // TODO change AnimalFormView.class to main view - TasksView.class
                 createTab(VaadinIcon.USERS, "Employees", EmployeeView.class),
                 createTab(VaadinIcon.FORM, "Task Form", TaskFormView.class),
                 createTab(VaadinIcon.HAMMER, "Add Animal", AnimalFormView.class),
-                createTab(VaadinIcon.TWITTER, "Animals", ListView.class));
+                createTab(VaadinIcon.TWITTER, "Animals", AnimalListView.class));
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;
     }

@@ -21,11 +21,11 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-// import z21.autotask.DataService;
+import z21.autotask.service.DataService;
 
 @Route(value = "/TaskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
-    // private DataService dataService;
+    private DataService dataService;
     private MultiSelectComboBox<String> MSCBwho;
     private MultiSelectComboBox<String> MSCBanimals;
     private ComboBox<String> CBtaskGroup;
@@ -37,7 +37,7 @@ public class TaskFormView extends VerticalLayout {
 
     @Autowired
     public TaskFormView() {
-        // this.dataService = dataService;
+        this.dataService = dataService;
 
         FormLayout taskForm = new FormLayout();
 

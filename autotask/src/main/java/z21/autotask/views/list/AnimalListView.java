@@ -9,25 +9,24 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import org.hibernate.annotations.LazyCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Animal;
-import z21.autotask.DataService;
+import z21.autotask.service.DataService;
 
 import java.util.List;
 
 @PageTitle("List of all animals")
 @Route(value = "/animals", layout = MainLayout.class)
-public class ListView extends VerticalLayout {
+public class AnimalListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Animal> grid = new Grid<>(Animal.class);
     TextField filterText = new TextField();
 
 
     @Autowired
-    public ListView(DataService dataService) {
+    public AnimalListView(DataService dataService) {
         this.dataService = dataService;
         addClassName("list-view");
         setSizeFull();
@@ -37,11 +36,11 @@ public class ListView extends VerticalLayout {
     }
 
     @Transactional
-    private void configureGrid() {
+    void configureGrid() {
         grid.addClassNames("animals-grid");
         grid.setSizeFull();
 
-        List<Animal> listOfAnimals = dataService.getAll();
+        List<Animal> listOfAnimals = dataService.getAllAnimals();
 
         grid.setItems(listOfAnimals);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));

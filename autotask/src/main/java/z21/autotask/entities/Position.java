@@ -20,8 +20,6 @@ public class Position {
 
     private String name;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    private  byte[] photo;
+    private String photo;
 
 }
