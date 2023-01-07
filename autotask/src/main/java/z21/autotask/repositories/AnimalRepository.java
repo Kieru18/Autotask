@@ -23,11 +23,11 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     @Query
     List<Animal> findByName(String name);
 
-    @Query
-    List<Animal> findByLocationId(Integer locationId);
+    // @Query
+    // List<Animal> findByLocationId(Integer locationId);
 
-    @Query
-    List<Animal> findBySpeciesId(Integer speciesId);
+    // @Query
+    // List<Animal> findBySpeciesId(Integer speciesId);
 
     @Query
     List<Animal> findByWeight(Float weight);

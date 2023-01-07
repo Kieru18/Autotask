@@ -1,12 +1,29 @@
 package z21.autotask.entities;
 
-import javax.persistence.*;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.ToString;
 
 @Data @Entity
+@ToString(exclude = "employees")
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "positions")
 public class Position {
@@ -19,7 +36,9 @@ public class Position {
     private Integer positionId;
 
     private String name;
-
     private String photo;
+    
+    private String photo;
+
 
 }

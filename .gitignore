@@ -1,2 +1,5 @@
 /.idea/pap22z-z21.iml
 .idea
+autotask/frontend/generated/index.ts
+autotask/frontend/generated/vite-devmode.ts
+autotask/package.json

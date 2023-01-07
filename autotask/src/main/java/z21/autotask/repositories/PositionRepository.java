@@ -23,6 +23,6 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
 
     @Modifying @Query(value = "INSERT INTO positions (name,  photo) VALUES (:name, :photo)", nativeQuery = true)
     void insertPosition(@Param("name") String name, 
-                        @Param("photo") byte[] photo);
+                        @Param("photo") String photo);
 
 }

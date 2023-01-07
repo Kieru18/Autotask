@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +20,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.ToString;
 
 @Data @Entity
+@ToString(exclude = {"animals", "tasks"})
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "locations")
 public class Location {
@@ -37,8 +40,13 @@ public class Location {
     private Float longitude;
 
     @OneToMany(mappedBy = "locationId")
-    @LazyCollection(LazyCollectionOption.FALSE)
+    // @LazyCollection(LazyCollectionOption.FALSE)
     @Transient
     private List<Animal> animals;
+
+    @OneToMany(mappedBy = "locationId", fetch = FetchType.LAZY)
+    // @LazyCollection(LazyCollectionOption.FALSE)
+    @Transient
+    private List<Task> tasks;
 
 }

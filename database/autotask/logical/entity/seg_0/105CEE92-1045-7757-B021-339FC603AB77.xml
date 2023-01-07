@@ -4,7 +4,7 @@
 <createdTime>2022-12-29 19:12:57 UTC</createdTime>
 <ownerDesignName>autotask</ownerDesignName>
 <engineerTo>
-<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+<item key="68DD0F07-118B-EECD-C982-F7C1217D9EA4" value="true"/>
 </engineerTo>
 <adequatelyNormalized>NO</adequatelyNormalized>
 <expectedVolumes>0</expectedVolumes>
@@ -20,7 +20,7 @@
 <createdTime>2022-12-29 19:13:15 UTC</createdTime>
 <ownerDesignName>autotask</ownerDesignName>
 <engineerTo>
-<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+<item key="68DD0F07-118B-EECD-C982-F7C1217D9EA4" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -32,7 +32,7 @@
 <createdTime>2022-12-29 19:13:31 UTC</createdTime>
 <ownerDesignName>autotask</ownerDesignName>
 <engineerTo>
-<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+<item key="68DD0F07-118B-EECD-C982-F7C1217D9EA4" value="true"/>
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
@@ -45,13 +45,14 @@
 <createdTime>2022-12-29 19:51:25 UTC</createdTime>
 <ownerDesignName>autotask</ownerDesignName>
 <engineerTo>
-<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+<item key="68DD0F07-118B-EECD-C982-F7C1217D9EA4" value="true"/>
 </engineerTo>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT010</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<ownDataTypeParameters>100 CHAR,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -60,7 +61,7 @@
 <createdTime>2022-12-29 19:13:23 UTC</createdTime>
 <ownerDesignName>autotask</ownerDesignName>
 <engineerTo>
-<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
+<item key="68DD0F07-118B-EECD-C982-F7C1217D9EA4" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

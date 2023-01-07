@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="15E8A945-E05B-578C-C635-F38055AE89F6" name="emp_assignments">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>E42C1D91-E7D6-DF13-032D-5E194DE40188</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="tasks_task_id" id="6E9C1B63-7FE1-1DA2-9E26-4704A95E6F31">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>47C2DD04-403D-68D9-34AC-146A01D7C205</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D3DE4CCE-D3B9-4CEF-682F-BECE4ADB2542" referredColumn="7BBC3103-4DDC-0F0C-2941-10085D5AF8BF"/>
+</associations>
+</Column>
+<Column name="employees_employee_id" id="41F17CD5-62EA-A8F4-4841-91032D755975">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>89C05B21-0FF5-9FCE-653F-2C27506F1B30</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B09C9FD6-D549-F93B-19A9-82CAE5E4998A" referredColumn="3CBDE612-BFA6-BDBA-02BF-F6406C171920"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B67214D5-0745-7121-54F8-250E6F67E23A" name="emp_assignments_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>2CDD5217-3963-42F5-BB4B-6C90630D60EC</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E9C1B63-7FE1-1DA2-9E26-4704A95E6F31"/>
+<colUsage columnID="41F17CD5-62EA-A8F4-4841-91032D755975"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D248699E-D299-7320-80DE-94C27D5E634C" name="emp_assignments_employees_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>9500AE63-6CBB-0E70-C95C-F8449E060BBE</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="41F17CD5-62EA-A8F4-4841-91032D755975"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5CB4806F-1CBA-15B2-F2B4-D14CA85148E6" name="emp_assignments_tasks_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-06 17:45:15 UTC</createdTime>
+<generatorID>CCA84ECD-FEEA-494F-8115-77D45513917C</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E9C1B63-7FE1-1DA2-9E26-4704A95E6F31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

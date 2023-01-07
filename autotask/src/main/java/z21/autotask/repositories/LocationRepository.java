@@ -27,7 +27,7 @@ public interface LocationRepository extends JpaRepository<Location, Integer> {
     List<Animal> findByLatitude(Float latitude);
 
     @Query
-    List<Animal> findByLongitude (Float longitude);
+    List<Animal> findByLongitude(Float longitude);
 
 
     @Modifying @Query(value = "INSERT INTO locations (name, latitude, longitude) VALUES (:name, :latitude, :longitude)", nativeQuery = true)
