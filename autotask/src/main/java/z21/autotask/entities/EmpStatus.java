@@ -37,9 +37,4 @@ public class EmpStatus {
 
     private String description;
 
-    @OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    private List<Employee> employees;
-
 }

@@ -38,8 +38,4 @@ public class TaskStatus {
 
     private String description;
 
-    @OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    private List<Task> tasks;
 }

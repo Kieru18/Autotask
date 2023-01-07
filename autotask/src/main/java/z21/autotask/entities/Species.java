@@ -41,8 +41,4 @@ public class Species {
     @Column(name = "average_lifespan") 
     private Integer averageLifespan;
 
-    @OneToMany(mappedBy = "speciesId")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    private List<Animal> animals;
 }
