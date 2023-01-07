@@ -42,4 +42,9 @@ public class Location {
     @Transient
     private List<Animal> animals;
 
+    @OneToMany(mappedBy = "locationId", fetch = FetchType.LAZY)
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @Transient
+    private List<Task> tasks;
+
 }
