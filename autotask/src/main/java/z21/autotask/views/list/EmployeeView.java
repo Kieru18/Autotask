@@ -13,13 +13,11 @@ import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.VaadinService;
+import com.vaadin.flow.server.StreamResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.Employee;
 import z21.autotask.service.DataService;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Route(value = "/Employees", layout = MainLayout.class)
@@ -84,7 +82,7 @@ public class EmployeeView extends Div {
         cardLayout.setMargin(true);
 
         Avatar avatar = new Avatar(person.getFullName());
-        avatar.setImage(person.getPictureUrl());
+        avatar.setImage(person.getPictureRoute());
 
         avatar.setHeight("64px");
         avatar.setWidth("64px");

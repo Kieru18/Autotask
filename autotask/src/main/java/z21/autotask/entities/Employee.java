@@ -55,8 +55,8 @@ public class Employee {
        return fName;
     }
 
-    public String getPictureUrl() {
-        return "src/main/resources/images" + this.position.getPhoto();
+    public String getPictureRoute() {
+        return "images/" + this.position.getPhoto();
     }
 
     public String getProfession() {
@@ -66,4 +66,6 @@ public class Employee {
     public String getEmail() {
         return this.user.getMail();
     }
+
+
 }
