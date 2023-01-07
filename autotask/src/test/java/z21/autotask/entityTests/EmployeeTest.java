@@ -85,8 +85,7 @@ public class EmployeeTest {
 
         assertEquals("Employee(employeeId=1, firstName=Zbigniew, lastName=100noga, gender=M, birthDate=" 
                     + employee.getBirthDate() + ", position=" + employee.getPosition() 
-                    + ", status=" + employee.getStatus() + ", user=" + employee.getUser() 
-                    + ")", employee.toString());
+                    + ", status=" + employee.getStatus() + ")", employee.toString());
     }   
 
     @Test
