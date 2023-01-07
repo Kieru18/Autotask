@@ -10,10 +10,9 @@
 
 # Technologia:
     - Java, Maven
-    - SWING
     - Springboot
-    - Vaadin - GUI
-    - Hibernate (JPA) - dostęp do bazy danych
+    - Vaadin
+    - Hibernate
 
 # Funkcjonalności:
 ## Panel logowania:
