@@ -11,12 +11,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+
+import lombok.*;
 
 @Data @Entity
+@ToString(exclude = {"user"})
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "employees")
 public class Employee {
@@ -47,7 +46,7 @@ public class Employee {
     @JoinColumn(name = "status_id", referencedColumnName = "status_id")
     private EmpStatus status;
 
-    @OneToOne(optional = false, mappedBy = "employee")
+    @OneToOne(optional = false)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 }

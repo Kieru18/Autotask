@@ -9,12 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+
+import lombok.*;
 
 @Data @Entity
+@EqualsAndHashCode(exclude="employee")
+@ToString(exclude = {"employee"})
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "users")
 public class User {
@@ -31,7 +31,7 @@ public class User {
     private String role;
     private String mail;
 
-    @OneToOne(optional = true)
+    @OneToOne(optional = true, mappedBy = "user")
     private Employee employee;
 
 }

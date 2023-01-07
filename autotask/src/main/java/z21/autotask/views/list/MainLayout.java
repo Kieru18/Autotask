@@ -11,8 +11,10 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
+@Route("")
 public class MainLayout extends AppLayout {
 
     private Tabs getLinkTabs() {

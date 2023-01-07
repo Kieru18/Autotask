@@ -89,7 +89,6 @@ public class DataService {
         taskRepository.insertTask(description, dateStart, dateEnd, deadline, priority);
     }
     public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency){
-
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
 
