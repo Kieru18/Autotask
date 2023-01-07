@@ -32,14 +32,6 @@ public class Task {
 
     private String description;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "status_id", referencedColumnName = "status_id")
-    private TaskStatus status; 
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "location_id", referencedColumnName = "location_id")
-    private Location location;
-
     @Column(name = "date_start")
     private Date dateStart;
 
@@ -47,6 +39,18 @@ public class Task {
     private Date dateEnd;
 
     private Date deadline;
+    
     private Integer priority;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "location_id", referencedColumnName = "location_id")
+    private Location location;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "status_id", referencedColumnName = "status_id")
+    private TaskStatus status; 
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "type_id", referencedColumnName = "type_id")
+    private TaskType type;
 }

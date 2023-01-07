@@ -23,7 +23,6 @@ import lombok.NonNull;
 import lombok.ToString;
 
 @Data @Entity
-@ToString(exclude = "employees")
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "emp_status")
 public class EmpStatus {
