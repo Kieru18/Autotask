@@ -37,8 +37,5 @@ public class Position {
 
     private String name;
     private String photo;
-    
-    private String photo;
-
 
 }
