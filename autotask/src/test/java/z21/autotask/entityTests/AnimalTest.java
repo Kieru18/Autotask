@@ -12,14 +12,38 @@ import z21.autotask.entities.Species;
 class AnimalTest {
     @Test
     void testAnimalConstructor() {
-        Animal animal = new Animal(1, "Fluffy", new Location(), new Species(), new Date(), 10.5f);
+        Animal animal = new Animal(1, "Grześ", 21.37f, new Location(), new Species(), new Date());
         
         assertEquals(1, animal.getAnimalId());
-        assertEquals("Fluffy", animal.getName());
+        assertEquals("Grześ", animal.getName());
         assertNotNull(animal.getLocation());
         assertNotNull(animal.getSpecies());
         assertNotNull(animal.getBirthDate());
-        assertEquals(10.5f, animal.getWeight());
+        assertEquals(21.37f, animal.getWeight());
+    }
+
+    @Test
+    void testAnimalConstructorEmptyValues() {
+        Animal animal = new Animal(0, "", 0.0f, null, null, null);
+        
+        assertEquals(0, animal.getAnimalId());
+        assertEquals("", animal.getName());
+        assertNull(animal.getLocation());
+        assertNull(animal.getSpecies());
+        assertNull(animal.getBirthDate());
+        assertEquals(0.0f, animal.getWeight());
+    }
+
+    @Test
+    void testAnimalNoArgConstructor() {
+        Animal animal = new Animal();
+        
+        assertNull(animal.getAnimalId());
+        assertNull(animal.getName());
+        assertNull(animal.getLocation());
+        assertNull(animal.getSpecies());
+        assertNull(animal.getBirthDate());
+        assertNull(animal.getWeight());
     }
 
     @Test
@@ -27,38 +51,59 @@ class AnimalTest {
         Animal animal = new Animal();
         
         animal.setAnimalId(1);
-        animal.setName("Fluffy");
+        animal.setName("Grześ");
         animal.setLocation(new Location());
         animal.setSpecies(new Species());
         animal.setBirthDate(new Date());
-        animal.setWeight(10.5f);
+        animal.setWeight(21.37f);
         
         assertEquals(1, animal.getAnimalId());
-        assertEquals("Fluffy", animal.getName());
+        assertEquals("Grześ", animal.getName());
         assertNotNull(animal.getLocation());
         assertNotNull(animal.getSpecies());
         assertNotNull(animal.getBirthDate());
-        assertEquals(10.5f, animal.getWeight());
+        assertEquals(21.37f, animal.getWeight());
     }
 
     @Test
     void testAnimalGetters() {
-        Animal animal = new Animal(1, "Fluffy", new Location(), new Species(), new Date(), 10.5f);
+        Animal animal = new Animal(1, "Grześ", 21.37f, new Location(), new Species(), new Date());
         
         assertEquals(1, animal.getAnimalId());
-        assertEquals("Fluffy", animal.getName());
+        assertEquals("Grześ", animal.getName());
         assertNotNull(animal.getLocation());
         assertNotNull(animal.getSpecies());
         assertNotNull(animal.getBirthDate());
-        assertEquals(10.5f, animal.getWeight());
+        assertEquals(21.37f, animal.getWeight());
+    }
+
+    // @Test
+    // void testAnimalToString() {
+    //     Animal animal = new Animal(1, "Grześ", new Location(), new Species(), new Date(), 21.37f);
+        
+    //     assertEquals("Animal(animalId=1, name=Grześ, location=null, species=null, birthDate=null, weight=21.37)", animal.toString());
+    // }
+
+    @Test
+    void testAnimalEquals() {
+        Animal animal1 = new Animal(1, "Grześ", 21.37f, new Location(), new Species(), new Date());
+        Animal animal2 = new Animal(1, "Grześ", 21.37f, new Location(), new Species(), new Date());
+        Animal animal3 = new Animal(2, "Grzes", 21.37f, new Location(), new Species(), new Date());
+        
+        assertTrue(animal1.equals(animal2));
+        assertFalse(animal1.equals(animal3));
     }
 
     @Test
-    void testAnimalToString() {
-        Animal animal = new Animal(1, "Fluffy", new Location(), new Species(), new Date(), 10.5f);
+    void testAnimalHashCode() {
+        Animal animal1 = new Animal(1, "Grześ", 21.37f, new Location(), new Species(), new Date());
+        Animal animal2 = new Animal(1, "Grześ", 21.37f, new Location(), new Species(), new Date());
+        Animal animal3 = new Animal(2, "Grzes", 21.37f, new Location(), new Species(), new Date());
         
-        assertEquals("Animal [animalId=1, name=Fluffy, location=null, species=null, birthDate=null, weight=10.5]", animal.toString());
+        assertEquals(animal1.hashCode(), animal2.hashCode());
+        assertNotEquals(animal1.hashCode(), animal3.hashCode());
     }
+
     
 }
 

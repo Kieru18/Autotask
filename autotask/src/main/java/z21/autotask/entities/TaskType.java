@@ -1,6 +1,7 @@
 package z21.autotask.entities;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,6 +35,6 @@ public class TaskType {
     @Column(name = "base_priority")
     private Integer basePriority;
 
-    private SimpleDateFormat frequency;
+    private Date frequency;
 
 }

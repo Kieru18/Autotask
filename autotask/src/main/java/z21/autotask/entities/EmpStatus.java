@@ -23,7 +23,6 @@ import lombok.NonNull;
 import lombok.ToString;
 
 @Data @Entity
-@ToString(exclude = "employees")
 @AllArgsConstructor @NoArgsConstructor
 @Table(name = "emp_status")
 public class EmpStatus {
@@ -36,10 +35,5 @@ public class EmpStatus {
     private Integer statusId;
 
     private String description;
-
-    @OneToMany(mappedBy = "statusId", fetch = FetchType.LAZY)
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    private List<Employee> employees;
 
 }

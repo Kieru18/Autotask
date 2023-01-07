@@ -28,6 +28,8 @@ public class Animal {
     private Integer animalId;
     
     private String name;
+
+    private Float weight;
     
     @ManyToOne(optional = false)
     @JoinColumn(name = "location_id", referencedColumnName = "location_id")
@@ -39,7 +41,5 @@ public class Animal {
 
     @Column(name = "birth_date") 
     private Date birthDate;
-
-    private Float weight;
 
 }
