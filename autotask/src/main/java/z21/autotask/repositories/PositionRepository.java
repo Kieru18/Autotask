@@ -19,10 +19,10 @@ public interface PositionRepository extends JpaRepository<Position, Integer> {
     List<Position> findByName(String name);
 
     @Query
-    List<Position> findByPhoto(byte[] photo);
+    List<Position> findByPhoto(String photo);
 
     @Modifying @Query(value = "INSERT INTO positions (name,  photo) VALUES (:name, :photo)", nativeQuery = true)
     void insertPosition(@Param("name") String name, 
-                        @Param("photo") byte[] photo);
+                        @Param("photo") String photo);
 
 }

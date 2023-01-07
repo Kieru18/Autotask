@@ -33,7 +33,7 @@ public class Task {
     private String description;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "task_status_id", referencedColumnName = "task_status_id")
+    @JoinColumn(name = "status_id", referencedColumnName = "status_id")
     private TaskStatus status; 
 
     @ManyToOne(optional = false)
