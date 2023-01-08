@@ -8,6 +8,7 @@ INSERT INTO species VALUES (1, 'snake', 'carnivore', 4200);
 INSERT INTO species VALUES (1, 'elephant', 'herbivore', 100000);
 INSERT INTO species VALUES (1, 'lion', 'carnivore', 50000);
 INSERT INTO species VALUES (1, 'monkey', 'omnivore', 69000);
+INSERT INTO species VALUES (1, 'capybara', 'herbivore', 13580);
 
 commit;
 
