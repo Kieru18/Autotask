@@ -4,21 +4,25 @@ ALTER SESSION SET NLS_DATE_FORMAT = "DD/MM/YYYY";
 SELECT * FROM species;
 -- species: species_id, name, food_type, average_lifespan
 INSERT INTO species VALUES (1, 'bird', 'herbivore', 2137);
-INSERT INTO species VALUES (1, 'snake', 'carnivore', 4200);
-INSERT INTO species VALUES (1, 'elephant', 'herbivore', 100000);
-INSERT INTO species VALUES (1, 'lion', 'carnivore', 50000);
-INSERT INTO species VALUES (1, 'monkey', 'omnivore', 69000);
-INSERT INTO species VALUES (1, 'capybara', 'herbivore', 13580);
+INSERT INTO species VALUES (2, 'snake', 'carnivore', 4200);
+INSERT INTO species VALUES (3, 'elephant', 'herbivore', 100000);
+INSERT INTO species VALUES (4, 'lion', 'carnivore', 50000);
+INSERT INTO species VALUES (5, 'monkey', 'omnivore', 69000);
+INSERT INTO species VALUES (6, 'capybara', 'herbivore', 13580);
+INSERT INTO species VALUES (7, 'penguin', 'carnivore', 9999);
+INSERT INTO species VALUES (8, 'tiger', 'carnivore', 875382);
+INSERT INTO species VALUES (9, 'giraffe', 'herbivore', 88992);
+INSERT INTO species VALUES (10, 'panda', 'herbivore', 929292929);
 
 commit;
 
 SELECT * FROM locations;
 -- locations: location_id, name, latitude, longitude
 INSERT INTO locations VALUES (1, 'cage', 14, 88);
-INSERT INTO locations VALUES (1, 'Elephant reservoir', 13, 52);
-INSERT INTO locations VALUES (1, 'Cafe', 21, 37);
-INSERT INTO locations VALUES (1, 'Ticket window', 99, 99);
-INSERT INTO locations VALUES (1, 'Toilets', 45, 45);
+INSERT INTO locations VALUES (2, 'Elephant reservoir', 13, 52);
+INSERT INTO locations VALUES (3, 'Cafe', 21, 37);
+INSERT INTO locations VALUES (4, 'Ticket window', 99, 99);
+INSERT INTO locations VALUES (5, 'Toilets', 45, 45);
 
 commit;
 

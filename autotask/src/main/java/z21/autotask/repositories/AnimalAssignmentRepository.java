@@ -13,13 +13,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional @Repository
 public interface AnimalAssignmentRepository extends JpaRepository<AnimalAssignment, Integer>{
-    @Query
-    List<AnimalAssignment> findByAnimalId(Integer animalId);
-
-    @Query
-    List<AnimalAssignment> findByTaskId(Integer taskId);
-
-    @Modifying
-    @Query(value = "INSERT INTO animal_assignments (animal_id, task_id) VALUES (:animal_id, :task_id)", nativeQuery = true)
-    void insertAnimalAssignment(@Param("animal_id") Integer animalId, @Param("task_id") Integer taskId);
+   
 }

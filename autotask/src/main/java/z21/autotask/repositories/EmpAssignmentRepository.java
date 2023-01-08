@@ -14,25 +14,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional @Repository
 public interface EmpAssignmentRepository extends JpaRepository<EmpAssignment, Integer>{
-    @Query
-    List<EmpAssignment> findByEmployeeId(Integer employeeId);
-
-    @Query
-    List<EmpAssignment> findByTaskId(Integer taskId);
-
-    @Query
-    List<EmpAssignment> findByEmployeeIdAndTaskId(Integer employeeId, Integer taskId);
-
-    @Query
-    List<EmpAssignment> findByEmployeeIdOrTaskId(Integer employeeId, Integer taskId);
-
-    @Query
-    List<EmpAssignment> findByEmployeeIdIn(List<Integer> employeeIds);
-
-    @Query
-    List<EmpAssignment> findByTaskIdIn(List<Integer> taskIds);
-
-    @Modifying @Query
-    void insertEmpAssignment(@Param("employee_id") Integer employeeId, @Param("task_id") Integer taskId);
 
 }
