@@ -17,13 +17,21 @@ import com.vaadin.flow.router.RouterLink;
 @Route("")
 public class MainLayout extends AppLayout {
 
+    // TODO implement login window to main view so its the first thing not logged in user sees
+    // TODO also implement map view as a default view for the users
+    // TODO implement restriction of views for certain users (if possible)
+    // TODO implement returning to main view when the logo gets clicked
+
     private Tabs getLinkTabs() {
         Tabs tabs = new Tabs();
-        tabs.add(createTab(VaadinIcon.TASKS, "Task List", AnimalListView.class), // TODO change AnimalFormView.class to main view - TasksView.class
-                createTab(VaadinIcon.USERS, "Employees", EmployeesView.class),
-                createTab(VaadinIcon.FORM, "Task Form", TaskFormView.class),
-                createTab(VaadinIcon.HAMMER, "Add Animal", AnimalFormView.class),
-                createTab(VaadinIcon.TWITTER, "Animals", AnimalListView.class));
+        tabs.add(createTab(VaadinIcon.TASKS, "Tasks List", AnimalListView.class), // TODO add here and implement TasksListView.class
+                createTab(VaadinIcon.FORM, "Add Task", TaskFormView.class),
+                createTab(VaadinIcon.USERS, "Employees List", EmployeesView.class), // TODO change name to EmployeeListView.class
+                createTab(VaadinIcon.TWITTER, "Animals List", AnimalListView.class),
+                createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
+                createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", AnimalFormView.class),     // TODO add here and implement EmployeeFormView.class
+                createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", AnimalFormView.class)); // TODO add here and implement TaskTypeFormView.class
+
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;
     }
