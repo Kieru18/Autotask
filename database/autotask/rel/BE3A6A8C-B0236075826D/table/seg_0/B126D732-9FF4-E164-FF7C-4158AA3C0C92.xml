@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B126D732-9FF4-E164-FF7C-4158AA3C0C92" name="animal_assignments">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>64643114-C185-225F-AB94-ED7BD2B54AB2</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="animal_id" id="99921EFE-1446-9AFA-01E0-EDBCFF7054CD">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>DABD7672-CC50-3D5E-56F6-4A4FAFF88085</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BC57D212-BD5B-2E78-6CC5-4199909929C7" referredColumn="906DA607-EC3D-704B-01D5-8E15A164CCB3"/>
+</associations>
+</Column>
+<Column name="task_id" id="7CF03683-7118-1FC1-E7F9-36584CE46B98">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>BFE1437F-F6E8-DF3C-D0DE-CC0E347B96A2</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D796AC95-F57E-7873-7519-1AE72DBEAC15" referredColumn="E9C20DD6-5647-EF60-CDFE-21085F14F602"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="354A13BB-9A89-57E7-AE7C-8FBD96E9D6C6" name="animal_assignments_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>F9064771-68F9-E105-0A91-F9539608D45F</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99921EFE-1446-9AFA-01E0-EDBCFF7054CD"/>
+<colUsage columnID="7CF03683-7118-1FC1-E7F9-36584CE46B98"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9DAA1ADC-73CF-460F-84EE-46D884CB103E" name="animal_assignments_animals_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>70AB2F79-7683-594E-F28E-7575F89B9800</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99921EFE-1446-9AFA-01E0-EDBCFF7054CD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="24E83A6B-6A50-661D-4829-89E4EB8289E2" name="animal_assignments_tasks_FK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>74518F55-DDDD-27D3-C019-D648D621711B</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7CF03683-7118-1FC1-E7F9-36584CE46B98"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
