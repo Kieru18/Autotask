@@ -2,6 +2,8 @@ package z21.autotask.views.list;
 
 import javax.annotation.security.PermitAll;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -28,7 +30,7 @@ public class MainLayout extends AppLayout {
     // TODO implement restriction of views for certain users (if possible)
     // TODO implement returning to main view when the logo gets clicked
 
-    private final SecurityService securityService;
+    private SecurityService securityService;
     
 
     private Tabs getLinkTabs() {
@@ -58,7 +60,7 @@ public class MainLayout extends AppLayout {
         return new Tab(Rlink);
     }
 
-    public MainLayout(SecurityService securityService) {
+    public MainLayout(@Autowired SecurityService securityService) {
         this.securityService = securityService;
 
         H1 title = new H1("AutoTask");
