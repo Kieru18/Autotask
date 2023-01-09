@@ -18,11 +18,20 @@ commit;
 
 SELECT * FROM locations;
 -- locations: location_id, name, latitude, longitude
-INSERT INTO locations VALUES (1, 'cage', 14, 88);
+INSERT INTO locations VALUES (1, 'Bird cage', 14, 88);
 INSERT INTO locations VALUES (2, 'Elephant reservoir', 13, 52);
 INSERT INTO locations VALUES (3, 'Cafe', 21, 37);
 INSERT INTO locations VALUES (4, 'Ticket window', 99, 99);
 INSERT INTO locations VALUES (5, 'Toilets', 45, 45);
+INSERT INTO locations VALUES (6, 'Snake reservoir', 13, 27);
+INSERT INTO locations VALUES (7, 'Lion reservoir', 69, 69);
+INSERT INTO locations VALUES (8, 'Monkey reservoir', 12, 69);
+INSERT INTO locations VALUES (9, 'Capybara reservoir', 69, 12);
+INSERT INTO locations VALUES (10, 'Penguin reservoir', 12, 12);
+INSERT INTO locations VALUES (11, 'Tiger reservoir', 1, 3);
+INSERT INTO locations VALUES (12, 'Giraffe reservoir', 3, 1);
+INSERT INTO locations VALUES (13, 'Panda reservoir', 6, 15);
+
 
 commit;
 

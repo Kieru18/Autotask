@@ -106,7 +106,7 @@ public class EmployeesView extends Div {
 
     private List<Employee> getAvailableEmployees()
     {
-        List<Employee> availableEmployees = dataService.getAllEmployees();
+        List<Employee> availableEmployees = dataService.getAvailableEmployees();
         return availableEmployees;
     }
     private List<Employee> getUnavailableEmployees()
@@ -116,7 +116,7 @@ public class EmployeesView extends Div {
     }
     private List<Employee> getAllEmployees()
     {
-        List<Employee> allEmployees = dataService.getAvailableEmployees();
+        List<Employee> allEmployees = dataService.getAllEmployees();
         return allEmployees;
     }
 }

@@ -23,6 +23,8 @@ public class DataService {
     private final TaskTypeRepository taskTypeRepository;
     private final TaskStatusRepository taskStatusRepository;
     private final TaskRepository taskRepository;
+    private final EmpAssignmentRepository empAssignmentRepository;
+    private final AnimalAssignmentRepository animalAssignmentRepository;
 
 
     @Autowired
@@ -35,7 +37,9 @@ public class DataService {
                        EmpStatusRepository empStatusRepository,
                        TaskTypeRepository taskTypeRepository,
                        TaskStatusRepository taskStatusRepository,
-                       TaskRepository taskRepository) {
+                       TaskRepository taskRepository,
+                       EmpAssignmentRepository empAssignmentRepository,
+                       AnimalAssignmentRepository animalAssignmentRepository) {
             this.animalRepository = animalRepository;
             this.employeeRepository = employeeRepository;
             this.speciesRepository = speciesRepository;
@@ -46,6 +50,8 @@ public class DataService {
             this.taskTypeRepository = taskTypeRepository;
             this.taskStatusRepository = taskStatusRepository;
             this.taskRepository = taskRepository;
+            this.empAssignmentRepository = empAssignmentRepository;
+            this.animalAssignmentRepository = animalAssignmentRepository;
         }
 
     public List<Animal> getAllAnimals() {
@@ -91,11 +97,17 @@ public class DataService {
     public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency){
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
-
-    public List<Employee> getUnavailableEmployees() { //TODO add finding by available status
-        return employeeRepository.findAll();
+    public void addEmpAssignment(Employee employee, Task task) {
+        empAssignmentRepository.assignEmployeeToTask(employee.getEmployeeId(), task.getTaskId());
     }
-    public List<Employee> getAvailableEmployees() {  //TODO add finding by unavailable status
-        return employeeRepository.findAll();
+        public void addAnimalAssignment(Animal animal, Task task) {
+            animalAssignmentRepository.assignAnimalToTask(animal.getAnimalId(), task.getTaskId());
+        }
+
+    public List<Employee> getUnavailableEmployees() {
+        return employeeRepository.findByStatus("unavailable");
+    }
+    public List<Employee> getAvailableEmployees() { 
+        return employeeRepository.findByStatus("available");
     }
 }
