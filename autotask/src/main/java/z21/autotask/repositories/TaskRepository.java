@@ -42,6 +42,8 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
     // @Query
     // List<Task> findByStatusId(Integer statusId);
 
+    @Query(value = "SELECT tasks_seq.CURRVAL FROM dual", nativeQuery = true)
+    Integer findLastTaskId();
 
     @Modifying @Query(value = "INSERT INTO tasks (description, date_start, date_end, deadline, priority, location_id, status_id, type_id) VALUES (:description, :date_start, :date_end, :deadline, :priority, :location_id, :status_id, :type_id)", nativeQuery = true)
     void insertTask(@Param("description") String description, 

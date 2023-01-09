@@ -1,5 +1,6 @@
 package z21.autotask.views.list;
 
+
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
@@ -10,12 +11,14 @@ import com.vaadin.flow.component.combobox.MultiSelectComboBox;
 import com.vaadin.flow.component.datetimepicker.DateTimePicker;
 import com.vaadin.flow.component.html.H1;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 import java.time.Duration;
+import java.util.Date;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,8 @@ import z21.autotask.entities.Animal;
 import z21.autotask.entities.Employee;
 import z21.autotask.entities.Location;
 import z21.autotask.entities.TaskType;
+import z21.autotask.entities.Task;
+import z21.autotask.entities.TaskStatus;
 import z21.autotask.service.DataService;
 
 @Route(value = "/taskForm", layout = MainLayout.class)
@@ -59,7 +64,7 @@ public class TaskFormView extends VerticalLayout {
     }
 
     private MultiSelectComboBox<Employee> prepareWhoMultiSelectComboBox(){
-        MultiSelectComboBox<Employee> MSCBwho = new MultiSelectComboBox<>("Who");
+        MultiSelectComboBox<Employee> MSCBwho = new MultiSelectComboBox<>("Employees");
         MSCBwho.setItems(dataService.getAllEmployees());
         return MSCBwho;
     }
@@ -89,14 +94,14 @@ public class TaskFormView extends VerticalLayout {
     }
 
     private ComboBox<Location> prepareWhereComboBox(){
-        ComboBox<Location> CBwhere = new ComboBox<>("Where");
+        ComboBox<Location> CBwhere = new ComboBox<>("Location");
         CBwhere.setItems(dataService.getAllLocations());
         return CBwhere;
     }
 
     private DateTimePicker prepareWhenDateTimePicker() {
         DateTimePicker DTPwhen = new DateTimePicker();
-        DTPwhen.setLabel("When");
+        DTPwhen.setLabel("Deadline");
         DTPwhen.setStep(Duration.ofMinutes(30));
         DTPwhen.setValue(LocalDateTime.now());
         return DTPwhen;
@@ -104,7 +109,7 @@ public class TaskFormView extends VerticalLayout {
 
     private TextArea prepareDescriptionTextArea() {
         int charLimit = 1000;
-        TextArea TADescription = new TextArea("Description");
+        TextArea TADescription = new TextArea("Details");
         TADescription.setWidthFull();
         TADescription.setMaxLength(charLimit);
         TADescription.setValueChangeMode(ValueChangeMode.EAGER);
@@ -119,21 +124,19 @@ public class TaskFormView extends VerticalLayout {
         buttons.add(BSubmit, BClear);
 
         BSubmit.addClickListener(click -> {
-            // TODO collect all data from form components, validate each input and if correct make Task class object and send to database
             Set<Animal> selectedAnimals = MSCBanimals.getSelectedItems();
             Set<Employee> selectedEmployees = MSCBwho.getSelectedItems();
             Location selectedLocation = CBwhere.getValue();
             TaskType selectedTaskGroup = CBtaskGroup.getValue();
-            LocalDateTime startOfTaskTime = LocalDateTime.now();        // TODO change LocalDateTime to class that best suits DataBase
-            LocalDateTime selectedDeadline = DTPwhen.getValue();        // TODO change LocalDateTime to class that best suits DataBase
+            Date startOfTaskTime = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());       
+            Date selectedDeadline =  Date.from(DTPwhen.getValue().atZone(ZoneId.systemDefault()).toInstant());
             String description = TADescription.getValue();
-            // TODO make Task object and try to insert it into database, send information for employees to update their task list
-            // dataService.addTask(description, startOfTaskTime, null, selectedDeadline, );
 
-            // temporary notification
-            String joined_animals = String.join(selectedAnimals.toString());
-            String joined_employees = String.join(selectedEmployees.toString());
-            Notification.show("Employees: " + joined_employees + " \n have to do: "+ selectedTaskGroup + "\n near: " + selectedLocation + "\n Selected Animals:" + joined_animals+"\nStart: "+ startOfTaskTime.toString() + " and deadline is: "+selectedDeadline);
+            TaskStatus newStatus = dataService.getAwaiting().get(0);
+            dataService.addTask(description, startOfTaskTime, null, selectedDeadline, 0, selectedLocation.getLocationId(), newStatus.getStatusId(), selectedTaskGroup.getTypeId(), 
+                                selectedEmployees, selectedAnimals);
+
+            Notification.show("Task added succesfully!");
         });
 
         BClear.addClickListener(click -> {
@@ -148,26 +151,5 @@ public class TaskFormView extends VerticalLayout {
         });
         return buttons;
     }
-
-
-    //    private ArrayList<String> getAniamalArrayList()
-//    {
-//        String[] animal_names = new String[] {"Koza1","MiśPolarnyJacek","MałpkaStefan","JeżRysiek"};
-//        return new ArrayList<>(Arrays.asList(animal_names));
-//    }
-//    private ArrayList<String> getEmployeesArrayList()
-//    {
-//        String[] employee_names = new String[] {"Jacek Kochanowski","Katarzyna Dąb","Krystian Fach","Aleksandra Chuligan"};
-//        return new ArrayList<>(Arrays.asList(employee_names));
-//    }
-//    private ArrayList<String> getTaskGroupArrayList()
-//    {
-//        String[] taskGroups = new String[] {"Sprzątanie Toalet","Karmienie","Zastrzyk","Obsługa Kasy", "Uzupełnianie Wody"};
-//        return new ArrayList<>(Arrays.asList(taskGroups));
-//    }    private ArrayList<String> getLocationArrayList()
-//    {
-//        String[] locations = new String[] {"Wybieg Słonia","Kawiarenka","Kasy", "Toalety"};
-//        return new ArrayList<>(Arrays.asList(locations));
-//    }
 
 }
