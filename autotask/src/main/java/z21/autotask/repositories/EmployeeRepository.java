@@ -29,6 +29,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query
     List<Employee> findByBirthDate(Date birthDate);
 
+    @Query(value = "SELECT employee_id, first_name, last_name, gender, birth_date, position_id, status_id, user_id FROM employees JOIN emp_status USING(status_id) WHERE description = :status", nativeQuery = true)
+    List<Employee> findByStatus(@Param("status") String status);
 
     @Modifying @Query(value = "INSERT INTO employees (first_name, last_name, gender, birth_date) VALUES (:first_name, :last_name, :gender, :birth_date)", nativeQuery = true)
     void insertEmployee(@Param("first_name") String firstName, 
