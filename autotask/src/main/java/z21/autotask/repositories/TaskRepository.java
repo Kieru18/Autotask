@@ -1,6 +1,6 @@
 package z21.autotask.repositories;
 
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,12 +33,24 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
     @Query
     List<Task> findByPriority(Integer priority);
 
+    @Query
+    List<Task> findByLocationLocationId(Integer locationId);
 
-    @Modifying @Query(value = "INSERT INTO tasks (description, date_start, date_end, deadline, priority) VALUES (:description, :date_start, :date_end, :deadline, :priority)", nativeQuery = true)
+    // @Query
+    // List<Task> findByTaskTypeTypeId(Integer typeId);
+
+    // @Query
+    // List<Task> findByStatusId(Integer statusId);
+
+
+    @Modifying @Query(value = "INSERT INTO tasks (description, date_start, date_end, deadline, priority, location_id, status_id, type_id) VALUES (:description, :date_start, :date_end, :deadline, :priority, :location_id, :status_id, :type_id)", nativeQuery = true)
     void insertTask(@Param("description") String description, 
                     @Param("date_start") Date dateStart, 
                     @Param("date_end") Date dateEnd,
                     @Param("deadline") Date deadline, 
-                    @Param("priority") Integer priority);
+                    @Param("priority") Integer priority,
+                    @Param("location_id") Integer locationId,
+                    @Param("status_id") Integer statusId,
+                    @Param("type_id") Integer typeId);
 
 }

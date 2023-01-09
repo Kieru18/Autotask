@@ -1,8 +1,7 @@
 package z21.autotask.repositories;
 
-import java.util.Date;
-import java.util.List;
 
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -13,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Animal;
 import z21.autotask.entities.Location;
-import z21.autotask.entities.Species;
 
 @Transactional @Repository
 public interface LocationRepository extends JpaRepository<Location, Integer> {

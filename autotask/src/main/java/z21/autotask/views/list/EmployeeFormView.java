@@ -14,6 +14,7 @@ import z21.autotask.entities.EmpStatus;
 import z21.autotask.entities.Location;
 import z21.autotask.entities.Position;
 import z21.autotask.entities.Species;
+import z21.autotask.entities.User;
 import z21.autotask.service.DataService;
 
 import java.time.LocalDate;
@@ -52,12 +53,15 @@ public class EmployeeFormView extends FormLayout {
         addButton.addClickListener(click -> {
             String firstName = firstNameTF.getValue();
             String lastName = lastNameTF.getValue();
+            
+            User user = new User();
+            Integer userId = user.getUserId();
 
             Integer positionId = CBposition.getValue().getPositionId();
             Integer empStatusId = CBempStatus.getValue().getStatusId();
             char gender = CBgender.getValue().charAt(0);
             Date birthDate = Date.from(DTPdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            dataService.addEmployee(firstName, lastName,  gender, birthDate);
+            dataService.addEmployee(firstName, lastName,  gender, birthDate, positionId, empStatusId, userId);
 
             Notification.show("Successfully added new Animal to database!");
         });

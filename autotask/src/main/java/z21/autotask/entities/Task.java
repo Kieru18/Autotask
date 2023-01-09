@@ -1,23 +1,15 @@
 package z21.autotask.entities;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -61,13 +53,4 @@ public class Task {
     @JoinColumn(name = "type_id", referencedColumnName = "type_id")
     private TaskType type;
 
-    // @ManyToMany(fetch = FetchType.LAZY,
-    //         cascade = {
-    //             CascadeType.PERSIST,
-    //             CascadeType.MERGE
-    //         })
-    // @JoinTable(name = "animal_assignments",
-    //            joinColumns = { @JoinColumn(name = "task_id") },
-    //            inverseJoinColumns = { @JoinColumn(name = "animal_id") })
-    // private Set<Animal> animals = new HashSet<>();
 }

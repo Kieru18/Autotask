@@ -88,13 +88,13 @@ public class DataService {
     public void addAnimal(String name, Integer locationId, Integer speciesId, Float weight, Date birthDate) {
         animalRepository.insertAnimal(name, locationId, speciesId, weight, birthDate);
     }
-    public void addEmployee(String firstName, String lastName, char gender, Date birthDate){
-        employeeRepository.insertEmployee(firstName, lastName, gender, birthDate);
+    public void addEmployee(String firstName, String lastName, char gender, Date birthDate, Integer positionId, Integer statusId, Integer userId) {
+        employeeRepository.insertEmployee(firstName, lastName, gender, birthDate, positionId, statusId, userId);
     }
-    public void addTask(String description, Date dateStart, Date dateEnd, Date deadline, Integer priority){
-        taskRepository.insertTask(description, dateStart, dateEnd, deadline, priority);
+    public void addTask(String description, Date dateStart, Date dateEnd, Date deadline, Integer priority, Integer locationId, Integer statusId, Integer typeId) {
+        taskRepository.insertTask(description, dateStart, dateEnd, deadline, priority, locationId, statusId, typeId);
     }
-    public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency){
+    public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency) {
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
     public void addEmpAssignment(Employee employee, Task task) {
