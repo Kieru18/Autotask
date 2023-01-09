@@ -17,7 +17,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
-import z21.autotask.service.SecurityService;
+import z21.autotask.security.SecurityService;
 
 @PermitAll
 @Route("")
