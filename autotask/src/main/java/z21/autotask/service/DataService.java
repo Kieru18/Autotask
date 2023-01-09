@@ -126,4 +126,8 @@ public class DataService {
     public List<Employee> getAvailableEmployees() { 
         return employeeRepository.findByStatus("available");
     }
+
+    public List<Employee> getListOfAttachedEmployees(Task task){
+        return employeeRepository.findAll();
+    }
 }

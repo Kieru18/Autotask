@@ -19,6 +19,9 @@ import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @PageTitle("List of all animals")
@@ -42,14 +45,12 @@ public class AnimalsListView extends VerticalLayout {
 
     @Transactional
     void configureGrid() {
-        SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-mm-dd");
         grid.addClassNames("animals-grid");
         grid.setSizeFull();
 
         grid.addColumn(Animal::getAnimalId).setHeader("ID");
-        grid.addColumn(Animal::getName).setHeader("Name").setFlexGrow(0)
-                .setWidth("230px");
-        grid.addColumn(Animal -> dt1.format(Animal.getBirthDate())).setHeader("Date of birth");
+        grid.addColumn(Animal::getName).setHeader("Name");
+        grid.addColumn(Animal -> Animal.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()).setHeader("Date of birth");
         grid.addColumn(Animal::getWeight).setHeader("Weight");
         grid.addColumn(Animal -> Animal.getLocation().getName()).setHeader("Location");
         grid.addColumn(Animal -> Animal.getSpecies().getName()).setHeader("Species");
