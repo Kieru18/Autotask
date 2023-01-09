@@ -1,4 +1,4 @@
-package z21.autotask.views.list;
+package z21.autotask.views.form;
 
 
 import com.vaadin.flow.component.button.Button;
@@ -28,6 +28,7 @@ import z21.autotask.entities.Location;
 import z21.autotask.entities.TaskType;
 import z21.autotask.entities.TaskStatus;
 import z21.autotask.service.DataService;
+import z21.autotask.views.MainLayout;
 
 @Route(value = "/taskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
