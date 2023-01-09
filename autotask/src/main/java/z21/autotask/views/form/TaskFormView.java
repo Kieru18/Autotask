@@ -74,16 +74,6 @@ public class TaskFormView extends VerticalLayout {
         MultiSelectComboBox<Animal> MSCBanimals = new MultiSelectComboBox<>("Animals");
         MSCBanimals.setItems(dataService.getAllAnimals());
 
-//        MSCBanimals.addSelectionListener(e-> {
-//            Optional<Animal> recentlySelectedValue = e.getFirstSelectedItem();
-//
-//            // TODO get associated location of selected animal and update this function
-//            if(recentlySelectedValue.isPresent())
-//            {
-//                CBwhere.setValue(recentlySelectedValue.get().getLocation());
-//            }
-//        });
-
         return MSCBanimals;
     }
 
@@ -133,7 +123,14 @@ public class TaskFormView extends VerticalLayout {
             String description = TADescription.getValue();
 
             TaskStatus newStatus = dataService.getAwaiting().get(0);
-            dataService.addTask(description, startOfTaskTime, null, selectedDeadline, 0, selectedLocation.getLocationId(), newStatus.getStatusId(), selectedTaskGroup.getTypeId(), 
+
+            Integer selectedPriority = null;
+            Integer priority = selectedTaskGroup.getBasePriority();
+            if (selectedPriority != null) {
+                priority = selectedPriority;
+            }
+
+            dataService.addTask(description, startOfTaskTime, null, selectedDeadline, priority, selectedLocation.getLocationId(), newStatus.getStatusId(), selectedTaskGroup.getTypeId(), 
                                 selectedEmployees, selectedAnimals);
 
             Notification.show("Task added succesfully!");

@@ -50,15 +50,12 @@ public class EmployeeFormView extends FormLayout {
         addButton.addClickListener(click -> {
             String firstName = firstNameTF.getValue();
             String lastName = lastNameTF.getValue();
-            
-            User user = new User();
-            Integer userId = 1;
 
             Integer positionId = CBposition.getValue().getPositionId();
             Integer empStatusId = CBempStatus.getValue().getStatusId();
             char gender = CBgender.getValue().charAt(0);
             Date birthDate = Date.from(DTPdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-            dataService.addEmployee(firstName, lastName,  gender, birthDate, positionId, empStatusId, userId);
+            dataService.addEmployee(firstName, lastName,  gender, birthDate, positionId, empStatusId, null);
 
             Notification.show("Successfully added new Employee to database!");
         });
