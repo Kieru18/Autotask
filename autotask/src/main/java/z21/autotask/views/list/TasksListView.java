@@ -18,6 +18,9 @@ import z21.autotask.service.DataService;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @PageTitle("List of all tasks")
 @Route(value = "/tasks", layout = MainLayout.class)
 public class TasksListView extends VerticalLayout {

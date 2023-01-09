@@ -19,6 +19,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @Route(value = "/employeeForm", layout = MainLayout.class)
 public class EmployeeFormView extends FormLayout {
 
