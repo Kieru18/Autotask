@@ -110,7 +110,7 @@ public class DataService {
             addAnimalAssignment(animal, lastTaskId);
         }
     }
-    public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency) {
+    public void addTaskType(String name, String description, Integer base_priority, Date frequency) {
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
     private void addEmpAssignment(Employee employee, Integer taskId) {

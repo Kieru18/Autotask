@@ -2,6 +2,7 @@ package z21.autotask.repositories;
 
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -35,6 +36,6 @@ public interface TaskTypeRepository extends JpaRepository<TaskType, Integer> {
     void insertTaskType(@Param("name") String name, 
                         @Param("description") String description,
                         @Param("base_priority") Integer basePriority,
-                        @Param("frequency") SimpleDateFormat frequency);
+                        @Param("frequency") Date frequency);
 
 }

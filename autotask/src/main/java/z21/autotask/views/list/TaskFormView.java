@@ -26,7 +26,6 @@ import z21.autotask.entities.Animal;
 import z21.autotask.entities.Employee;
 import z21.autotask.entities.Location;
 import z21.autotask.entities.TaskType;
-import z21.autotask.entities.Task;
 import z21.autotask.entities.TaskStatus;
 import z21.autotask.service.DataService;
 
@@ -129,7 +128,7 @@ public class TaskFormView extends VerticalLayout {
             Location selectedLocation = CBwhere.getValue();
             TaskType selectedTaskGroup = CBtaskGroup.getValue();
             Date startOfTaskTime = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());       
-            Date selectedDeadline =  Date.from(DTPwhen.getValue().atZone(ZoneId.systemDefault()).toInstant());
+            Date selectedDeadline = Date.from(DTPwhen.getValue().atZone(ZoneId.systemDefault()).toInstant());
             String description = TADescription.getValue();
 
             TaskStatus newStatus = dataService.getAwaiting().get(0);
