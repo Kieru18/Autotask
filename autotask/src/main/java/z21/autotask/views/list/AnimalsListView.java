@@ -2,6 +2,7 @@ package z21.autotask.views.list;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -51,9 +52,15 @@ public class AnimalsListView extends VerticalLayout {
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
-        //Button addAnimalButton = new Button("Add animal");
+        Button addAnimalButton = new Button("Add animal");
+        addAnimalButton.addClickListener(click ->{
+            addAnimalButton.getUI().ifPresent(ui ->
+                    ui.navigate("animalForm"));
+            Notification.show("Switching tab to animal adding form!");
+        });
 
-        HorizontalLayout toolbar = new HorizontalLayout(filterText);
+
+        HorizontalLayout toolbar = new HorizontalLayout(filterText, addAnimalButton);
         toolbar.addClassName("toolbar");
         return toolbar;
     }
