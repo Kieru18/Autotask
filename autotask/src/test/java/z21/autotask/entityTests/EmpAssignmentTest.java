@@ -10,7 +10,6 @@ import z21.autotask.entities.EmpAssignment;
 import z21.autotask.entities.EmpStatus;
 import z21.autotask.entities.Location;
 import z21.autotask.entities.Position;
-import z21.autotask.entities.Species;
 import z21.autotask.entities.Task;
 import z21.autotask.entities.TaskStatus;
 import z21.autotask.entities.TaskType;

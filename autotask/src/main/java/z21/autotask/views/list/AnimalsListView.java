@@ -2,12 +2,14 @@ package z21.autotask.views.list;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,14 +24,14 @@ import javax.annotation.security.PermitAll;
 @PermitAll
 @PageTitle("List of all animals")
 @Route(value = "/animals", layout = MainLayout.class)
-public class AnimalListView extends VerticalLayout {
+public class AnimalsListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Animal> grid = new Grid<>(Animal.class);
     TextField filterText = new TextField();
 
 
     @Autowired
-    public AnimalListView(DataService dataService) {
+    public AnimalsListView(DataService dataService) {
         this.dataService = dataService;
         addClassName("list-view");
         setSizeFull();
@@ -55,6 +57,13 @@ public class AnimalListView extends VerticalLayout {
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
         Button addAnimalButton = new Button("Add animal");
+        addAnimalButton.addClickListener(click ->{
+            addAnimalButton.getUI().ifPresent(ui ->
+                    ui.navigate("animalForm"));
+
+            Notification.show("Switching tab to animal form.");
+        });
+
 
         HorizontalLayout toolbar = new HorizontalLayout(filterText, addAnimalButton);
         toolbar.addClassName("toolbar");

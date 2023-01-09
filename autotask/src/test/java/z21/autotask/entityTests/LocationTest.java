@@ -1,13 +1,10 @@
 package z21.autotask.entityTests;
 
-import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import z21.autotask.entities.Animal;
 import z21.autotask.entities.Location;
-import z21.autotask.entities.Species;
 
 public class LocationTest {
     @Test

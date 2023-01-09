@@ -11,8 +11,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Animal;
-import z21.autotask.entities.Location;
-import z21.autotask.entities.Species;
 
 @Transactional @Repository
 public interface AnimalRepository extends JpaRepository<Animal, Integer> {
@@ -22,11 +20,11 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     @Query
     List<Animal> findByName(String name);
 
-    // @Query
-    // List<Animal> findByLocationId(Integer locationId);
+    @Query
+    List<Animal> findByLocationLocationId(Integer locationId);
 
-    // @Query
-    // List<Animal> findBySpeciesId(Integer speciesId);
+    @Query
+    List<Animal> findBySpeciesSpeciesId(Integer speciesId);
 
     @Query
     List<Animal> findByWeight(Float weight);

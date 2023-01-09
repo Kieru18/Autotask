@@ -1,23 +1,17 @@
 package z21.autotask.entities;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -50,14 +44,5 @@ public class Animal {
 
     @Column(name = "birth_date") 
     private Date birthDate;
-
-    // @ManyToMany(fetch = FetchType.LAZY,
-    //         cascade = {
-    //             CascadeType.PERSIST,
-    //             CascadeType.MERGE
-    //         },
-    //         mappedBy = "animals")
-    // @JsonIgnore
-    // private Set<Task> tasks = new HashSet<>();
 
 }

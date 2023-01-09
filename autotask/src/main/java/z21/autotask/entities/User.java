@@ -10,7 +10,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data @Entity
 @EqualsAndHashCode(exclude="employee")
