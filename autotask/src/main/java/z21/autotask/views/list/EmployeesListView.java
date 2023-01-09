@@ -97,8 +97,11 @@ public class EmployeesListView extends Div {
         VerticalLayout contactLayout = new VerticalLayout();
         contactLayout.setSpacing(false);
         contactLayout.setPadding(false);
-        contactLayout.add(new Div(new Text(person.getEmail())));
-        infoLayout.add(new Details("Contact information", contactLayout));
+        if(person.getUser() != null) {
+            contactLayout.add(new Div(new Text(person.getEmail())));
+            infoLayout.add(new Details("Contact information", contactLayout));
+        }
+        
 
         cardLayout.add(avatar, infoLayout);
         return cardLayout;

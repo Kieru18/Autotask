@@ -60,31 +60,31 @@ public class EmployeeFormView extends FormLayout {
             Date birthDate = Date.from(DTPdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
             dataService.addEmployee(firstName, lastName,  gender, birthDate, positionId, empStatusId, userId);
 
-            Notification.show("Successfully added new Animal to database!");
+            Notification.show("Successfully added new Employee to database!");
         });
         add(firstNameTF,lastNameTF, CBgender, CBposition,CBempStatus, DTPdateOfBirth, addButton);
     }
 
-    private ComboBox<Position> preparePositionsComboBox(){
+    private ComboBox<Position> preparePositionsComboBox() {
         ComboBox<Position> CBposition = new ComboBox<>("Position");
         CBposition.setItems(dataService.getAllPositions());
         return CBposition;
     }
 
-    private ComboBox<EmpStatus> prepareEmpStatusComboBox(){
+    private ComboBox<EmpStatus> prepareEmpStatusComboBox() {
         ComboBox<EmpStatus> CBempStatus = new ComboBox<>("Employee Status");
         CBempStatus.setItems(dataService.getAllEmpStatuses());
         return CBempStatus;
     }
 
-    private ComboBox<String> prepareGenderComboBox(){
+    private ComboBox<String> prepareGenderComboBox() {
         ComboBox<String> CBspecies = new ComboBox<>("Gender");
-        String[] genders = new String[]{"Women", "Men", "Unknown"};
+        String[] genders = new String[]{"Woman", "Man", "Unknown"};
         CBspecies.setItems(genders);
         return CBspecies;
     }
 
-    private DatePicker prepareDatePicker(){
+    private DatePicker prepareDatePicker() {
         DatePicker DTPwhen = new DatePicker();
         DTPwhen.setLabel("Date of birth");
         DTPwhen.setValue(LocalDate.now());
