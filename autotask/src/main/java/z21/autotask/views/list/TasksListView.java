@@ -21,7 +21,6 @@ import z21.autotask.entities.Task;
 import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
-import java.time.ZoneId;
 import java.util.List;
 
 @PageTitle("List of all tasks")
@@ -59,11 +58,16 @@ public class TasksListView extends VerticalLayout {
 
         grid.addColumn(new ComponentRenderer<>(Task -> {
             VirtualList<Employee> list = new VirtualList<>();
-            list.setItems(dataService.getAllEmployees());
+            list.setItems(dataService.getAllEmployees()); //TODO change to function that gets employees for specific task
             return list ;
             })).setHeader("Employees");
 
-        
+        grid.addColumn(new ComponentRenderer<>(Task -> {
+            VirtualList<Animal> list = new VirtualList<>();
+            list.setItems(dataService.getAllAnimals()); //TODO change to function that gets animals for specific task
+            return list ;
+        })).setHeader("Animals");
+
         List<Task> listOfTasks = dataService.getAllTasks();
 
         grid.setItems(listOfTasks);
