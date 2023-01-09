@@ -18,6 +18,8 @@ import com.vaadin.flow.router.Route;
 import java.time.Duration;
 import java.util.Set;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.Animal;
 import z21.autotask.entities.Employee;
@@ -25,6 +27,7 @@ import z21.autotask.entities.Location;
 import z21.autotask.entities.TaskType;
 import z21.autotask.service.DataService;
 
+@PermitAll
 @Route(value = "/TaskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
     private final DataService dataService;

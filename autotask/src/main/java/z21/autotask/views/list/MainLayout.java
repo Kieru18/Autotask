@@ -1,5 +1,7 @@
 package z21.autotask.views.list;
 
+import javax.annotation.security.PermitAll;
+
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -14,6 +16,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
+@PermitAll
 @Route("")
 public class MainLayout extends AppLayout {
 

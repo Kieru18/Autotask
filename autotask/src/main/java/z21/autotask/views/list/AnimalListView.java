@@ -17,6 +17,9 @@ import z21.autotask.service.DataService;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @PageTitle("List of all animals")
 @Route(value = "/animals", layout = MainLayout.class)
 public class AnimalListView extends VerticalLayout {

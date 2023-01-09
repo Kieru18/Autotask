@@ -18,6 +18,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @Route(value = "/animalForm", layout = MainLayout.class)
 public class AnimalFormView extends FormLayout {
 

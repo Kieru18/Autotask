@@ -3,3 +3,8 @@
 autotask/frontend/generated/index.ts
 autotask/frontend/generated/vite-devmode.ts
 autotask/package.json
+
+autotask/node_modules/
+autotask/package-lock.json
+autotask/vite.generated.ts
+autotask/vite.config.ts
