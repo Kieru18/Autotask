@@ -1,6 +1,5 @@
 package z21.autotask.views.list;
 
-
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
@@ -52,7 +51,7 @@ public class EmployeeFormView extends FormLayout {
             String lastName = lastNameTF.getValue();
             
             User user = new User();
-            Integer userId = user.getUserId();
+            Integer userId = 1;
 
             Integer positionId = CBposition.getValue().getPositionId();
             Integer empStatusId = CBempStatus.getValue().getStatusId();

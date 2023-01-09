@@ -30,7 +30,7 @@ public class MainLayout extends AppLayout {
                 createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class),
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", EmployeeFormView.class),
-                createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", AnimalFormView.class)); // TODO add here and implement TaskTypeFormView.class
+                createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", TaskTypeFormView.class));
 
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;

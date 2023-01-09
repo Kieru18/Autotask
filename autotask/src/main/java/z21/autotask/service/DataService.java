@@ -94,7 +94,7 @@ public class DataService {
     public void addTask(String description, Date dateStart, Date dateEnd, Date deadline, Integer priority, Integer locationId, Integer statusId, Integer typeId) {
         taskRepository.insertTask(description, dateStart, dateEnd, deadline, priority, locationId, statusId, typeId);
     }
-    public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency) {
+    public void addTaskType(String name, String description, Integer base_priority, Date frequency) {
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
     public void addEmpAssignment(Employee employee, Task task) {

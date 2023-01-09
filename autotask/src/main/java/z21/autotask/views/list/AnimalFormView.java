@@ -25,7 +25,7 @@ public class AnimalFormView extends VerticalLayout {
     private final DataService dataService;
     private final ComboBox<Species> CBspecies;
     private final ComboBox<Location> CBlocation;
-    private final DatePicker DTPdateOfBirth;
+    private final DatePicker DTdateOfBirth;
     private final TextField nameTF;
     private final TextField weightTF;
 
@@ -41,10 +41,10 @@ public class AnimalFormView extends VerticalLayout {
         weightTF = new TextField("Weight:");
         CBspecies = prepareSpeciesComboBox();
         CBlocation = prepareLocationComboBox();
-        DTPdateOfBirth = prepareDatePicker();
+        DTdateOfBirth = prepareDatePicker();
         buttons = prepareButtons();
 
-        animalForm.add(nameTF, weightTF, CBspecies, CBlocation, DTPdateOfBirth, buttons);
+        animalForm.add(nameTF, weightTF, CBspecies, CBlocation, DTdateOfBirth, buttons);
 
         H1 title = new H1("Add Animal");
         add(title, animalForm);
@@ -62,7 +62,7 @@ public class AnimalFormView extends VerticalLayout {
             Float weight = Float.parseFloat(weightTF.getValue());
             Integer locationId = CBlocation.getValue().getLocationId();
             Integer speciesId = CBspecies.getValue().getSpeciesId();
-            Date birthDate = Date.from(DTPdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date birthDate = Date.from(DTdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
             dataService.addAnimal(name, locationId, speciesId, weight, birthDate);
 
             Notification.show("Successfully added new Animal to database!");
@@ -73,7 +73,7 @@ public class AnimalFormView extends VerticalLayout {
             weightTF.clear();
             CBlocation.clear();
             CBspecies.clear();
-            DTPdateOfBirth.setValue(LocalDate.now());
+            DTdateOfBirth.setValue(LocalDate.now());
 
             Notification.show("All info cleared.");
         });

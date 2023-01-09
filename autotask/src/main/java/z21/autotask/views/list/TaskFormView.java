@@ -16,6 +16,8 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 import java.time.Duration;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -124,8 +126,8 @@ public class TaskFormView extends VerticalLayout {
             Set<Employee> selectedEmployees = MSCBwho.getSelectedItems();
             Location selectedLocation = CBwhere.getValue();
             TaskType selectedTaskGroup = CBtaskGroup.getValue();
-            LocalDateTime startOfTaskTime = LocalDateTime.now();        // TODO change LocalDateTime to class that best suits DataBase
-            LocalDateTime selectedDeadline = DTPwhen.getValue();        // TODO change LocalDateTime to class that best suits DataBase
+            Date startOfTaskTime = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
+            Date selectedDeadline =  Date.from(DTPwhen.getValue().atZone(ZoneId.systemDefault()).toInstant());
             String description = TADescription.getValue();
             // TODO make Task object and try to insert it into database, send information for employees to update their task list
             // dataService.addTask(description, startOfTaskTime, null, selectedDeadline, );
@@ -149,25 +151,5 @@ public class TaskFormView extends VerticalLayout {
         return buttons;
     }
 
-
-    //    private ArrayList<String> getAniamalArrayList()
-//    {
-//        String[] animal_names = new String[] {"Koza1","MiśPolarnyJacek","MałpkaStefan","JeżRysiek"};
-//        return new ArrayList<>(Arrays.asList(animal_names));
-//    }
-//    private ArrayList<String> getEmployeesArrayList()
-//    {
-//        String[] employee_names = new String[] {"Jacek Kochanowski","Katarzyna Dąb","Krystian Fach","Aleksandra Chuligan"};
-//        return new ArrayList<>(Arrays.asList(employee_names));
-//    }
-//    private ArrayList<String> getTaskGroupArrayList()
-//    {
-//        String[] taskGroups = new String[] {"Sprzątanie Toalet","Karmienie","Zastrzyk","Obsługa Kasy", "Uzupełnianie Wody"};
-//        return new ArrayList<>(Arrays.asList(taskGroups));
-//    }    private ArrayList<String> getLocationArrayList()
-//    {
-//        String[] locations = new String[] {"Wybieg Słonia","Kawiarenka","Kasy", "Toalety"};
-//        return new ArrayList<>(Arrays.asList(locations));
-//    }
 
 }
