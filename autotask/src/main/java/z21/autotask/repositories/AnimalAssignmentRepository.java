@@ -13,12 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional @Repository
 public interface AnimalAssignmentRepository extends JpaRepository<AnimalAssignment, Integer>{
-//    @Query("SELECT a FROM AnimalAssignment a WHERE a.taskId = :taskId")
-//     List<AnimalAssignment> findByTaskId(@Param("taskId") int taskId);
+    
+    @Query(value = "SELECT * FROM animal_assignments WHERE task_id = :task_id", nativeQuery = true)
+    List<AnimalAssignment> findByTask(@Param("task_id") Integer taskId);
 
-//     @Query("SELECT a FROM AnimalAssignment a WHERE a.animalId = :animalId")
-//     List<AnimalAssignment> findByAnimalId(@Param("animalId") int animalId);
-
+    @Query(value = "SELECT * FROM animal_assignments WHERE animal_id = :animal_id", nativeQuery = true)
+    List<AnimalAssignment> findByAnimal(@Param("animal_id") Integer animalId);
+    
     @Modifying @Query(value = "INSERT INTO animal_assignments (animal_id, task_id) VALUES (:animal_id, :task_id)", nativeQuery = true)
     void assignAnimalToTask(@Param("animal_id") int animal_id, @Param("task_id") int task_id);
 }
