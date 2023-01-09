@@ -24,10 +24,10 @@ public class MainLayout extends AppLayout {
 
     private Tabs getLinkTabs() {
         Tabs tabs = new Tabs();
-        tabs.add(createTab(VaadinIcon.TASKS, "Tasks List", AnimalListView.class), // TODO add here and implement TasksListView.class
+        tabs.add(createTab(VaadinIcon.TASKS, "Tasks List", TasksListView.class),
                 createTab(VaadinIcon.FORM, "Add Task", TaskFormView.class),
-                createTab(VaadinIcon.USERS, "Employees List", EmployeesView.class), // TODO change name to EmployeeListView.class
-                createTab(VaadinIcon.TWITTER, "Animals List", AnimalListView.class),
+                createTab(VaadinIcon.USERS, "Employees List", EmployeesListView.class),
+                createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class),
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", AnimalFormView.class),     // TODO add here and implement EmployeeFormView.class
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", AnimalFormView.class)); // TODO add here and implement TaskTypeFormView.class

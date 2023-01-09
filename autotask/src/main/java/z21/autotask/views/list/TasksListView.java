@@ -2,6 +2,7 @@ package z21.autotask.views.list;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -12,21 +13,21 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import z21.autotask.entities.Animal;
+import z21.autotask.entities.Task;
 import z21.autotask.service.DataService;
 
 import java.util.List;
 
-@PageTitle("List of all animals")
-@Route(value = "/animals", layout = MainLayout.class)
-public class AnimalListView extends VerticalLayout {
+@PageTitle("List of all tasks")
+@Route(value = "/tasks", layout = MainLayout.class)
+public class TasksListView extends VerticalLayout {
     private final DataService dataService;
-    Grid<Animal> grid = new Grid<>(Animal.class);
+    Grid<Task> grid = new Grid<>(Task.class);
     TextField filterText = new TextField();
 
 
     @Autowired
-    public AnimalListView(DataService dataService) {
+    public TasksListView(DataService dataService) {
         this.dataService = dataService;
         addClassName("list-view");
         setSizeFull();
@@ -37,12 +38,12 @@ public class AnimalListView extends VerticalLayout {
 
     @Transactional
     void configureGrid() {
-        grid.addClassNames("animals-grid");
+        grid.addClassNames("tasks-grid");
         grid.setSizeFull();
 
-        List<Animal> listOfAnimals = dataService.getAllAnimals();
+        List<Task> listOfTasks = dataService.getAllTasks();
 
-        grid.setItems(listOfAnimals);
+        grid.setItems(listOfTasks);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
     }
 
@@ -51,9 +52,14 @@ public class AnimalListView extends VerticalLayout {
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY);
 
-        Button addAnimalButton = new Button("Add animal");
+        Button addTaskButton = new Button("Add task");
 
-        HorizontalLayout toolbar = new HorizontalLayout(filterText, addAnimalButton);
+        addTaskButton.addClickListener(click -> {
+            // TODO switch tabs on click
+            Notification.show("Switching tabs to tasks form!");
+        });
+
+        HorizontalLayout toolbar = new HorizontalLayout(filterText, addTaskButton);
         toolbar.addClassName("toolbar");
         return toolbar;
     }

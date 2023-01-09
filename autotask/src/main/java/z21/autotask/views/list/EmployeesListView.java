@@ -20,7 +20,7 @@ import z21.autotask.service.DataService;
 import java.util.List;
 
 @Route(value = "/Employees", layout = MainLayout.class)
-public class EmployeesView extends Div {
+public class EmployeesListView extends Div {
 
 
     private final DataService dataService;
@@ -44,7 +44,7 @@ public class EmployeesView extends Div {
         }
     }
     @Autowired
-    public EmployeesView(DataService dataService) {
+    public EmployeesListView(DataService dataService) {
         this.dataService = dataService;
         available = new Tab(VaadinIcon.CHECK.create(), new Span("Available"));
         unavailable = new Tab(VaadinIcon.CLOSE.create(), new Span("Unavailable"));
