@@ -11,16 +11,13 @@ import com.vaadin.flow.router.Route;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.EmpStatus;
-import z21.autotask.entities.Location;
 import z21.autotask.entities.Position;
-import z21.autotask.entities.Species;
 import z21.autotask.entities.User;
 import z21.autotask.service.DataService;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.List;
 
 @Route(value = "/employeeForm", layout = MainLayout.class)
 public class EmployeeFormView extends FormLayout {

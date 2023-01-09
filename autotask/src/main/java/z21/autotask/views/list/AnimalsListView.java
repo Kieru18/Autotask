@@ -10,6 +10,7 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,7 +57,8 @@ public class AnimalsListView extends VerticalLayout {
         addAnimalButton.addClickListener(click ->{
             addAnimalButton.getUI().ifPresent(ui ->
                     ui.navigate("animalForm"));
-            Notification.show("Switching tab to animal adding form!");
+
+            Notification.show("Switching tab to animal form.");
         });
 
 

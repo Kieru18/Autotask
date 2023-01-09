@@ -144,7 +144,7 @@ public class TaskFormView extends VerticalLayout {
             DTPwhen.setValue(LocalDateTime.now());
             TADescription.clear();
 
-            Notification.show("All info's cleared!");
+            Notification.show("All info cleared.");
         });
         return buttons;
     }

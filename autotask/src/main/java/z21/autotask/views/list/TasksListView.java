@@ -57,7 +57,7 @@ public class TasksListView extends VerticalLayout {
         addTaskButton.addClickListener(click ->{
                 addTaskButton.getUI().ifPresent(ui ->
                             ui.navigate("taskForm"));
-            Notification.show("Switching  to task adding form!");
+            Notification.show("Switching to task form.");
         });
 
         HorizontalLayout toolbar = new HorizontalLayout(filterText, addTaskButton);

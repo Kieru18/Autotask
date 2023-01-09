@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import z21.autotask.entities.EmpStatus;
-import z21.autotask.entities.Employee;
 
 public class EmpStatusTest {
     @Test

@@ -75,7 +75,7 @@ public class AnimalFormView extends VerticalLayout {
             CBspecies.clear();
             DTPdateOfBirth.setValue(LocalDate.now());
 
-            Notification.show("All info's cleared!");
+            Notification.show("All info cleared.");
         });
         return buttons;
     }
