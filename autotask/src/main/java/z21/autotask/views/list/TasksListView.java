@@ -123,12 +123,20 @@ public class TasksListView extends VerticalLayout {
 
     private void updateEmployeeDialog(Task task){
         dialogEmployees.removeAll();
-        dialogEmployees.add(getEmployeesCards(dataService.getEmployeesByTask(task)));
+        List<Employee> employees = dataService.getEmployeesByTask(task);
+        if (!employees.isEmpty())
+            dialogEmployees.add(getEmployeesCards(employees));
+        else
+            dialogEmployees.add(new VerticalLayout());
 
     }
     private void updateAnimalDialog(Task task){
         dialogAnimals.removeAll();
-        dialogAnimals.add(getAnimalsList(dataService.getAnimalsByTask(task)));
+        List<Animal> animals = dataService.getAnimalsByTask(task);
+        if (!animals.isEmpty())
+            dialogAnimals.add(getAnimalsList(animals));
+        else
+            dialogAnimals.add(new VerticalLayout());
     }
 
     private VerticalLayout getAnimalsList(List<Animal> animals){
