@@ -65,12 +65,14 @@ public class EmployeeFormView extends FormLayout {
     private ComboBox<Position> preparePositionsComboBox() {
         ComboBox<Position> CBposition = new ComboBox<>("Position");
         CBposition.setItems(dataService.getAllPositions());
+        CBposition.setItemLabelGenerator(Position::getName);
         return CBposition;
     }
 
     private ComboBox<EmpStatus> prepareEmpStatusComboBox() {
         ComboBox<EmpStatus> CBempStatus = new ComboBox<>("Employee Status");
         CBempStatus.setItems(dataService.getAllEmpStatuses());
+        CBempStatus.setItemLabelGenerator(EmpStatus::getDescription);
         return CBempStatus;
     }
 

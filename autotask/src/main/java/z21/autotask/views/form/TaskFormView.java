@@ -66,6 +66,7 @@ public class TaskFormView extends VerticalLayout {
     private MultiSelectComboBox<Employee> prepareWhoMultiSelectComboBox(){
         MultiSelectComboBox<Employee> MSCBwho = new MultiSelectComboBox<>("Employees");
         MSCBwho.setItems(dataService.getAllEmployees());
+        MSCBwho.setItemLabelGenerator(Employee::getFullName);
         return MSCBwho;
     }
 
@@ -73,19 +74,21 @@ public class TaskFormView extends VerticalLayout {
 
         MultiSelectComboBox<Animal> MSCBanimals = new MultiSelectComboBox<>("Animals");
         MSCBanimals.setItems(dataService.getAllAnimals());
-
+        MSCBanimals.setItemLabelGenerator(Animal::getName);
         return MSCBanimals;
     }
 
     private ComboBox<TaskType> prepareTaskGroupComboBox(){
         ComboBox<TaskType> CBtaskGroup = new ComboBox<>("Task Group");
         CBtaskGroup.setItems(dataService.getAllTaskTypes());
+        CBtaskGroup.setItemLabelGenerator(TaskType::getName);
         return CBtaskGroup;
     }
 
     private ComboBox<Location> prepareWhereComboBox(){
         ComboBox<Location> CBwhere = new ComboBox<>("Location");
         CBwhere.setItems(dataService.getAllLocations());
+        CBwhere.setItemLabelGenerator(Location::getName);
         return CBwhere;
     }
 
