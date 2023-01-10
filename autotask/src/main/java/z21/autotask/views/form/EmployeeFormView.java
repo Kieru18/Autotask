@@ -23,8 +23,9 @@ import java.time.ZoneId;
 import java.util.Date;
 
 import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 
-@PermitAll
+@RolesAllowed("ROLE_ADMIN")
 @Route(value = "/employeeForm", layout = MainLayout.class)
 public class EmployeeFormView extends VerticalLayout {
 

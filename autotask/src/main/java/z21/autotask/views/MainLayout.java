@@ -1,8 +1,13 @@
 package z21.autotask.views;
 
+import java.util.Collection;
+
 import javax.annotation.security.PermitAll;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -39,16 +44,26 @@ public class MainLayout extends AppLayout {
 
     private SecurityService securityService;
     
-
     private Tabs getLinkTabs() {
         Tabs tabs = new Tabs();
-        tabs.add(createTab(VaadinIcon.TASKS, "Tasks List", TasksListView.class),
-                createTab(VaadinIcon.FORM, "Add Task", TaskFormView.class),
-                createTab(VaadinIcon.USERS, "Employees List", EmployeesListView.class),
-                createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class),
-                createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
-                createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", EmployeeFormView.class),
-                createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", TaskTypeFormView.class));
+
+        tabs.add(
+            createTab(VaadinIcon.TASKS, "Tasks List", TasksListView.class),
+            createTab(VaadinIcon.FORM, "Add Task", TaskFormView.class),
+            createTab(VaadinIcon.USERS, "Employees List", EmployeesListView.class),
+            createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class));
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        Collection<? extends GrantedAuthority> roles = auth.getAuthorities();
+        
+        for (GrantedAuthority role : roles) {
+            if (role.getAuthority().equals("ROLE_ADMIN")) {
+                tabs.add(
+                    createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
+                    createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", EmployeeFormView.class),
+                    createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", TaskTypeFormView.class));
+            }
+        }
 
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;
