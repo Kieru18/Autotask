@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="42F9DC21-F007-2414-BECB-59B1C2BA72AF" name="users">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>264CE7AE-B947-DCAB-B5A8-7A477A80F776</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="user_id" id="4C408B74-5477-2671-A23B-96E8F80D721B">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>D7A56FEB-FA90-0FCB-9BEB-13011ABC830C</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="login" id="89330E38-2F2B-C2FC-832C-A96DE1803969">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>D4418191-75D9-B969-0332-C8BCCD00A37D</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="EFFDF175-0DD3-C8F6-F617-0E24762C7202">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>21C27983-77B6-4393-2153-217F9AEFE645</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="role" id="AFB1F04A-BB11-4BFD-88E6-733923B24E91">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>42E75373-E9C4-E031-6661-439A12CDE413</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mail" id="ABD345DD-7757-8832-6EBB-74DFD4214F6A">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>CFF78959-3FA9-BCF1-D299-3CDE862724F7</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A55879C6-B1C6-60AA-DE1C-F259CB95DDEC" name="users_PK">
+<createdBy>jakub</createdBy>
+<createdTime>2023-01-09 17:11:19 UTC</createdTime>
+<generatorID>7A681925-856D-81DB-FD4B-C2C8F8059C67</generatorID>
+<ownerDesignName>autotask</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C408B74-5477-2671-A23B-96E8F80D721B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

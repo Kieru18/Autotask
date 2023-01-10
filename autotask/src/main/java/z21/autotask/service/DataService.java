@@ -9,6 +9,7 @@ import z21.autotask.repositories.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DataService {
@@ -84,6 +85,12 @@ public class DataService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+    public List<TaskStatus> getAwaiting() {
+        return taskStatusRepository.findByDescription("awaiting");
+    }
+    private Integer getLastTaskId() {
+        return taskRepository.findLastTaskId();
+    }
 
     public void addAnimal(String name, Integer locationId, Integer speciesId, Float weight, Date birthDate) {
         animalRepository.insertAnimal(name, locationId, speciesId, weight, birthDate);
@@ -91,18 +98,28 @@ public class DataService {
     public void addEmployee(String firstName, String lastName, char gender, Date birthDate, Integer positionId, Integer statusId, Integer userId) {
         employeeRepository.insertEmployee(firstName, lastName, gender, birthDate, positionId, statusId, userId);
     }
-    public void addTask(String description, Date dateStart, Date dateEnd, Date deadline, Integer priority, Integer locationId, Integer statusId, Integer typeId) {
+    public void addTask(String description, Date dateStart, Date dateEnd, Date deadline, Integer priority, Integer locationId, Integer statusId, Integer typeId, Set<Employee> employees, Set<Animal> animals) {
+        
         taskRepository.insertTask(description, dateStart, dateEnd, deadline, priority, locationId, statusId, typeId);
+        Integer lastTaskId = getLastTaskId();
+
+        for(Employee employee : employees) {
+            addEmpAssignment(employee, lastTaskId);
+        }
+
+        for(Animal animal : animals) {
+            addAnimalAssignment(animal, lastTaskId);
+        }
     }
-    public void addTaskType(String name, String description, Integer base_priority, SimpleDateFormat frequency) {
+    public void addTaskType(String name, String description, Integer base_priority, Date frequency) {
         taskTypeRepository.insertTaskType(name,  description, base_priority, frequency);
     }
-    public void addEmpAssignment(Employee employee, Task task) {
-        empAssignmentRepository.assignEmployeeToTask(employee.getEmployeeId(), task.getTaskId());
+    private void addEmpAssignment(Employee employee, Integer taskId) {
+        empAssignmentRepository.assignEmployeeToTask(employee.getEmployeeId(), taskId);
     }
-        public void addAnimalAssignment(Animal animal, Task task) {
-            animalAssignmentRepository.assignAnimalToTask(animal.getAnimalId(), task.getTaskId());
-        }
+    private void addAnimalAssignment(Animal animal, Integer taskId) {
+        animalAssignmentRepository.assignAnimalToTask(animal.getAnimalId(), taskId);
+    }
 
     public List<Employee> getUnavailableEmployees() {
         return employeeRepository.findByStatus("unavailable");
@@ -110,4 +127,24 @@ public class DataService {
     public List<Employee> getAvailableEmployees() { 
         return employeeRepository.findByStatus("available");
     }
+
+    // public List<Employee> getEmployeesByTask(Task task) {
+    //     return taskRepository.findEmployees(task.getTaskId());
+    // }
+    // public List<Animal> getAnimalsByTask(Task task) {
+    //     return taskRepository.findAnimals(task.getTaskId());
+    // }
+    // public List<Task> getTasksByEmployee(Employee employee) {
+    //     return employeeRepository.findTasks(employee.getEmployeeId());
+    // }
+
+    public List<Employee> getEmployeesByTask(Task task) {
+            return employeeRepository.findByTaskId(task.getTaskId());
+        }
+        public List<Animal> getAnimalsByTask(Task task) {
+            return animalRepository.findByTaskId(task.getTaskId());
+        }
+        public List<Task> getTasksByEmployee(Employee employee) {
+            return taskRepository.findByEmployeeId(employee.getEmployeeId());
+        }
 }

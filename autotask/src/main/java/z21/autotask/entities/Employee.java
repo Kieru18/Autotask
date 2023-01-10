@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.*;
 
@@ -46,7 +47,7 @@ public class Employee {
     @JoinColumn(name = "status_id", referencedColumnName = "status_id")
     private EmpStatus status;
 
-    @OneToOne(optional = false)
+    @OneToOne(optional = true)
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 
@@ -64,8 +65,9 @@ public class Employee {
     }
 
     public String getEmail() {
+        if (this.user == null) {
+            return "";
+        }
         return this.user.getMail();
     }
-
-
 }

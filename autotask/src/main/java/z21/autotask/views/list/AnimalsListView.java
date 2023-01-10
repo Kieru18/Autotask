@@ -16,7 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Animal;
 import z21.autotask.service.DataService;
+import z21.autotask.views.MainLayout;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.annotation.security.PermitAll;
@@ -26,13 +31,14 @@ import javax.annotation.security.PermitAll;
 @Route(value = "/animals", layout = MainLayout.class)
 public class AnimalsListView extends VerticalLayout {
     private final DataService dataService;
-    Grid<Animal> grid = new Grid<>(Animal.class);
     TextField filterText = new TextField();
 
+    Grid<Animal> grid = new Grid<>(Animal.class, false);
 
     @Autowired
     public AnimalsListView(DataService dataService) {
         this.dataService = dataService;
+
         addClassName("list-view");
         setSizeFull();
         configureGrid();
@@ -44,6 +50,14 @@ public class AnimalsListView extends VerticalLayout {
     void configureGrid() {
         grid.addClassNames("animals-grid");
         grid.setSizeFull();
+
+        grid.addColumn(Animal::getAnimalId).setHeader("ID");
+        grid.addColumn(Animal::getName).setHeader("Name");
+        grid.addColumn(Animal -> Animal.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()).setHeader("Date of birth");
+        grid.addColumn(Animal::getWeight).setHeader("Weight");
+        grid.addColumn(Animal -> Animal.getLocation().getName()).setHeader("Location");
+        grid.addColumn(Animal -> Animal.getSpecies().getName()).setHeader("Species");
+
 
         List<Animal> listOfAnimals = dataService.getAllAnimals();
 

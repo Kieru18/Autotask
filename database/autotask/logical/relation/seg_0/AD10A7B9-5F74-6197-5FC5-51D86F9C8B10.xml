@@ -3,14 +3,11 @@
 <createdBy>jakub</createdBy>
 <createdTime>2022-12-29 23:08:23 UTC</createdTime>
 <ownerDesignName>autotask</ownerDesignName>
-<engineerTo>
-<item key="5B7DAF8A-B4DA-E66D-5C4C-8AE739541468" value="true"/>
-</engineerTo>
 <sourcePk>7A681925-856D-81DB-FD4B-C2C8F8059C67</sourcePk>
 <dominantRole>264CE7AE-B947-DCAB-B5A8-7A477A80F776</dominantRole>
 <identifying>false</identifying>
 <optionalSource>true</optionalSource>
-<optionalTarget>false</optionalTarget>
+<optionalTarget>true</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
 <sourceEntity>264CE7AE-B947-DCAB-B5A8-7A477A80F776</sourceEntity>
 <targetCardinalityString>1</targetCardinalityString>

@@ -33,7 +33,7 @@ public class EmpAssignment {
     private Task task;
 }
 
-class EmpAssignmentId implements Serializable{
+class EmpAssignmentId implements Serializable {
     private Employee employee;
     private Task task;
 }

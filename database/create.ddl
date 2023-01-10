@@ -76,7 +76,7 @@ CREATE TABLE employees (
     birth_date   DATE,
     position_id  NUMBER NOT NULL,
     status_id    NUMBER NOT NULL,
-    user_id      NUMBER NOT NULL
+    user_id      NUMBER
 );
 
 ALTER TABLE employees ADD CONSTRAINT employees_pk PRIMARY KEY ( employee_id );

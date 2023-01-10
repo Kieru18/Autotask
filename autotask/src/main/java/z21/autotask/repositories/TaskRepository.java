@@ -10,6 +10,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import z21.autotask.entities.Animal;
+import z21.autotask.entities.Employee;
 import z21.autotask.entities.Task;
 
 
@@ -41,7 +43,19 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 
     // @Query
     // List<Task> findByStatusId(Integer statusId);
+    //employee_id, e.first_name, e.last_name, e.gender, e.birth_date, e.position_id, e.status_id, e.user_id
 
+    // @Query(value = "SELECT e.* FROM tasks t LEFT JOIN emp_assignments emp ON(t.task_id = emp.task_id) LEFT JOIN employees e ON (e.employee_id = emp.employee_id) WHERE t.task_id = :task_id", nativeQuery = true)
+    // List<Employee> findEmployees(@Param("task_id") Integer taskId);
+
+    // @Query(value = "SELECT a.* FROM tasks t LEFT JOIN animal_assignments ani ON(t.task_id = ani.task_id) LEFT JOIN animals a ON (a.animal_id = ani.animal_id) WHERE t.task_id = :task_id", nativeQuery = true)
+    // List<Animal> findAnimals(@Param("task_id") Integer taskId);
+
+    @Query(value = "SELECT t.* FROM employees e LEFT JOIN emp_assignments emp ON(e.employee_id = emp.employee_id) LEFT JOIN tasks t ON(emp.task_id = t.task_id) WHERE e.employee_id = :employee_id", nativeQuery = true)
+    List<Task> findByEmployeeId(@Param("employee_id") Integer employeeId);
+
+    @Query(value = "SELECT tasks_seq.CURRVAL FROM dual", nativeQuery = true)
+    Integer findLastTaskId();
 
     @Modifying @Query(value = "INSERT INTO tasks (description, date_start, date_end, deadline, priority, location_id, status_id, type_id) VALUES (:description, :date_start, :date_end, :deadline, :priority, :location_id, :status_id, :type_id)", nativeQuery = true)
     void insertTask(@Param("description") String description, 

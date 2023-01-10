@@ -1,4 +1,4 @@
-package z21.autotask.views.list;
+package z21.autotask.views;
 
 import javax.annotation.security.PermitAll;
 
@@ -18,6 +18,13 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
+import z21.autotask.views.form.AnimalFormView;
+import z21.autotask.views.form.EmployeeFormView;
+import z21.autotask.views.form.TaskFormView;
+import z21.autotask.views.form.TaskTypeFormView;
+import z21.autotask.views.list.AnimalsListView;
+import z21.autotask.views.list.EmployeesListView;
+import z21.autotask.views.list.TasksListView;
 
 import z21.autotask.security.SecurityService;
 
@@ -41,7 +48,7 @@ public class MainLayout extends AppLayout {
                 createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class),
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
                 createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", EmployeeFormView.class),
-                createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", AnimalFormView.class)); // TODO add here and implement TaskTypeFormView.class
+                createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", TaskTypeFormView.class));
 
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         return tabs;

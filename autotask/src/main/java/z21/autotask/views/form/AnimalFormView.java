@@ -1,4 +1,4 @@
-package z21.autotask.views.list;
+package z21.autotask.views.form;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -6,6 +6,7 @@ import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -14,6 +15,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.*;
 import z21.autotask.service.DataService;
+import z21.autotask.views.MainLayout;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -28,7 +30,7 @@ public class AnimalFormView extends VerticalLayout {
     private final DataService dataService;
     private final ComboBox<Species> CBspecies;
     private final ComboBox<Location> CBlocation;
-    private final DatePicker DTPdateOfBirth;
+    private final DatePicker DTdateOfBirth;
     private final TextField nameTF;
     private final TextField weightTF;
 
@@ -44,14 +46,17 @@ public class AnimalFormView extends VerticalLayout {
         weightTF = new TextField("Weight:");
         CBspecies = prepareSpeciesComboBox();
         CBlocation = prepareLocationComboBox();
-        DTPdateOfBirth = prepareDatePicker();
+        DTdateOfBirth = prepareDatePicker();
         buttons = prepareButtons();
 
-        animalForm.add(nameTF, weightTF, CBspecies, CBlocation, DTPdateOfBirth, buttons);
+        animalForm.add(nameTF, weightTF, CBspecies, CBlocation, DTdateOfBirth, buttons);
 
         H1 title = new H1("Add Animal");
         add(title, animalForm);
+        setWidth("auto");
         setMargin(true);
+        setJustifyContentMode(FlexComponent.JustifyContentMode.START);
+        setAlignItems(FlexComponent.Alignment.STRETCH);
     }
 
     private HorizontalLayout prepareButtons() {
@@ -65,7 +70,7 @@ public class AnimalFormView extends VerticalLayout {
             Float weight = Float.parseFloat(weightTF.getValue());
             Integer locationId = CBlocation.getValue().getLocationId();
             Integer speciesId = CBspecies.getValue().getSpeciesId();
-            Date birthDate = Date.from(DTPdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            Date birthDate = Date.from(DTdateOfBirth.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
             dataService.addAnimal(name, locationId, speciesId, weight, birthDate);
 
             Notification.show("Successfully added new Animal to database!");
@@ -76,7 +81,7 @@ public class AnimalFormView extends VerticalLayout {
             weightTF.clear();
             CBlocation.clear();
             CBspecies.clear();
-            DTPdateOfBirth.setValue(LocalDate.now());
+            DTdateOfBirth.setValue(LocalDate.now());
 
             Notification.show("All info cleared.");
         });
@@ -86,12 +91,14 @@ public class AnimalFormView extends VerticalLayout {
     private ComboBox<Location> prepareLocationComboBox(){
         ComboBox<Location> CBlocation = new ComboBox<>("Animal Habitat");
         CBlocation.setItems(dataService.getAllLocations());
+        CBlocation.setItemLabelGenerator(Location::getName);
         return CBlocation;
     }
 
     private ComboBox<Species> prepareSpeciesComboBox(){
         ComboBox<Species> CBspecies = new ComboBox<>("Animal Species");
         CBspecies.setItems(dataService.getAllSpecies());
+        CBspecies.setItemLabelGenerator(Species::getName);
         return CBspecies;
     }
 

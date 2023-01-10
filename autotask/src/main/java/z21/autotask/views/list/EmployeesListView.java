@@ -16,6 +16,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.Employee;
 import z21.autotask.service.DataService;
+import z21.autotask.views.MainLayout;
 
 import java.util.List;
 
@@ -100,8 +101,11 @@ public class EmployeesListView extends Div {
         VerticalLayout contactLayout = new VerticalLayout();
         contactLayout.setSpacing(false);
         contactLayout.setPadding(false);
-        contactLayout.add(new Div(new Text(person.getEmail())));
-        infoLayout.add(new Details("Contact information", contactLayout));
+        if(person.getUser() != null) {
+            contactLayout.add(new Div(new Text(person.getEmail())));
+            infoLayout.add(new Details("Contact information", contactLayout));
+        }
+        
 
         cardLayout.add(avatar, infoLayout);
         return cardLayout;
