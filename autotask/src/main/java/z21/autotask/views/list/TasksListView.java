@@ -67,15 +67,19 @@ public class TasksListView extends VerticalLayout {
         grid.addColumn(Task -> Task.getType().getName()).setHeader("Type");
 
         grid.addColumn(new ComponentRenderer<>(task -> {
-            Button buttonEmp = new Button("Show employees", e -> dialogEmployees.open());
-            updateEmployeeDialog(task);
+            Button buttonEmp = new Button("Show employees", e -> {
+                updateEmployeeDialog(task);
+                dialogEmployees.open();
+                } );
             return buttonEmp;
 
             })).setHeader("Employees");
 
         grid.addColumn(new ComponentRenderer<>(task -> {
-            Button buttonAnm = new Button("Show animals", e -> dialogAnimals.open());
+            Button buttonAnm = new Button("Show animals", e ->{
             updateAnimalDialog(task);
+            dialogAnimals.open();
+            } );
             return buttonAnm;
         })).setHeader("Animals");
 
