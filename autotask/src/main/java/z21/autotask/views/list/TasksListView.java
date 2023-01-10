@@ -47,7 +47,6 @@ public class TasksListView extends VerticalLayout {
         grid.setSizeFull();
 
         grid.addColumn(Task::getTaskId).setHeader("ID");
-        grid.addColumn(Task -> Task.getType().getName()).setHeader("Type");
         grid.addColumn(Task::getDescription).setHeader("Name");
         grid.addColumn(Task::getDateStart).setHeader("Date of start");
         grid.addColumn(Task::getDeadline).setHeader("Deadline");
@@ -55,17 +54,18 @@ public class TasksListView extends VerticalLayout {
         grid.addColumn(Task::getPriority).setHeader("Priority");
         grid.addColumn(Task -> Task.getStatus().getDescription()).setHeader("Status");
         grid.addColumn(Task -> Task.getLocation().getName()).setHeader("Location");
+        grid.addColumn(Task -> Task.getType().getName()).setHeader("Type");
 
         grid.addColumn(new ComponentRenderer<>(Task -> {
             VirtualList<Employee> list = new VirtualList<>();
-            list.setItems(dataService.getAllEmployees()); //TODO change to function that gets employees for specific task
-            return list ;
+            list.setItems(dataService.getEmployeesByTask(Task));
+            return list;
             })).setHeader("Employees");
 
         grid.addColumn(new ComponentRenderer<>(Task -> {
             VirtualList<Animal> list = new VirtualList<>();
-            list.setItems(dataService.getAllAnimals()); //TODO change to function that gets animals for specific task
-            return list ;
+            list.setItems(dataService.getAnimalsByTask(Task));
+            return list;
         })).setHeader("Animals");
 
         List<Task> listOfTasks = dataService.getAllTasks();

@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.*;
 
@@ -69,6 +70,4 @@ public class Employee {
         }
         return this.user.getMail();
     }
-
-
 }

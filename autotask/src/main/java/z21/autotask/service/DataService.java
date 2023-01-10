@@ -106,6 +106,7 @@ public class DataService {
         for(Employee employee : employees) {
             addEmpAssignment(employee, lastTaskId);
         }
+
         for(Animal animal : animals) {
             addAnimalAssignment(animal, lastTaskId);
         }
@@ -127,7 +128,23 @@ public class DataService {
         return employeeRepository.findByStatus("available");
     }
 
-    public List<Employee> getListOfAttachedEmployees(Task task){
-        return employeeRepository.findAll();
-    }
+    // public List<Employee> getEmployeesByTask(Task task) {
+    //     return taskRepository.findEmployees(task.getTaskId());
+    // }
+    // public List<Animal> getAnimalsByTask(Task task) {
+    //     return taskRepository.findAnimals(task.getTaskId());
+    // }
+    // public List<Task> getTasksByEmployee(Employee employee) {
+    //     return employeeRepository.findTasks(employee.getEmployeeId());
+    // }
+
+    public List<Employee> getEmployeesByTask(Task task) {
+            return employeeRepository.findByTaskId(task.getTaskId());
+        }
+        public List<Animal> getAnimalsByTask(Task task) {
+            return animalRepository.findByTaskId(task.getTaskId());
+        }
+        public List<Task> getTasksByEmployee(Employee employee) {
+            return taskRepository.findByEmployeeId(employee.getEmployeeId());
+        }
 }
