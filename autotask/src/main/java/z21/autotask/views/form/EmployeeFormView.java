@@ -4,14 +4,17 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
+import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.EmpStatus;
 import z21.autotask.entities.Position;
-import z21.autotask.entities.User;
 import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
@@ -20,7 +23,7 @@ import java.time.ZoneId;
 import java.util.Date;
 
 @Route(value = "/employeeForm", layout = MainLayout.class)
-public class EmployeeFormView extends FormLayout {
+public class EmployeeFormView extends VerticalLayout {
 
     private final DataService dataService;
     private final ComboBox<Position> CBposition;
@@ -32,11 +35,14 @@ public class EmployeeFormView extends FormLayout {
     private final TextField firstNameTF;
     private final TextField lastNameTF;
 
+    HorizontalLayout buttons;
 
 
     @Autowired
     public EmployeeFormView(DataService dataService) {
         this.dataService = dataService;
+
+        FormLayout employeeForm = new FormLayout();
 
         firstNameTF = new TextField("First name:");
         lastNameTF = new TextField("Last name:");
@@ -45,7 +51,23 @@ public class EmployeeFormView extends FormLayout {
         CBempStatus = prepareEmpStatusComboBox();
         DTPdateOfBirth = prepareDatePicker();
 
+        buttons=  prepareButtons(); //new Button("Add");
+
+        employeeForm.add(firstNameTF,lastNameTF, CBgender, CBposition,CBempStatus, DTPdateOfBirth, buttons);
+
+        H1 title = new H1("Add Employee");
+        add(title, employeeForm);
+        setWidth("auto");
+        setMargin(true);
+        setJustifyContentMode(FlexComponent.JustifyContentMode.START);
+        setAlignItems(FlexComponent.Alignment.STRETCH);
+    }
+
+    private HorizontalLayout prepareButtons() {
         Button addButton = new Button("Add");
+        Button BClear = new Button("Clear");
+        HorizontalLayout buttons = new HorizontalLayout();
+        buttons.add(addButton, BClear);
 
         addButton.addClickListener(click -> {
             String firstName = firstNameTF.getValue();
@@ -59,7 +81,18 @@ public class EmployeeFormView extends FormLayout {
 
             Notification.show("Successfully added new Employee to database!");
         });
-        add(firstNameTF,lastNameTF, CBgender, CBposition,CBempStatus, DTPdateOfBirth, addButton);
+
+        BClear.addClickListener(click -> {
+            firstNameTF.clear();
+            lastNameTF.clear();
+            CBposition.clear();
+            CBempStatus.clear();
+            CBgender.clear();;
+            DTPdateOfBirth.setValue(LocalDate.now());
+
+            Notification.show("All info cleared.");
+        });
+        return buttons;
     }
 
     private ComboBox<Position> preparePositionsComboBox() {

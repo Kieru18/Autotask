@@ -4,6 +4,7 @@ package z21.autotask.views.form;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -60,7 +61,10 @@ public class TaskFormView extends VerticalLayout {
 
         H1 title = new H1("Task Generator");
         add(title, taskForm);
+        setWidth("auto");
         setMargin(true);
+        setJustifyContentMode(FlexComponent.JustifyContentMode.START);
+        setAlignItems(FlexComponent.Alignment.STRETCH);
     }
 
     private MultiSelectComboBox<Employee> prepareWhoMultiSelectComboBox(){

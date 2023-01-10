@@ -6,6 +6,7 @@ import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -49,7 +50,10 @@ public class AnimalFormView extends VerticalLayout {
 
         H1 title = new H1("Add Animal");
         add(title, animalForm);
+        setWidth("auto");
         setMargin(true);
+        setJustifyContentMode(FlexComponent.JustifyContentMode.START);
+        setAlignItems(FlexComponent.Alignment.STRETCH);
     }
 
     private HorizontalLayout prepareButtons() {
