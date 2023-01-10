@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import z21.autotask.entities.Animal;
 import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
+import z21.autotask.views.form.AnimalFormView;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -70,7 +71,7 @@ public class AnimalsListView extends VerticalLayout {
         Button addAnimalButton = new Button("Add animal");
         addAnimalButton.addClickListener(click ->{
             addAnimalButton.getUI().ifPresent(ui ->
-                    ui.navigate("animalForm"));
+                    ui.navigate(AnimalFormView.class));
 
             Notification.show("Switching tab to animal form.");
         });
