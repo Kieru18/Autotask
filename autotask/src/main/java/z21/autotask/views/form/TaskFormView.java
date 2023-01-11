@@ -22,6 +22,8 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Set;
 
+import javax.annotation.security.PermitAll;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.Animal;
 import z21.autotask.entities.Employee;
@@ -31,7 +33,8 @@ import z21.autotask.entities.TaskStatus;
 import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
-@Route(value = "/taskForm", layout = MainLayout.class)
+@PermitAll
+@Route(value = "/TaskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
     private final DataService dataService;
     private final MultiSelectComboBox<Employee> MSCBwho;

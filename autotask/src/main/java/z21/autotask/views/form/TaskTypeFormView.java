@@ -23,6 +23,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
 
+import javax.annotation.security.RolesAllowed;
+
+@RolesAllowed("ROLE_ADMIN")
 @Route(value = "/taskTypeForm", layout = MainLayout.class)
 public class TaskTypeFormView extends VerticalLayout {
 

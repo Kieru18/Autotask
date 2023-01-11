@@ -33,7 +33,7 @@ public interface AnimalRepository extends JpaRepository<Animal, Integer> {
     List<Animal> findByBirthDate(Date birthDate);
 
 
-    @Query(value = "SELECT a.* FROM tasks t LEFT JOIN animal_assignments ani ON(t.task_id = ani.task_id) LEFT JOIN animals a ON (a.animal_id = ani.animal_id) WHERE t.task_id = :task_id", nativeQuery = true)
+    @Query(value = "SELECT a.* FROM tasks t JOIN animal_assignments ani ON(t.task_id = ani.task_id) JOIN animals a ON (a.animal_id = ani.animal_id) WHERE t.task_id = :task_id", nativeQuery = true)
     List<Animal> findByTaskId(@Param("task_id") Integer taskId);
 
     @Query(value = "SELECT * FROM animals WHERE weight = ?1 AND name = ?2", nativeQuery = true)

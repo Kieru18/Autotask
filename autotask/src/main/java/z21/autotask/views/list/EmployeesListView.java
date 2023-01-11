@@ -20,6 +20,9 @@ import z21.autotask.views.MainLayout;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @Route(value = "/Employees", layout = MainLayout.class)
 public class EmployeesListView extends Div {
 

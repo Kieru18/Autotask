@@ -25,6 +25,9 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
+
+@PermitAll
 @PageTitle("List of all animals")
 @Route(value = "/animals", layout = MainLayout.class)
 public class AnimalsListView extends VerticalLayout {

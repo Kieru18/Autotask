@@ -33,7 +33,7 @@ build/
 ### VS Code ###
 .vscode/
 
-node_modules
-/package-lock.json
-/vite.generated.ts
-/vite.config.ts
+node_modules/
+package-lock.json
+vite.generated.ts
+vite.config.ts

@@ -1,5 +1,6 @@
 package z21.autotask.repositories;
 
+
 import java.util.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Employee;
-import z21.autotask.entities.Task;
 
 
 @Transactional @Repository
@@ -42,10 +42,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query
     List<Employee> findByUserUserId(Integer userId);
 
-    // @Query(value = "SELECT t.* FROM employees e LEFT JOIN emp_assignments emp ON(e.employee_id = emp.employee_id) LEFT JOIN tasks t ON(emp.task_id = t.task_id) WHERE e.employee_id = :employee_id", nativeQuery = true)
-    // List<Task> findTasks(@Param("employee_id") Integer employeeId);
-
-    @Query(value = "SELECT e.* FROM tasks t LEFT JOIN emp_assignments emp ON(t.task_id = emp.task_id) LEFT JOIN employees e ON (e.employee_id = emp.employee_id) WHERE t.task_id = :task_id", nativeQuery = true)
+    @Query(value = "SELECT e.* FROM tasks t JOIN emp_assignments emp ON(t.task_id = emp.task_id) JOIN employees e ON (e.employee_id = emp.employee_id) WHERE t.task_id = :task_id", nativeQuery = true)
     List<Employee> findByTaskId(@Param("task_id") Integer taskId);
 
     @Modifying @Query(value = "INSERT INTO employees (first_name, last_name, gender, birth_date, position_id, status_id, user_id) VALUES (:first_name, :last_name, :gender, :birth_date, :position_id, :status_id, :user_id)", nativeQuery = true)

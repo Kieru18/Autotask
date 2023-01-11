@@ -147,4 +147,8 @@ public class DataService {
         public List<Task> getTasksByEmployee(Employee employee) {
             return taskRepository.findByEmployeeId(employee.getEmployeeId());
         }
+
+    public void addUser(String login, String password, String role, String mail) {
+        userRepository.insertUser(login, password, role, mail);
+    }
 }

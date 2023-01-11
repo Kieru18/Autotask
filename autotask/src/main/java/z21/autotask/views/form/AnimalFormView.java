@@ -1,5 +1,6 @@
 package z21.autotask.views.form;
 
+
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
@@ -21,6 +22,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
+import javax.annotation.security.RolesAllowed;
+
+@RolesAllowed("ROLE_ADMIN")
 @Route(value = "/animalForm", layout = MainLayout.class)
 public class AnimalFormView extends VerticalLayout {
 
