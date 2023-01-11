@@ -1,17 +1,20 @@
 package z21.autotask.views.list;
 
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.details.Details;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.grid.dataview.GridListDataView;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
+import com.vaadin.flow.component.textfield.TextFieldVariant;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.dom.ElementFactory;
@@ -29,6 +32,7 @@ import z21.autotask.views.MainLayout;
 
 import java.time.ZoneId;
 import java.util.List;
+import java.util.function.Consumer;
 
 import javax.annotation.security.RolesAllowed;
 
@@ -38,9 +42,10 @@ import javax.annotation.security.RolesAllowed;
 public class TasksListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
-    TextField filterText = new TextField();
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
+
+    TaskFilter taskFilter;
 
     @Autowired
     public TasksListView(DataService dataService) {
@@ -50,7 +55,7 @@ public class TasksListView extends VerticalLayout {
         configureDialogs();
         configureGrid();
 
-        add(getToolbar(), grid);
+        add(getToolbar(taskFilter), grid);
     }
 
     @Transactional
@@ -86,15 +91,14 @@ public class TasksListView extends VerticalLayout {
         })).setHeader("Animals");
 
         List<Task> listOfTasks = dataService.getAllTasks();
+        GridListDataView<Task> dataView = grid.setItems(listOfTasks);
+        taskFilter = new TaskFilter(dataView);
 
-        grid.setItems(listOfTasks);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
     }
 
-    private HorizontalLayout getToolbar() {
-        filterText.setPlaceholder("Filter by name...");
-        filterText.setClearButtonVisible(true);
-        filterText.setValueChangeMode(ValueChangeMode.LAZY);
+    private HorizontalLayout getToolbar(TaskFilter taskFilter) {
+        Component filterText = createFilter("Filter by description...", taskFilter::setlDescription);
 
         Button addTaskButton = new Button("Add task");
 
@@ -125,7 +129,6 @@ public class TasksListView extends VerticalLayout {
         dialogEmployees.getFooter().add(new Button("Close", e -> dialogEmployees.close()));
         dialogAnimals.getFooter().add(new Button("Close", e -> dialogAnimals.close()));
     }
-
 
     private void updateEmployeeDialog(Task task){
         dialogEmployees.removeAll();
@@ -202,6 +205,45 @@ public class TasksListView extends VerticalLayout {
 
         cardLayout.add(avatar, infoLayout);
         return cardLayout;
+    }
+
+    private static Component createFilter(String labelText,
+                                          Consumer<String> filterChangeConsumer) {
+        TextField textField = new TextField();
+        textField.setPlaceholder(labelText);
+        textField.setValueChangeMode(ValueChangeMode.EAGER);
+        textField.setClearButtonVisible(true);
+        textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
+        textField.setWidthFull();
+        textField.getStyle().set("max-width", "100%");
+        textField.addValueChangeListener(
+                e -> filterChangeConsumer.accept(e.getValue()));
+        VerticalLayout layout = new VerticalLayout(textField);
+        layout.getThemeList().clear();
+        layout.getThemeList().add("spacing-xs");
+
+        return layout;
+    }
+    private static class TaskFilter {
+        private final GridListDataView<Task> dataView;
+        private String description;
+
+        public TaskFilter(GridListDataView<Task> dataView) {
+            this.dataView = dataView;
+            this.dataView.addFilter(this::test);
+        }
+        public void setlDescription(String description) {
+            this.description = description;
+            this.dataView.refreshAll();
+        }
+        public boolean test(Task task) {
+            boolean matchesDescription = matches(task.getDescription(), description);
+            return matchesDescription;
+        }
+        private boolean matches(String value, String searchTerm) {
+            return searchTerm == null || searchTerm.isEmpty()
+                    || value.toLowerCase().contains(searchTerm.toLowerCase());
+        }
     }
 
 }
