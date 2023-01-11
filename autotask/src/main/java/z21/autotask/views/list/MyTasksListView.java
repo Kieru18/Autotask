@@ -19,6 +19,9 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import z21.autotask.entities.Animal;
@@ -40,13 +43,12 @@ public class MyTasksListView extends VerticalLayout {
     TextField filterText = new TextField();
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
-    Employee current_employee;
 
     @Autowired
     public MyTasksListView(DataService dataService) {
         this.dataService = dataService;
         addClassName("list-view");
-        current_employee = dataService.getAllEmployees().get(0); //TODO change it so it gets current user (employee)
+
         setSizeFull();
         configureDialogs();
         configureGrid();
@@ -85,7 +87,9 @@ public class MyTasksListView extends VerticalLayout {
             return buttonAnm;
         })).setHeader("Animals");
 
-        List<Task> listOfTasks = dataService.getTasksByEmployee(current_employee);
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        List<Task> listOfTasks = dataService.getTasksByUser(authentication.getName());
 
         grid.setItems(listOfTasks);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));

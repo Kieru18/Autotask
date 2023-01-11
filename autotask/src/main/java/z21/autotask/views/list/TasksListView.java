@@ -30,7 +30,6 @@ import z21.autotask.views.MainLayout;
 import java.time.ZoneId;
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 
 @RolesAllowed("ROLE_ADMIN")
@@ -40,7 +39,6 @@ public class TasksListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
     TextField filterText = new TextField();
-
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
 

@@ -147,12 +147,16 @@ public class DataService {
     public List<Employee> getEmployeesByTask(Task task) {
             return employeeRepository.findByTaskId(task.getTaskId());
         }
-        public List<Animal> getAnimalsByTask(Task task) {
+    public List<Animal> getAnimalsByTask(Task task) {
             return animalRepository.findByTaskId(task.getTaskId());
         }
-        public List<Task> getTasksByEmployee(Employee employee) {
+    public List<Task> getTasksByEmployee(Employee employee) {
             return taskRepository.findByEmployeeId(employee.getEmployeeId());
         }
+
+    public List<Task> getTasksByUser(String login) {
+        return taskRepository.findByUserLogin(login);
+    }
 
     public void addUser(String login, String password, String role, String mail) {
         userRepository.insertUser(login, password, role, mail);

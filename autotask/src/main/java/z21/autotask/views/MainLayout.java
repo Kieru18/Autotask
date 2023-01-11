@@ -50,8 +50,7 @@ public class MainLayout extends AppLayout {
         Tabs tabs = new Tabs();
 
         tabs.add(
-            createTab(VaadinIcon.USER, "My tasks", TasksListView.class),
-            createTab(VaadinIcon.TASKS, "All Tasks", TasksListView.class),
+            createTab(VaadinIcon.USER, "My tasks", MyTasksListView.class),
             createTab(VaadinIcon.FORM, "Add Task", TaskFormView.class),
             createTab(VaadinIcon.USERS, "Employees List", EmployeesListView.class),
             createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class));
@@ -62,6 +61,7 @@ public class MainLayout extends AppLayout {
         for (GrantedAuthority role : roles) {
             if (role.getAuthority().equals("ROLE_ADMIN")) {
                 tabs.add(
+                    createTab(VaadinIcon.TASKS, "All Tasks", TasksListView.class),
                     createTab(VaadinIcon.PLUS_CIRCLE, "Add Animal", AnimalFormView.class),
                     createTab(VaadinIcon.PLUS_CIRCLE, "Add Employee", EmployeeFormView.class),
                     createTab(VaadinIcon.PLUS_CIRCLE, "Add New Type of Tasks", TaskTypeFormView.class));

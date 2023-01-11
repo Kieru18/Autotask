@@ -58,4 +58,6 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
                     @Param("status_id") Integer statusId,
                     @Param("type_id") Integer typeId);
 
+    @Query(value = "SELECT t.* FROM users u JOIN employees e ON(e.user_id = u.user_id) JOIN emp_assignments emp ON(e.employee_id = emp.employee_id) JOIN tasks t ON(emp.task_id = t.task_id) WHERE u.login = :login", nativeQuery = true)
+    List<Task> findByUserLogin(@Param("login") String login);
 }
