@@ -40,9 +40,11 @@ public class TasksListView extends VerticalLayout {
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
 
+    Employee current_employee =  new Employee();
     @Autowired
     public TasksListView(DataService dataService) {
         this.dataService = dataService;
+        current_employee = dataService.getAllEmployees().get(0); //TODO change it so it gets current user (employee)
         addClassName("list-view");
         setSizeFull();
         configureDialogs();
@@ -83,7 +85,7 @@ public class TasksListView extends VerticalLayout {
             return buttonAnm;
         })).setHeader("Animals");
 
-        List<Task> listOfTasks = dataService.getAllTasks();
+        List<Task> listOfTasks = dataService.getTasksByEmployee(current_employee);
 
         grid.setItems(listOfTasks);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
