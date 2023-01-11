@@ -10,6 +10,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
@@ -116,32 +117,43 @@ public class EmployeeFormView extends VerticalLayout {
         buttonsView.add(addButton, BClear);
 
         TextField loginTF = new TextField("Login:");
-        TextField passwordTF = new TextField("Password:");
+        PasswordField passwordPF = new PasswordField("Password:");
         ComboBox<String> CBrole = prepareRoleComboBox();
         TextField mailTF = new TextField("E-mail:");
 
+
         addButton.addClickListener(click -> {
             String login = loginTF.getValue();
-            String password = passwordTF.getValue();
+            String password = passwordPF.getValue();
             String role = CBrole.getValue();
             String mail = mailTF.getValue();
-            dataService.addUser(login, password,  role, mail);
+            dataService.addUser(login, password, role, mail);
+
 
             //TODO get userID and alter record of previously added employee so it links with his user profile
 
-            Notification.show("Successfully added new Employee to database!");
+            Notification.show("Successfully added new User account");
+
+            dialogUser.close();
+
+            firstNameTF.clear();
+            lastNameTF.clear();
+            CBposition.clear();
+            CBempStatus.clear();
+            CBgender.clear();
+            DTPdateOfBirth.setValue(LocalDate.now());
         });
 
         BClear.addClickListener(click -> {
             loginTF.clear();
-            passwordTF.clear();
+            passwordPF.clear();
             CBrole.clear();
             mailTF.clear();
 
             Notification.show("All info cleared.");
         });
 
-        userForm.add(loginTF,passwordTF, CBrole, mailTF, buttonsView);
+        userForm.add(loginTF,passwordPF, CBrole, mailTF, buttonsView);
         addUser.add(userForm);
         return addUser;
     }
