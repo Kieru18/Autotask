@@ -31,8 +31,9 @@ import java.time.ZoneId;
 import java.util.List;
 
 import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 
-@PermitAll
+@RolesAllowed("ROLE_ADMIN")
 @PageTitle("List of all tasks")
 @Route(value = "/tasks", layout = MainLayout.class)
 public class TasksListView extends VerticalLayout {
@@ -43,11 +44,9 @@ public class TasksListView extends VerticalLayout {
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
 
-    Employee current_employee =  new Employee();
     @Autowired
     public TasksListView(DataService dataService) {
         this.dataService = dataService;
-        current_employee = dataService.getAllEmployees().get(0); //TODO change it so it gets current user (employee)
         addClassName("list-view");
         setSizeFull();
         configureDialogs();
@@ -88,7 +87,7 @@ public class TasksListView extends VerticalLayout {
             return buttonAnm;
         })).setHeader("Animals");
 
-        List<Task> listOfTasks = dataService.getTasksByEmployee(current_employee);
+        List<Task> listOfTasks = dataService.getAllTasks();
 
         grid.setItems(listOfTasks);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));

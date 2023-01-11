@@ -50,7 +50,8 @@ public class MainLayout extends AppLayout {
         Tabs tabs = new Tabs();
 
         tabs.add(
-            createTab(VaadinIcon.TASKS, "Tasks List", TasksListView.class),
+            createTab(VaadinIcon.USER, "My tasks", TasksListView.class),
+            createTab(VaadinIcon.TASKS, "All Tasks", TasksListView.class),
             createTab(VaadinIcon.FORM, "Add Task", TaskFormView.class),
             createTab(VaadinIcon.USERS, "Employees List", EmployeesListView.class),
             createTab(VaadinIcon.TWITTER, "Animals List", AnimalsListView.class));

@@ -27,23 +27,26 @@ import z21.autotask.entities.Task;
 import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
+import javax.annotation.security.PermitAll;
 import java.time.ZoneId;
 import java.util.List;
 
+@PermitAll
 @PageTitle("List of your currently active tasks")
 @Route(value = "/myTasks", layout = MainLayout.class)
 public class MyTasksListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
     TextField filterText = new TextField();
-
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
+    Employee current_employee;
 
     @Autowired
     public MyTasksListView(DataService dataService) {
         this.dataService = dataService;
         addClassName("list-view");
+        current_employee = dataService.getAllEmployees().get(0); //TODO change it so it gets current user (employee)
         setSizeFull();
         configureDialogs();
         configureGrid();
@@ -60,7 +63,6 @@ public class MyTasksListView extends VerticalLayout {
         grid.addColumn(Task::getDescription).setHeader("Name");
         grid.addColumn(Task::getDateStart).setHeader("Date of start");
         grid.addColumn(Task::getDeadline).setHeader("Deadline");
-       // grid.addColumn(Task::getDateEnd).setHeader("Date of end");
         grid.addColumn(Task::getPriority).setHeader("Priority");
         grid.addColumn(Task -> Task.getStatus().getDescription()).setHeader("Status");
         grid.addColumn(Task -> Task.getLocation().getName()).setHeader("Location");
@@ -83,7 +85,7 @@ public class MyTasksListView extends VerticalLayout {
             return buttonAnm;
         })).setHeader("Animals");
 
-        List<Task> listOfTasks = dataService.getAllTasks();
+        List<Task> listOfTasks = dataService.getTasksByEmployee(current_employee);
 
         grid.setItems(listOfTasks);
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
