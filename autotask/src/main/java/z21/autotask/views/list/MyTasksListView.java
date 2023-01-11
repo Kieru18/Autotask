@@ -2,6 +2,7 @@ package z21.autotask.views.list;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.details.Details;
@@ -9,6 +10,7 @@ import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -21,6 +23,7 @@ import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -34,8 +37,12 @@ import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
 import javax.annotation.security.PermitAll;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 @PermitAll
@@ -44,7 +51,6 @@ import java.util.function.Consumer;
 public class MyTasksListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
-    TextField filterText = new TextField();
     Dialog dialogEmployees = new Dialog();
     Dialog dialogAnimals = new Dialog();
 
@@ -66,9 +72,34 @@ public class MyTasksListView extends VerticalLayout {
         grid.addClassNames("users-tasks-grid");
         grid.setSizeFull();
 
+        grid.addColumn(new ComponentRenderer<>(task -> {
+            Component buttonClose;
+            if (Objects.equals(task.getStatus().getDescription(), "completed")){
+                 buttonClose = new Label("Task is completed");
+            }
+
+            else if (Objects.equals(task.getStatus().getDescription(), "awaiting") || Objects.equals(task.getStatus().getDescription(), "on hold")) {
+                buttonClose = new Button("Start task", e -> {
+                    Date date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
+                    dataService.startTask(task, date);
+                    UI.getCurrent().getPage().reload();
+                });
+            }
+            else {
+                buttonClose = new Button("Close task", e -> {
+                    Date date = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());
+                    dataService.closeTask(task, date);
+                    UI.getCurrent().getPage().reload();
+                });
+            }
+
+            return buttonClose;
+        })).setHeader("Close task");
+
         grid.addColumn(Task::getTaskId).setHeader("ID");
         grid.addColumn(Task::getDescription).setHeader("Name");
         grid.addColumn(Task::getDateStart).setHeader("Date of start");
+        grid.addColumn(Task::getDateEnd).setHeader("Date of end");
         grid.addColumn(Task::getDeadline).setHeader("Deadline");
         grid.addColumn(Task::getPriority).setHeader("Priority");
         grid.addColumn(Task -> Task.getStatus().getDescription()).setHeader("Status");

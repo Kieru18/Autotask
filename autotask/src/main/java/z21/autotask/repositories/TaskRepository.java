@@ -60,4 +60,16 @@ public interface TaskRepository extends JpaRepository<Task, Integer> {
 
     @Query(value = "SELECT t.* FROM users u JOIN employees e ON(e.user_id = u.user_id) JOIN emp_assignments emp ON(e.employee_id = emp.employee_id) JOIN tasks t ON(emp.task_id = t.task_id) WHERE u.login = :login", nativeQuery = true)
     List<Task> findByUserLogin(@Param("login") String login);
+
+    @Modifying @Query(value = "UPDATE tasks SET date_end = :date_end WHERE task_id = :task_id", nativeQuery = true)
+    void updateTaskEndDate(@Param("task_id") Integer taskId,
+                           @Param("date_end") Date date);
+
+    @Modifying @Query(value = "UPDATE tasks SET status_id = :status_id WHERE task_id = :task_id", nativeQuery = true)
+    void updateTaskStatus(@Param("task_id") Integer taskId,
+                          @Param("status_id") Integer statusId);
+
+    @Modifying @Query(value = "UPDATE tasks SET date_start = :date_start WHERE task_id = :task_id", nativeQuery = true)
+    void updateTaskStartDate(@Param("task_id") Integer taskId,
+                           @Param("date_start") Date date);
 }

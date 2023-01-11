@@ -35,7 +35,7 @@ import javax.annotation.security.PermitAll;
 
 @PermitAll
 @PageTitle("List of all animals")
-@Route(value = "/animals", layout = MainLayout.class)
+@Route(value = "/animalsList", layout = MainLayout.class)
 public class AnimalsListView extends VerticalLayout {
     private final DataService dataService;
     AnimalFilter animalFilter;

@@ -23,7 +23,7 @@ import java.util.List;
 import javax.annotation.security.PermitAll;
 
 @PermitAll
-@Route(value = "/Employees", layout = MainLayout.class)
+@Route(value = "/employeesList", layout = MainLayout.class)
 public class EmployeesListView extends Div {
 
 

@@ -4,6 +4,9 @@ import java.util.Collection;
 
 import javax.annotation.security.PermitAll;
 
+import com.vaadin.flow.component.UI;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,7 +20,6 @@ import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.tabs.Tab;
@@ -37,13 +39,7 @@ import z21.autotask.security.SecurityService;
 
 @PermitAll
 @Route("")
-public class MainLayout extends AppLayout {
-
-    // TODO implement login window to main view so its the first thing not logged in user sees
-    // TODO also implement map view as a default view for the users
-    // TODO implement restriction of views for certain users (if possible)
-    // TODO implement returning to main view when the logo gets clicked
-
+public class MainLayout extends AppLayout{
     private SecurityService securityService;
     
     private Tabs getLinkTabs() {
@@ -106,9 +102,14 @@ public class MainLayout extends AppLayout {
         addToNavbar(header);
 
         createNavigationDrawer();
-    }
 
+    }
     private void createNavigationDrawer() {
         addToDrawer(getLinkTabs());
     }
+
+//    @Override
+//    public void beforeEnter(BeforeEnterEvent event) {
+//        event.forwardTo("/myTasks");
+//    }
 }

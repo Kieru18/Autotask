@@ -153,4 +153,14 @@ public class DataService {
         Integer employeeId = getLastEmployeeId();
         employeeRepository.updateUser(userId, employeeId);
     }
+
+    public void closeTask(Task task, Date date) {
+        taskRepository.updateTaskEndDate(task.getTaskId(), date);
+        taskRepository.updateTaskStatus(task.getTaskId(), 1);
+    }
+
+    public void startTask(Task task, Date date) {
+        taskRepository.updateTaskStartDate(task.getTaskId(), date);
+        taskRepository.updateTaskStatus(task.getTaskId(), 2);
+    }
 }

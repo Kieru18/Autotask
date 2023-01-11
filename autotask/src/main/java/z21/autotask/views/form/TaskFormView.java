@@ -34,7 +34,7 @@ import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
 @PermitAll
-@Route(value = "/TaskForm", layout = MainLayout.class)
+@Route(value = "/taskForm", layout = MainLayout.class)
 public class TaskFormView extends VerticalLayout {
     private final DataService dataService;
     private final MultiSelectComboBox<Employee> MSCBwho;
@@ -42,6 +42,8 @@ public class TaskFormView extends VerticalLayout {
     private final ComboBox<TaskType> CBtaskGroup;
     private final ComboBox<Location> CBwhere;
     private final DateTimePicker DTPwhen;
+
+    private final ComboBox<Integer> CBPriority;
     private final TextArea TADescription;
     HorizontalLayout buttons;
 
@@ -56,11 +58,12 @@ public class TaskFormView extends VerticalLayout {
         MSCBanimals = prepareAnimalsMultiSelectComboBox();
         CBtaskGroup = prepareTaskGroupComboBox();
         CBwhere = prepareWhereComboBox();
+        CBPriority = preparePriorityComboBox();
         DTPwhen = prepareWhenDateTimePicker();
         TADescription = prepareDescriptionTextArea();
         buttons = prepareButtons();
 
-        taskForm.add(MSCBwho, CBtaskGroup,MSCBanimals, CBwhere, TADescription, DTPwhen, buttons);
+        taskForm.add(MSCBwho, CBtaskGroup,MSCBanimals, CBwhere, CBPriority, TADescription, DTPwhen, buttons);
 
         H1 title = new H1("Task Generator");
         add(title, taskForm);
@@ -104,6 +107,7 @@ public class TaskFormView extends VerticalLayout {
         DTPwhen.setLabel("Deadline");
         DTPwhen.setStep(Duration.ofMinutes(30));
         DTPwhen.setValue(LocalDateTime.now());
+        DTPwhen.setValue(LocalDateTime.now());
         return DTPwhen;
     }
 
@@ -128,22 +132,20 @@ public class TaskFormView extends VerticalLayout {
             Set<Employee> selectedEmployees = MSCBwho.getSelectedItems();
             Location selectedLocation = CBwhere.getValue();
             TaskType selectedTaskGroup = CBtaskGroup.getValue();
-            Date startOfTaskTime = Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant());       
+            Integer priority = CBPriority.getValue();
             Date selectedDeadline = Date.from(DTPwhen.getValue().atZone(ZoneId.systemDefault()).toInstant());
             String description = TADescription.getValue();
 
             TaskStatus newStatus = dataService.getAwaiting().get(0);
 
-            Integer selectedPriority = null;
-            Integer priority = selectedTaskGroup.getBasePriority();
-            if (selectedPriority != null) {
-                priority = selectedPriority;
+            if (priority == null) {
+                priority = selectedTaskGroup.getBasePriority();
             }
 
-            dataService.addTask(description, startOfTaskTime, null, selectedDeadline, priority, selectedLocation.getLocationId(), newStatus.getStatusId(), selectedTaskGroup.getTypeId(), 
+            dataService.addTask(description, null, null, selectedDeadline, priority, selectedLocation.getLocationId(), newStatus.getStatusId(), selectedTaskGroup.getTypeId(),
                                 selectedEmployees, selectedAnimals);
 
-            Notification.show("Task added succesfully!");
+            Notification.show("Task added successfully!");
         });
 
         BClear.addClickListener(click -> {
@@ -157,6 +159,12 @@ public class TaskFormView extends VerticalLayout {
             Notification.show("All info cleared.");
         });
         return buttons;
+    }
+    private ComboBox<Integer> preparePriorityComboBox() {
+        ComboBox<Integer> CBpriority = new ComboBox<>("Priority");
+        Integer[] priorities = new Integer[]{1, 2, 3, 4, 5};
+        CBpriority.setItems(priorities);
+        return CBpriority;
     }
 
 }
