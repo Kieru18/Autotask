@@ -34,8 +34,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
                     @Param("role") String role,
                     @Param("mail") String mail);
 
-   @Modifying @Query(value = "INSERT INTO users (login, password, role, mail, employee_id) VALUES (:login, :password, :role, :mail, :employee_id)", nativeQuery = true)
-   void insertUser(@Param("login") String login,
+    @Modifying @Query(value = "INSERT INTO users (login, password, role, mail, employee_id) VALUES (:login, :password, :role, :mail, :employee_id)", nativeQuery = true)
+    void insertUser(@Param("login") String login,
                    @Param("password") String password,
                    @Param("role") String role,
                    @Param("mail") String mail,

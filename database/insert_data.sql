@@ -87,14 +87,14 @@ commit;
 
 SELECT * FROM users;
 -- users: user_id, login, password, role, mail
-INSERT INTO users VALUES(1, 'magick', 'Jp2G|\/|D', 'user', 'paktof@onika.pl');
-INSERT INTO users VALUES(2, 'jkowal', 'password', 'user', 'jkowal@uwu.com');
-INSERT INTO users VALUES(3, 'bugatti', 'HUSTLE4LIFE', 'admin', 'andrew@hustleacademy.org');
-INSERT INTO users VALUES(4, 'ebrown', 'p@ssw0rd', 'user', 'fake@imposter.sus');
-INSERT INTO users VALUES(5, 'asmith', 'changeme', 'user', 'asmith@zoo.com');
-INSERT INTO users VALUES(6, 'nataliej', 'securepw', 'user', 'nataliej@zoo.com');
-INSERT INTO users VALUES(7, 'brianw', 'letmein', 'user', 'brianw@zoo.com');
-INSERT INTO users VALUES(8, 'avaj', 'password', 'user', 'avaj@zoo.com');
+INSERT INTO users VALUES(1, 'magick', 'Jp2G|\/|D', 'ROLE_USER', 'paktof@onika.pl');
+INSERT INTO users VALUES(2, 'jkowal', 'password', 'ROLE_USER', 'jkowal@uwu.com');
+INSERT INTO users VALUES(3, 'bugatti', 'HUSTLE4LIFE', 'ROLE_ADMIN', 'andrew@hustleacademy.org');
+INSERT INTO users VALUES(4, 'ebrown', 'p@ssw0rd', 'ROLE_USER', 'fake@imposter.sus');
+INSERT INTO users VALUES(5, 'asmith', 'changeme', 'ROLE_USER', 'asmith@zoo.com');
+INSERT INTO users VALUES(6, 'nataliej', 'securepw', 'ROLE_USER', 'nataliej@zoo.com');
+INSERT INTO users VALUES(7, 'brianw', 'letmein', 'ROLE_USER', 'brianw@zoo.com');
+INSERT INTO users VALUES(8, 'avaj', 'password', 'ROLE_USER', 'avaj@zoo.com');
 
 commit;
 
