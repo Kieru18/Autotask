@@ -91,6 +91,12 @@ public class DataService {
     private Integer getLastTaskId() {
         return taskRepository.findLastTaskId();
     }
+    private Integer getLastEmployeeId() {
+        return employeeRepository.findLastEmployeeId();
+    }
+    private Integer getLastUserId() {
+        return userRepository.findLastUserId();
+    }
 
     public void addAnimal(String name, Integer locationId, Integer speciesId, Float weight, Date birthDate) {
         animalRepository.insertAnimal(name, locationId, speciesId, weight, birthDate);
@@ -150,5 +156,8 @@ public class DataService {
 
     public void addUser(String login, String password, String role, String mail) {
         userRepository.insertUser(login, password, role, mail);
+        Integer userId = getLastUserId();
+        Integer employeeId = getLastEmployeeId();
+        employeeRepository.updateUser(userId, employeeId);
     }
 }
