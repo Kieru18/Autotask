@@ -39,8 +39,6 @@ public class EmployeeFormView extends VerticalLayout {
 
     private final TextField firstNameTF;
     private final TextField lastNameTF;
-    // private final TextField loginTF;
-    // private final TextField passwordTF;
 
     Dialog dialogUser = new Dialog();
 
@@ -70,6 +68,8 @@ public class EmployeeFormView extends VerticalLayout {
         setMargin(true);
         setJustifyContentMode(FlexComponent.JustifyContentMode.START);
         setAlignItems(FlexComponent.Alignment.STRETCH);
+
+        configureDialog();
     }
 
     private HorizontalLayout prepareButtons() {
@@ -90,7 +90,7 @@ public class EmployeeFormView extends VerticalLayout {
 
             Notification.show("Successfully added new Employee to database!");
 
-            //
+            dialogUser.open();
         });
 
         BClear.addClickListener(click -> {
@@ -106,29 +106,52 @@ public class EmployeeFormView extends VerticalLayout {
         return buttons;
     }
 
-    private VerticalLayout addUser(Employee employee) {
+    private VerticalLayout addUser() {
         VerticalLayout addUser = new VerticalLayout();
+        FormLayout userForm = new FormLayout();
 
         Button addButton = new Button("Add");
         Button BClear = new Button("Clear");
-        HorizontalLayout buttons = new HorizontalLayout();
-        buttons.add(addButton, BClear);
+        HorizontalLayout buttonsView = new HorizontalLayout();
+        buttonsView.add(addButton, BClear);
 
         TextField loginTF = new TextField("Login:");
         TextField passwordTF = new TextField("Password:");
-        ComboBox<String> CBrole = new ComboBox<>("Role");
+        ComboBox<String> CBrole = prepareRoleComboBox();
         TextField mailTF = new TextField("E-mail:");
-        
 
+        addButton.addClickListener(click -> {
+            String login = loginTF.getValue();
+            String password = passwordTF.getValue();
+            String role = CBrole.getValue();
+            String mail = mailTF.getValue();
+            dataService.addUser(login, password,  role, mail);
+
+            //TODO get userID and alter record of previously added employee so it links with his user profile
+
+            Notification.show("Successfully added new Employee to database!");
+        });
+
+        BClear.addClickListener(click -> {
+            loginTF.clear();
+            passwordTF.clear();
+            CBrole.clear();
+            mailTF.clear();
+
+            Notification.show("All info cleared.");
+        });
+
+        userForm.add(loginTF,passwordTF, CBrole, mailTF, buttonsView);
+        addUser.add(userForm);
         return addUser;
     }
 
-    private void configureDialogs() {
+    private void configureDialog() {
         dialogUser.setHeaderTitle("Add user");
         dialogUser.setMinWidth("700px");
 
-        VerticalLayout addUserLayout = new VerticalLayout();
-
+        VerticalLayout addUserLayout = addUser();
+        dialogUser.add(addUserLayout);
     }
 
     private ComboBox<Position> preparePositionsComboBox() {
@@ -136,6 +159,12 @@ public class EmployeeFormView extends VerticalLayout {
         CBposition.setItems(dataService.getAllPositions());
         CBposition.setItemLabelGenerator(Position::getName);
         return CBposition;
+    }
+    private ComboBox<String> prepareRoleComboBox() {
+        ComboBox<String> CBrole = new ComboBox<>("Role");
+        String[] roles = new String[]{"user", "admin"};
+        CBrole.setItems(roles);
+        return CBrole;
     }
 
     private ComboBox<EmpStatus> prepareEmpStatusComboBox() {
