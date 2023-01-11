@@ -8,3 +8,8 @@ autotask/node_modules/
 autotask/package-lock.json
 autotask/vite.generated.ts
 autotask/vite.config.ts
+
+
+vite.config.ts
+package.json
+vite-devmode.ts
