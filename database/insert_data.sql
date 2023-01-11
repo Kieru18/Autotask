@@ -103,7 +103,7 @@ SELECT * FROM employees;
 INSERT INTO employees VALUES(1, 'Piotr', '£uszcz', 'M', '18/03/1978', 3, 1, 1);
 INSERT INTO employees VALUES(2, 'Jan', 'Kowalski', 'M', '01/02/1999', 2, 1, 2);
 INSERT INTO employees VALUES(3, 'Andrzej', 'Tatowski', 'M', '01/12/1986', 1, 2, 3);
-INSERT INTO employees VALUES(4, 'Emily', 'Brown', 'W', '01/05/1980', 1, 1, 5);
+INSERT INTO employees VALUES(4, 'Emily', 'Brown', 'W', '01/05/1980', 1, 1, 4);
 INSERT INTO employees VALUES(5, 'Adam', 'Smith', 'M', '12/12/1970', 2, 2, 6);
 INSERT INTO employees VALUES(6, 'Natalie', 'Johnson', 'W', '05/09/1990', 3, 2, 5);
 INSERT INTO employees VALUES(7, 'Brian', 'Wilson', 'U', '01/05/1995', 4, 2, 7);
