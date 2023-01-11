@@ -3,6 +3,7 @@ package z21.autotask.views.form;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.notification.Notification;
@@ -14,6 +15,7 @@ import com.vaadin.flow.router.Route;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import z21.autotask.entities.EmpStatus;
+import z21.autotask.entities.Employee;
 import z21.autotask.entities.Position;
 import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
@@ -22,7 +24,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 
 @RolesAllowed("ROLE_ADMIN")
@@ -38,6 +39,10 @@ public class EmployeeFormView extends VerticalLayout {
 
     private final TextField firstNameTF;
     private final TextField lastNameTF;
+    // private final TextField loginTF;
+    // private final TextField passwordTF;
+
+    Dialog dialogUser = new Dialog();
 
     HorizontalLayout buttons;
 
@@ -55,7 +60,7 @@ public class EmployeeFormView extends VerticalLayout {
         CBempStatus = prepareEmpStatusComboBox();
         DTPdateOfBirth = prepareDatePicker();
 
-        buttons=  prepareButtons(); //new Button("Add");
+        buttons = prepareButtons(); //new Button("Add");
 
         employeeForm.add(firstNameTF,lastNameTF, CBgender, CBposition,CBempStatus, DTPdateOfBirth, buttons);
 
@@ -84,6 +89,8 @@ public class EmployeeFormView extends VerticalLayout {
             dataService.addEmployee(firstName, lastName,  gender, birthDate, positionId, empStatusId, null);
 
             Notification.show("Successfully added new Employee to database!");
+
+            //
         });
 
         BClear.addClickListener(click -> {
@@ -91,12 +98,37 @@ public class EmployeeFormView extends VerticalLayout {
             lastNameTF.clear();
             CBposition.clear();
             CBempStatus.clear();
-            CBgender.clear();;
+            CBgender.clear();
             DTPdateOfBirth.setValue(LocalDate.now());
 
             Notification.show("All info cleared.");
         });
         return buttons;
+    }
+
+    private VerticalLayout addUser(Employee employee) {
+        VerticalLayout addUser = new VerticalLayout();
+
+        Button addButton = new Button("Add");
+        Button BClear = new Button("Clear");
+        HorizontalLayout buttons = new HorizontalLayout();
+        buttons.add(addButton, BClear);
+
+        TextField loginTF = new TextField("Login:");
+        TextField passwordTF = new TextField("Password:");
+        ComboBox<String> CBrole = new ComboBox<>("Role");
+        TextField mailTF = new TextField("E-mail:");
+        
+
+        return addUser;
+    }
+
+    private void configureDialogs() {
+        dialogUser.setHeaderTitle("Add user");
+        dialogUser.setMinWidth("700px");
+
+        VerticalLayout addUserLayout = new VerticalLayout();
+
     }
 
     private ComboBox<Position> preparePositionsComboBox() {
