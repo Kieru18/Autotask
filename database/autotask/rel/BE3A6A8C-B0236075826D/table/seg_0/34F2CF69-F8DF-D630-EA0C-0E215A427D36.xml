@@ -37,6 +37,7 @@
 <createdTime>2023-01-09 17:11:19 UTC</createdTime>
 <generatorID>AAC7576B-A771-784E-825A-0D4A00C5501A</generatorID>
 <ownerDesignName>autotask</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>

@@ -110,7 +110,7 @@ ALTER TABLE task_types ADD CONSTRAINT task_types_pk PRIMARY KEY ( type_id );
 CREATE TABLE tasks (
     task_id      NUMBER NOT NULL,
     description  VARCHAR2(120 CHAR),
-    date_start   DATE NOT NULL,
+    date_start   DATE,
     date_end     DATE,
     deadline     DATE,
     priority     NUMBER,

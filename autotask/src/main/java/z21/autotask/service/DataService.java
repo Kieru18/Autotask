@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import z21.autotask.entities.*;
 import z21.autotask.repositories.*;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -133,16 +132,6 @@ public class DataService {
     public List<Employee> getAvailableEmployees() { 
         return employeeRepository.findByStatus("available");
     }
-
-    // public List<Employee> getEmployeesByTask(Task task) {
-    //     return taskRepository.findEmployees(task.getTaskId());
-    // }
-    // public List<Animal> getAnimalsByTask(Task task) {
-    //     return taskRepository.findAnimals(task.getTaskId());
-    // }
-    // public List<Task> getTasksByEmployee(Employee employee) {
-    //     return employeeRepository.findTasks(employee.getEmployeeId());
-    // }
 
     public List<Employee> getEmployeesByTask(Task task) {
             return employeeRepository.findByTaskId(task.getTaskId());
