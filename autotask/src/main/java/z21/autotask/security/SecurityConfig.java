@@ -57,8 +57,6 @@ public class SecurityConfig extends VaadinWebSecurity {
         http
         .authorizeRequests()
         .antMatchers("/images/**").permitAll();
-        // .antMatchers("/admin/**").hasRole("ADMIN")
-        // .antMatchers("/user/**").hasRole("USER")
         super.configure(http);
 
         setLoginView(http, LoginView.class);

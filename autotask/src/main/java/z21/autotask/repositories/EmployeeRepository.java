@@ -42,6 +42,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query
     List<Employee> findByUserUserId(Integer userId);
 
+    @Query(value = "SELECT employees_seq.CURRVAL FROM dual", nativeQuery = true)
+    Integer findLastEmployeeId();
+
     @Query(value = "SELECT e.* FROM tasks t JOIN emp_assignments emp ON(t.task_id = emp.task_id) JOIN employees e ON (e.employee_id = emp.employee_id) WHERE t.task_id = :task_id", nativeQuery = true)
     List<Employee> findByTaskId(@Param("task_id") Integer taskId);
 
@@ -53,5 +56,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
                         @Param("position_id") Integer positionId,
                         @Param("status_id") Integer statusId,
                         @Param("user_id") Integer userId);
+    
+    @Modifying @Query(value = "UPDATE employees SET user_id = :user_id WHERE employee_id = :employee_id", nativeQuery = true)
+    void updateUser(@Param("user_id") Integer userId, 
+                    @Param("employee_id") Integer employeeId);
 
 }

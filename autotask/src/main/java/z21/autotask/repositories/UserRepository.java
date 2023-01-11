@@ -28,6 +28,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query
     List<User> findByMail(String mail);
 
+    @Query(value = "SELECT users_seq.CURRVAL FROM dual", nativeQuery = true)
+    Integer findLastUserId();
+
     @Modifying @Query(value = "INSERT INTO users (login, password, role, mail) VALUES (:login, :password, :role, :mail)", nativeQuery = true)
     void insertUser(@Param("login") String login, 
                     @Param("password") String password, 
