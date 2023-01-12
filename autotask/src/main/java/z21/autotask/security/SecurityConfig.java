@@ -2,7 +2,7 @@ package z21.autotask.security;
 
 
 import z21.autotask.repositories.UserRepository;
-import z21.autotask.views.list.LoginView;
+import z21.autotask.views.LoginView;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

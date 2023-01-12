@@ -1,4 +1,4 @@
-package z21.autotask.views.list;
+package z21.autotask.views;
 
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.login.LoginForm;
