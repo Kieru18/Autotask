@@ -63,15 +63,15 @@ public class TasksListView extends VerticalLayout {
         grid.addClassNames("tasks-grid");
         grid.setSizeFull();
 
-        grid.addColumn(Task::getTaskId).setHeader("ID");
-        grid.addColumn(Task::getDescription).setHeader("Name");
-        grid.addColumn(Task::getDateStart).setHeader("Date of start");
-        grid.addColumn(Task::getDeadline).setHeader("Deadline");
-        grid.addColumn(Task::getDateEnd).setHeader("Date of end");
-        grid.addColumn(Task::getPriority).setHeader("Priority");
-        grid.addColumn(Task -> Task.getStatus().getDescription()).setHeader("Status");
-        grid.addColumn(Task -> Task.getLocation().getName()).setHeader("Location");
-        grid.addColumn(Task -> Task.getType().getName()).setHeader("Type");
+        grid.addColumn(Task::getTaskId).setHeader("ID").setSortable(true);
+        grid.addColumn(Task::getDescription).setHeader("Name").setSortable(true);
+        grid.addColumn(Task::getDateStart).setHeader("Date of start").setSortable(true);
+        grid.addColumn(Task::getDeadline).setHeader("Deadline").setSortable(true);
+        grid.addColumn(Task::getDateEnd).setHeader("Date of end").setSortable(true);
+        grid.addColumn(Task::getPriority).setHeader("Priority").setSortable(true);
+        grid.addColumn(Task -> Task.getStatus().getDescription()).setHeader("Status").setSortable(true);
+        grid.addColumn(Task -> Task.getLocation().getName()).setHeader("Location").setSortable(true);
+        grid.addColumn(Task -> Task.getType().getName()).setHeader("Type").setSortable(true);
 
         grid.addColumn(new ComponentRenderer<>(task -> {
             Button buttonEmp = new Button("Show employees", e -> {
@@ -142,7 +142,7 @@ public class TasksListView extends VerticalLayout {
     private void updateAnimalDialog(Task task){
         dialogAnimals.removeAll();
         List<Animal> animals = dataService.getAnimalsByTask(task);
-        if (animals.get(0) == null)
+        if (animals.isEmpty() || animals.get(0) == null)
             dialogAnimals.setHeaderTitle("There are no assigned animals");
         else{
             dialogAnimals.setHeaderTitle("List of assigned animals");

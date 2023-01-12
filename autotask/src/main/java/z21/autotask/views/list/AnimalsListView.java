@@ -57,12 +57,12 @@ public class AnimalsListView extends VerticalLayout {
         grid.addClassNames("animals-grid");
         grid.setSizeFull();
 
-        grid.addColumn(Animal::getAnimalId).setHeader("ID");
-        grid.addColumn(Animal::getName).setHeader("Name");
-        grid.addColumn(Animal -> Animal.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()).setHeader("Date of birth");
-        grid.addColumn(Animal::getWeight).setHeader("Weight");
-        grid.addColumn(Animal -> Animal.getLocation().getName()).setHeader("Location");
-        grid.addColumn(Animal -> Animal.getSpecies().getName()).setHeader("Species");
+        grid.addColumn(Animal::getAnimalId).setHeader("ID").setSortable(true);
+        grid.addColumn(Animal::getName).setHeader("Name").setSortable(true);
+        grid.addColumn(Animal -> Animal.getBirthDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()).setHeader("Date of birth").setSortable(true);
+        grid.addColumn(Animal::getWeight).setHeader("Weight").setSortable(true);
+        grid.addColumn(Animal -> Animal.getLocation().getName()).setHeader("Location").setSortable(true);
+        grid.addColumn(Animal -> Animal.getSpecies().getName()).setHeader("Species").setSortable(true);
 
         List<Animal> listOfAnimals = dataService.getAllAnimals();
         GridListDataView<Animal> dataView = grid.setItems(listOfAnimals);
