@@ -152,7 +152,7 @@ public class DataService {
             @Override
             public int compare(Task t1, Task t2) {
                 if (t1.getDeadline().compareTo(t2.getDeadline()) == 0) {
-                    return t1.getPriority() - t2.getPriority();
+                    return t2.getPriority().compareTo(t1.getPriority());
                 } else {
                     return t1.getDeadline().compareTo(t2.getDeadline());
                 }
