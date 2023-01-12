@@ -6,9 +6,12 @@ import org.springframework.stereotype.Service;
 import z21.autotask.entities.*;
 import z21.autotask.repositories.*;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class DataService {
@@ -144,8 +147,25 @@ public class DataService {
         }
 
     public List<Task> getTasksByUser(String login) {
-        return taskRepository.findByUserLogin(login);
+        List<Task> tasks = taskRepository.findByUserLogin(login);
+        Collections.sort(tasks, new Comparator<Task>() {
+            @Override
+            public int compare(Task t1, Task t2) {
+                if (t1.getDeadline().compareTo(t2.getDeadline()) == 0) {
+                    return t1.getPriority() - t2.getPriority();
+                } else {
+                    return t1.getDeadline().compareTo(t2.getDeadline());
+                }
+            }
+        });
+        List<Task> completedTasks = tasks.stream()
+            .filter(t -> t.getStatus().getDescription().equals("completed"))
+            .collect(Collectors.toList());
+        tasks.removeAll(completedTasks);
+        tasks.addAll(completedTasks);
+        return tasks;
     }
+        
 
     public void addUser(String login, String password, String role, String mail) {
         userRepository.insertUser(login, password, role, mail);
