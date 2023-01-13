@@ -113,7 +113,7 @@ public class TasksListView extends VerticalLayout {
         return toolbar;
     }
 
-    void configureDialogs(){
+    void configureDialogs() {
         dialogEmployees.setHeaderTitle("List of assigned employees");
         dialogAnimals.setHeaderTitle("List of assigned animals");
 
@@ -130,7 +130,7 @@ public class TasksListView extends VerticalLayout {
         dialogAnimals.getFooter().add(new Button("Close", e -> dialogAnimals.close()));
     }
 
-    private void updateEmployeeDialog(Task task){
+    private void updateEmployeeDialog(Task task) {
         dialogEmployees.removeAll();
         List<Employee> employees = dataService.getEmployeesByTask(task);
         if (employees.get(0) == null)
@@ -139,7 +139,7 @@ public class TasksListView extends VerticalLayout {
             dialogEmployees.setHeaderTitle("List of assigned employees");
             dialogEmployees.add(getEmployeesCards(employees));}
     }
-    private void updateAnimalDialog(Task task){
+    private void updateAnimalDialog(Task task) {
         dialogAnimals.removeAll();
         List<Animal> animals = dataService.getAnimalsByTask(task);
         if (animals.isEmpty() || animals.get(0) == null)
@@ -148,7 +148,7 @@ public class TasksListView extends VerticalLayout {
             dialogAnimals.setHeaderTitle("List of assigned animals");
             dialogAnimals.add(getAnimalsList(animals));}
     }
-    private VerticalLayout getAnimalsList(List<Animal> animals){
+    private VerticalLayout getAnimalsList(List<Animal> animals) {
         VerticalLayout verticalLayoutAnimals = new VerticalLayout();
         Grid<Animal> grid = new Grid<>(Animal.class, false);
 

@@ -89,21 +89,21 @@ public class AnimalFormView extends VerticalLayout {
         return buttons;
     }
 
-    private ComboBox<Location> prepareLocationComboBox(){
+    private ComboBox<Location> prepareLocationComboBox() {
         ComboBox<Location> CBlocation = new ComboBox<>("Animal Habitat");
         CBlocation.setItems(dataService.getAllLocations());
         CBlocation.setItemLabelGenerator(Location::getName);
         return CBlocation;
     }
 
-    private ComboBox<Species> prepareSpeciesComboBox(){
+    private ComboBox<Species> prepareSpeciesComboBox() {
         ComboBox<Species> CBspecies = new ComboBox<>("Animal Species");
         CBspecies.setItems(dataService.getAllSpecies());
         CBspecies.setItemLabelGenerator(Species::getName);
         return CBspecies;
     }
 
-    private DatePicker prepareDatePicker(){
+    private DatePicker prepareDatePicker() {
         DatePicker DTPwhen = new DatePicker();
         DTPwhen.setLabel("Date of birth");
         DTPwhen.setValue(LocalDate.now());
