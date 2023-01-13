@@ -125,11 +125,9 @@ public class EmployeeFormView extends VerticalLayout {
             String login = loginTF.getValue();
             String password = passwordPF.getValue();
             String role = CBrole.getValue();
+            role = "ROLE_" + role.toUpperCase();
             String mail = mailTF.getValue();
             dataService.addUser(login, password, role, mail);
-
-
-            //TODO get userID and alter record of previously added employee so it links with his user profile
 
             Notification.show("Successfully added new User account");
 
@@ -187,7 +185,7 @@ public class EmployeeFormView extends VerticalLayout {
 
     private ComboBox<String> prepareGenderComboBox() {
         ComboBox<String> CBspecies = new ComboBox<>("Gender");
-        String[] genders = new String[]{"Woman", "Man", "Unknown"};
+        String[] genders = new String[]{"Female", "Male", "Unknown"};
         CBspecies.setItems(genders);
         return CBspecies;
     }
