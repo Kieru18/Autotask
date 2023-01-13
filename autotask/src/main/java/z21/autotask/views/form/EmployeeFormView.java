@@ -184,10 +184,10 @@ public class EmployeeFormView extends VerticalLayout {
     }
 
     private ComboBox<String> prepareGenderComboBox() {
-        ComboBox<String> CBspecies = new ComboBox<>("Gender");
+        ComboBox<String> CBgenders = new ComboBox<>("Gender");
         String[] genders = new String[]{"Female", "Male", "Unknown"};
-        CBspecies.setItems(genders);
-        return CBspecies;
+        CBgenders.setItems(genders);
+        return CBgenders;
     }
 
     private DatePicker prepareDatePicker() {

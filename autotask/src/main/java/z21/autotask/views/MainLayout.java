@@ -38,7 +38,6 @@ import z21.autotask.views.list.TasksListView;
 import z21.autotask.security.SecurityService;
 
 @PermitAll
-@Route("")
 public class MainLayout extends AppLayout{
     private SecurityService securityService;
     

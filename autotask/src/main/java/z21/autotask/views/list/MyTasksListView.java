@@ -22,6 +22,7 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouteAlias;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -45,6 +46,7 @@ import java.util.function.Consumer;
 @PermitAll
 @PageTitle("List of your currently active tasks")
 @Route(value = "/myTasks", layout = MainLayout.class)
+@RouteAlias(value = "", layout = MainLayout.class)
 public class MyTasksListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
