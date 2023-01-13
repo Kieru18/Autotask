@@ -23,23 +23,15 @@ public class SecurityConfig extends VaadinWebSecurity {
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        // return NoOpPasswordEncoder.getInstance();
-        return new BCryptPasswordEncoder();
-    }
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new UserDetailsServiceImpl(passwordEncoder());
+        return new UserDetailsServiceImpl();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsService).passwordEncoder(userDetailsService.passwordEncoder());
     }
 
     @Override
