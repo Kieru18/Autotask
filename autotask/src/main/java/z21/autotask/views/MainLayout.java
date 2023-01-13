@@ -5,6 +5,7 @@ import java.util.Collection;
 import javax.annotation.security.PermitAll;
 
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -90,9 +91,10 @@ public class MainLayout extends AppLayout{
                     ui.navigate(MyTasksListView.class));
         });
         DrawerToggle linksDT = new DrawerToggle();
+        linksDT.addClassNames("drawer-toggle");
 
         Button logout = new Button("Log out", e -> securityService.logout());
-  
+        logout.addClassNames("logout-button");
         HorizontalLayout header = new HorizontalLayout(linksDT, title, logout);
 
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
