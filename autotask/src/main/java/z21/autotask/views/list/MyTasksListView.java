@@ -23,9 +23,7 @@ import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
-import com.vaadin.flow.router.RouteAlias;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +35,6 @@ import z21.autotask.service.DataService;
 import z21.autotask.views.MainLayout;
 
 import javax.annotation.security.PermitAll;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -74,7 +71,7 @@ public class MyTasksListView extends VerticalLayout {
 
         grid.addColumn(new ComponentRenderer<>(task -> {
             Component buttonClose;
-            if (Objects.equals(task.getStatus().getDescription(), "completed")){
+            if (Objects.equals(task.getStatus().getDescription(), "completed")) {
                  buttonClose = new Label("Task is completed");
             }
 
@@ -147,7 +144,7 @@ public class MyTasksListView extends VerticalLayout {
         return toolbar;
     }
 
-    void configureDialogs(){
+    void configureDialogs() {
         dialogEmployees.setHeaderTitle("List of assigned employees");
         dialogAnimals.setHeaderTitle("List of assigned animals");
 
@@ -164,7 +161,7 @@ public class MyTasksListView extends VerticalLayout {
         dialogAnimals.getFooter().add(new Button("Close", e -> dialogAnimals.close()));
     }
 
-    private void updateEmployeeDialog(Task task){
+    private void updateEmployeeDialog(Task task) {
         dialogEmployees.removeAll();
         List<Employee> employees = dataService.getEmployeesByTask(task);
         if (employees.isEmpty() || employees.get(0) == null)
@@ -173,7 +170,7 @@ public class MyTasksListView extends VerticalLayout {
             dialogEmployees.setHeaderTitle("List of assigned employees");
             dialogEmployees.add(getEmployeesCards(employees));}
     }
-    private void updateAnimalDialog(Task task){
+    private void updateAnimalDialog(Task task) {
         dialogAnimals.removeAll();
         List<Animal> animals = dataService.getAnimalsByTask(task);
         if (animals.isEmpty() || animals.get(0) == null)
@@ -182,7 +179,7 @@ public class MyTasksListView extends VerticalLayout {
             dialogAnimals.setHeaderTitle("List of assigned animals");
             dialogAnimals.add(getAnimalsList(animals));}
     }
-    private VerticalLayout getAnimalsList(List<Animal> animals){
+    private VerticalLayout getAnimalsList(List<Animal> animals) {
         VerticalLayout verticalLayoutAnimals = new VerticalLayout();
         Grid<Animal> grid = new Grid<>(Animal.class, false);
 

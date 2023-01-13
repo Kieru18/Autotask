@@ -73,14 +73,14 @@ public class TaskFormView extends VerticalLayout {
         setAlignItems(FlexComponent.Alignment.STRETCH);
     }
 
-    private MultiSelectComboBox<Employee> prepareWhoMultiSelectComboBox(){
+    private MultiSelectComboBox<Employee> prepareWhoMultiSelectComboBox() {
         MultiSelectComboBox<Employee> MSCBwho = new MultiSelectComboBox<>("Employees");
         MSCBwho.setItems(dataService.getAllEmployees());
         MSCBwho.setItemLabelGenerator(Employee::getFullName);
         return MSCBwho;
     }
 
-    private MultiSelectComboBox<Animal> prepareAnimalsMultiSelectComboBox(){
+    private MultiSelectComboBox<Animal> prepareAnimalsMultiSelectComboBox() {
 
         MultiSelectComboBox<Animal> MSCBanimals = new MultiSelectComboBox<>("Animals");
         MSCBanimals.setItems(dataService.getAllAnimals());
@@ -88,14 +88,14 @@ public class TaskFormView extends VerticalLayout {
         return MSCBanimals;
     }
 
-    private ComboBox<TaskType> prepareTaskGroupComboBox(){
+    private ComboBox<TaskType> prepareTaskGroupComboBox() {
         ComboBox<TaskType> CBtaskGroup = new ComboBox<>("Task Group");
         CBtaskGroup.setItems(dataService.getAllTaskTypes());
         CBtaskGroup.setItemLabelGenerator(TaskType::getName);
         return CBtaskGroup;
     }
 
-    private ComboBox<Location> prepareWhereComboBox(){
+    private ComboBox<Location> prepareWhereComboBox() {
         ComboBox<Location> CBwhere = new ComboBox<>("Location");
         CBwhere.setItems(dataService.getAllLocations());
         CBwhere.setItemLabelGenerator(Location::getName);
