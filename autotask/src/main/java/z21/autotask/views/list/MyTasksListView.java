@@ -54,6 +54,7 @@ import java.util.function.Consumer;
         value = "./themes/my_theme/components/vaadin-grid.css"
 )
 public class MyTasksListView extends VerticalLayout {
+
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
     Dialog dialogEmployees = new Dialog();
@@ -97,7 +98,6 @@ public class MyTasksListView extends VerticalLayout {
                     UI.getCurrent().getPage().reload();
                 });
             }
-
             return buttonClose;
         })).setHeader("Close task");
 
@@ -267,7 +267,7 @@ public class MyTasksListView extends VerticalLayout {
         textField.setPlaceholder(labelText);
         textField.setValueChangeMode(ValueChangeMode.EAGER);
         textField.setClearButtonVisible(true);
-        textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
+        // textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
         textField.setWidthFull();
         textField.getStyle().set("max-width", "100%");
         textField.addValueChangeListener(
