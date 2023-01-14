@@ -12,7 +12,7 @@ import com.vaadin.flow.theme.Theme;
 
 
 @SpringBootApplication
-@Theme(variant = Lumo.DARK)
+@Theme(value = "my_theme", variant = Lumo.DARK)
 @PWA(name = "Autotask - manage your work", shortName = "Autotask", offlineResources = {})
 @NpmPackage(value = "line-awesome", version = "1.3.0")
 public class App implements AppShellConfigurator {

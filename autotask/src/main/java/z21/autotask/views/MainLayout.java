@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.security.PermitAll;
 
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,8 +102,10 @@ public class MainLayout extends AppLayout{
                     ui.navigate(MyTasksListView.class));
         });
         DrawerToggle linksDT = new DrawerToggle();
+        linksDT.addClassNames("drawer-toggle");
 
         Button logout = new Button("Log out", e -> securityService.logout());
+        logout.addClassNames("logout-button");
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         List<Employee> employees = dataService.getEmployeeByUserLogin(authentication.getName());
@@ -110,6 +113,7 @@ public class MainLayout extends AppLayout{
         HorizontalLayout userInfo = createUserCardComponent(employee);
   
         HorizontalLayout header = new HorizontalLayout(linksDT, title, userInfo, logout);
+        
 
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(title);

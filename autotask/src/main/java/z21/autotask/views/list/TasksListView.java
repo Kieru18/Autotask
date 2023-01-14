@@ -4,6 +4,7 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.details.Details;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
@@ -39,6 +40,10 @@ import javax.annotation.security.RolesAllowed;
 @RolesAllowed("ROLE_ADMIN")
 @PageTitle("List of all tasks")
 @Route(value = "/tasks", layout = MainLayout.class)
+@CssImport(
+        themeFor = "vaadin-grid",
+        value = "./themes/my_theme/components/vaadin-grid.css"
+)
 public class TasksListView extends VerticalLayout {
     private final DataService dataService;
     Grid<Task> grid = new Grid<>(Task.class, false);
@@ -95,6 +100,17 @@ public class TasksListView extends VerticalLayout {
         taskFilter = new TaskFilter(dataView);
 
         grid.getColumns().forEach(col -> col.setAutoWidth(true));
+        grid.setClassNameGenerator(task ->
+        {
+            int priority = task.getPriority();
+            String status = task.getStatus().getDescription();
+            if(priority == 5){return "task-5";}
+            if(priority == 4){return "task-4";}
+            if(priority == 3){return "task-3";}
+            if(priority == 2){return "task-2";}
+            if(priority == 1){return "task-1";}
+            return null;
+        });
     }
 
     private HorizontalLayout getToolbar(TaskFilter taskFilter) {
@@ -213,7 +229,7 @@ public class TasksListView extends VerticalLayout {
         textField.setPlaceholder(labelText);
         textField.setValueChangeMode(ValueChangeMode.EAGER);
         textField.setClearButtonVisible(true);
-        textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
+        //textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
         textField.setWidthFull();
         textField.getStyle().set("max-width", "100%");
         textField.addValueChangeListener(

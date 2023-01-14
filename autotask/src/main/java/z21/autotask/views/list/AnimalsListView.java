@@ -77,7 +77,7 @@ public class AnimalsListView extends VerticalLayout {
         textField.setPlaceholder("Filter by name...");;
         textField.setValueChangeMode(ValueChangeMode.EAGER);
         textField.setClearButtonVisible(true);
-        textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
+        //textField.addThemeVariants(TextFieldVariant.LUMO_SMALL);
         textField.setWidthFull();
         textField.getStyle().set("max-width", "100%");
         textField.addValueChangeListener(
