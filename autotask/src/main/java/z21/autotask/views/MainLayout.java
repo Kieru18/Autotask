@@ -33,6 +33,7 @@ import com.vaadin.flow.component.avatar.Avatar;
 import com.vaadin.flow.component.details.Details;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
+// import com.vaadin.flow.component.cookieconsent.CookieConsent;
 
 import z21.autotask.views.form.AnimalFormView;
 import z21.autotask.views.form.EmployeeFormView;
@@ -94,6 +95,9 @@ public class MainLayout extends AppLayout{
     public MainLayout(@Autowired SecurityService securityService, @Autowired DataService dataService) {
         this.securityService = securityService;
         this.dataService = dataService;
+
+        // CookieConsent cookieConsent = new CookieConsent();
+        // add(cookieConsent);
 
         H1 title = new H1("AutoTask");
         title.addClickListener(click ->{

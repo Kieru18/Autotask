@@ -23,6 +23,9 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 		setJustifyContentMode(JustifyContentMode.CENTER);
 
 		login.setAction("login"); 
+		// login.getElement().getProperty("forgotPassword").addClickListener(e -> {
+			// login.setError(true);
+		// });
 
 		add(new H1("Autotask"), login);
 	}
