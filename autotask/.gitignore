@@ -33,6 +33,7 @@ build/
 ### VS Code ###
 .vscode/
 
+frontend/
 node_modules/
 package-lock.json
 vite.generated.ts
