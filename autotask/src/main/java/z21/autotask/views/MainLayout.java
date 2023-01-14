@@ -1,6 +1,7 @@
 package z21.autotask.views;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.annotation.security.PermitAll;
 
@@ -13,17 +14,23 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.dom.ElementFactory;
+import com.vaadin.flow.component.avatar.Avatar;
+import com.vaadin.flow.component.details.Details;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
 
@@ -35,11 +42,15 @@ import z21.autotask.views.list.AnimalsListView;
 import z21.autotask.views.list.EmployeesListView;
 import z21.autotask.views.list.MyTasksListView;
 import z21.autotask.views.list.TasksListView;
+import z21.autotask.entities.Employee;
+import z21.autotask.entities.User;
 import z21.autotask.security.SecurityService;
+import z21.autotask.service.DataService;
 
 @PermitAll
 public class MainLayout extends AppLayout{
     private SecurityService securityService;
+    private DataService dataService;
     
     private Tabs getLinkTabs() {
         Tabs tabs = new Tabs();
@@ -80,8 +91,9 @@ public class MainLayout extends AppLayout{
         return new Tab(Rlink);
     }
 
-    public MainLayout(@Autowired SecurityService securityService) {
+    public MainLayout(@Autowired SecurityService securityService, @Autowired DataService dataService) {
         this.securityService = securityService;
+        this.dataService = dataService;
 
         H1 title = new H1("AutoTask");
         title.addClickListener(click ->{
@@ -91,8 +103,13 @@ public class MainLayout extends AppLayout{
         DrawerToggle linksDT = new DrawerToggle();
 
         Button logout = new Button("Log out", e -> securityService.logout());
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        List<Employee> employees = dataService.getEmployeeByUserLogin(authentication.getName());
+        Employee employee = employees.get(0);
+        HorizontalLayout userInfo = createUserCardComponent(employee);
   
-        HorizontalLayout header = new HorizontalLayout(linksDT, title, logout);
+        HorizontalLayout header = new HorizontalLayout(linksDT, title, userInfo, logout);
 
         header.setDefaultVerticalComponentAlignment(FlexComponent.Alignment.CENTER);
         header.expand(title);
@@ -103,12 +120,37 @@ public class MainLayout extends AppLayout{
         createNavigationDrawer();
 
     }
+
     private void createNavigationDrawer() {
         addToDrawer(getLinkTabs());
     }
 
-//    @Override
-//    public void beforeEnter(BeforeEnterEvent event) {
-//        event.forwardTo("/myTasks");
-//    }
+    private HorizontalLayout createUserCardComponent(Employee employee)
+    {
+        HorizontalLayout cardLayout = new HorizontalLayout();
+        cardLayout.setMargin(true);
+
+        Avatar avatar = new Avatar(employee.getFullName());
+        avatar.setImage(employee.getPictureRoute());
+
+        avatar.setHeight("64px");
+        avatar.setWidth("64px");
+
+        VerticalLayout infoLayout = new VerticalLayout();
+        infoLayout.setSpacing(false);
+        infoLayout.setPadding(false);
+        infoLayout.getElement().appendChild(
+                ElementFactory.createStrong(employee.getFullName()));
+        infoLayout.add(new Div(new Text(employee.getProfession())));
+
+
+        VerticalLayout contactLayout = new VerticalLayout();
+        contactLayout.setSpacing(false);
+        contactLayout.setPadding(false);
+        
+        cardLayout.add(avatar, infoLayout);
+        return cardLayout;
+    }
+
+
 }

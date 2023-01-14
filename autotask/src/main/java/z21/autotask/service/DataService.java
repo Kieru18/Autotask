@@ -183,4 +183,11 @@ public class DataService {
         taskRepository.updateTaskStartDate(task.getTaskId(), date);
         taskRepository.updateTaskStatus(task.getTaskId(), 2);
     }
+
+    public List<Employee> getEmployeeByUserLogin(String login) {
+        List<User> users = userRepository.findByLogin(login);
+        User user = users.get(0);
+        Integer userId = user.getUserId();
+        return employeeRepository.findByUserId(userId);
+    }
 }

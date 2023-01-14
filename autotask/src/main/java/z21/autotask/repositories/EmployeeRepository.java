@@ -39,8 +39,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query
     List<Employee> findByPositionPositionId(Integer positionId);
 
-    @Query
-    List<Employee> findByUserUserId(Integer userId);
+    @Query(value = "SELECT e.* FROM employees e JOIN users u ON (e.user_id = u.user_id) WHERE u.user_id = :user_id", nativeQuery = true)
+    List<Employee> findByUserId(@Param("user_id") Integer userId);
 
     @Query(value = "SELECT employees_seq.CURRVAL FROM dual", nativeQuery = true)
     Integer findLastEmployeeId();
