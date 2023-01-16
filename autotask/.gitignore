@@ -37,3 +37,4 @@ node_modules/
 package-lock.json
 vite.generated.ts
 vite.config.ts
+/frontend/generated/
