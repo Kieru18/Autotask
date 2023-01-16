@@ -14,6 +14,13 @@
     - Vaadin
     - Hibernate
 
+# Użycie:
+    git clone https://gitlab-stud.elka.pw.edu.pl/jkierucz/pap22z-z21
+    cd autotask
+    mvn clean package
+    java -jar ./target/autotask.jar
+
+
 # Funkcjonalności:
 ## Panel logowania:
     Podstawowe:
@@ -31,7 +38,7 @@
     - Wyświetlanie listy pracowników i rozróżnianie ich na W pracy/Poza pracą
     Dodatkowe:
     - Wyświetlanie mapy zoo w centralnej części okienka
-    - Wyświetlanie szczegółów zadania poprzez kliknięcię w odpowiednie miejsce na mapie
+    - Wyświetlanie szczegółów zadania poprzez kliknięcie w odpowiednie miejsce na mapie
     - Mapka wyświetla kolejność wykonania zadań (graficzne przedstawienie listy zadań z podpowiedzią dotyczącą najefektywniejszego przejścia od zadania do zadania)
     - rozwinięte rozróżnianie pracowników na Dostępny/Zajęty/Niedostępny 
     - Możliwość sortowania pracowników, alfabetycznie, w zależności od dostępności
@@ -47,7 +54,7 @@
 
 ## Panel Zakończenia zadania:
     Podstawowe:
-    - możliwość zaznaczenia zadania, jako wykonane.
+    - możliwość zaznaczenia zadania jako wykonane
     Dodakowe:
     - możliwość wpisania produktów które zostały użyte do wykonania zadania
     - aktualizacja stanu magazynu
