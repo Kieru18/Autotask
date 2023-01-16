@@ -79,9 +79,10 @@ SELECT * FROM positions;
 INSERT INTO positions VALUES(1, 'manager', 'mng.jpg');
 INSERT INTO positions VALUES(2, 'worker', 'work.jpg');
 INSERT INTO positions VALUES(3, 'conservator of surfaces', 'flatty.jpg');
-INSERT INTO positions VALUES(4, 'Security', 'security.jpg');
-INSERT INTO positions VALUES(5, 'Human resources', 'hr.jpg');
-INSERT INTO positions VALUES(6, 'Marketing', 'marketing.jpg');
+INSERT INTO positions VALUES(4, 'security', 'security.jpg');
+INSERT INTO positions VALUES(5, 'human resources', 'hr.jpg');
+INSERT INTO positions VALUES(6, 'marketing', 'marketing.jpg');
+INSERT INTO positions VALUES(7, 'chemist', 'hemical.jpg');
 
 commit;
 
@@ -100,13 +101,13 @@ commit;
 
 SELECT * FROM employees;
 -- employees; employee_id, first_name, last_name, gender, birth_date, position_id, status_id, user_id
-INSERT INTO employees VALUES(1, 'Piotr', '£uszcz', 'M', '18/03/1978', 3, 1, 1);
+INSERT INTO employees VALUES(1, 'Piotr', '£uszcz', 'M', '18/03/1978', 4, 1, 1);
 INSERT INTO employees VALUES(2, 'Jan', 'Kowalski', 'M', '01/02/1999', 2, 1, 2);
 INSERT INTO employees VALUES(3, 'Andrzej', 'Tatowski', 'M', '01/12/1986', 1, 2, 3);
-INSERT INTO employees VALUES(4, 'Emily', 'Brown', 'F', '01/05/1980', 1, 1, 4);
+INSERT INTO employees VALUES(4, 'Emily', 'Brown', 'F', '01/05/1980', 3, 1, 4);
 INSERT INTO employees VALUES(5, 'Adam', 'Smith', 'M', '12/12/1970', 2, 2, 6);
 INSERT INTO employees VALUES(6, 'Natalie', 'Johnson', 'F', '05/09/1990', 3, 2, 5);
-INSERT INTO employees VALUES(7, 'Brian', 'Wilson', 'U', '01/05/1995', 4, 2, 7);
+INSERT INTO employees VALUES(7, 'Brian', 'Wilson', 'U', '01/05/1995', 6, 2, 7);
 INSERT INTO employees VALUES(8, 'Ava', 'Johnson', 'U', '01/05/1998', 5, 1, 8);
 
 commit;
@@ -131,6 +132,11 @@ INSERT INTO task_types VALUES(6, 'Animals checkup', 'Checking the health and wel
 INSERT INTO task_types VALUES(7, 'Gardening', 'Maintaining the appearance of gardens and landscaping', 2, NULL);
 INSERT INTO task_types VALUES(8, 'Event planning', 'Organizing and planning events for visitors', 3, NULL);
 INSERT INTO task_types VALUES(9, 'Public relations', 'Handling interactions with the media and public', 2, NULL);
+INSERT INTO task_types VALUES(10, 'Animal Enrichment', 'Creating activities and environments to stimulate the animals mentally and physically', 4, NULL);
+INSERT INTO task_types VALUES(11, 'Maintenance', 'Conducting regular checks and repairs on equipment and facilities', 3, NULL);
+INSERT INTO task_types VALUES(12, 'Security', 'Monitoring the zoo for any security concerns and responding accordingly', 2, NULL);
+INSERT INTO task_types VALUES(13, 'Education', 'Developing and delivering educational programs for visitors', 3, NULL);
+INSERT INTO task_types VALUES(14, 'Research', 'Conducting research on the animals and their habitats', 4, NULL);
 
 commit;
 
