@@ -43,6 +43,7 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 			dialogMail.setMinWidth("700px");
 
 			VerticalLayout addUserLayout = MailForm();
+			dialogMail.removeAll();
 			dialogMail.add(addUserLayout);
 			dialogMail.open();
         });
