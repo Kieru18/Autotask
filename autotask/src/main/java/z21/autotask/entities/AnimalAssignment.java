@@ -1,6 +1,7 @@
 package z21.autotask.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
@@ -34,6 +35,7 @@ public class AnimalAssignment {
     private Task task;
 }
 
+@EqualsAndHashCode
 class AnimalAssignmentId implements Serializable {
     private Animal animal;
     private Task task;

@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>z21</groupId>
 	<artifactId>autotask</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.9-RELEASE</version>
 	<name>autotask</name>
-	<description>Demo</description>
+	<description>Manage your work</description>
 	<properties>
 		<java.version>17</java.version>
 		<vaadin.version>23.2.10</vaadin.version>
@@ -100,6 +100,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>z21.autotask.App</mainClass>
+					<layout>JAR</layout>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -107,6 +109,13 @@
 						</exclude>
 					</excludes>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
