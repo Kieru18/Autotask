@@ -1,6 +1,7 @@
 package z21.autotask.entities;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
@@ -33,6 +34,7 @@ public class EmpAssignment {
     private Task task;
 }
 
+@EqualsAndHashCode
 class EmpAssignmentId implements Serializable {
     private Employee employee;
     private Task task;
