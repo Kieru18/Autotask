@@ -16,7 +16,7 @@
 
 # Użycie:
     git clone https://gitlab-stud.elka.pw.edu.pl/jkierucz/pap22z-z21
-    cd autotask
+    cd pap22z-z21/autotask
     mvn clean package
     java -jar ./target/autotask.jar
 
