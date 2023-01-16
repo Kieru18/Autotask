@@ -39,7 +39,6 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 		login.setAction("login"); 
 		
 		login.addForgotPasswordListener(e-> {
-			//TODO: dialog asking for email
 			dialogMail.setHeaderTitle("Add user");
 			dialogMail.setMinWidth("700px");
 
@@ -83,13 +82,6 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
             Notification.show("E-mail has been sent.");
 
             dialogMail.close();
-
-            // firstNameTF.clear();
-            // lastNameTF.clear();
-            // CBposition.clear();
-            // CBempStatus.clear();
-            // CBgender.clear();
-            // DTPdateOfBirth.setValue(LocalDate.now());
         });
 
         BClear.addClickListener(click -> {

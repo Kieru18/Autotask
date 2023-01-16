@@ -17,7 +17,6 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
-import com.vaadin.flow.component.textfield.TextFieldVariant;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.dom.ElementFactory;
@@ -137,12 +136,23 @@ public class MyTasksListView extends VerticalLayout {
         {
             int priority = task.getPriority();
             String status = task.getStatus().getDescription();
-            if(priority == 5){return "task-5";}
-            if(priority == 4){return "task-4";}
-            if(priority == 3){return "task-3";}
-            if(priority == 2){return "task-2";}
-            if(priority == 1){return "task-1";}
-            return null;
+            if (status.equals("completed")) {
+                return "task-completed";
+            }
+            switch (priority) {
+                case 1:
+                    return "task-1";
+                case 2:
+                    return "task-2";
+                case 3:
+                    return "task-3";
+                case 4:
+                    return "task-4";
+                case 5:
+                    return "task-5";
+                default:
+                    return null;
+            }
         });
     }
 

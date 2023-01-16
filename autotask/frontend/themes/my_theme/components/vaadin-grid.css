@@ -18,3 +18,7 @@
 {
     background-color: #034732;
 }
+.task-completed
+{
+    background-color: rgba(230, 190, 95, 0.5);
+}

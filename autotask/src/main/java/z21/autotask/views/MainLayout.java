@@ -5,10 +5,6 @@ import java.util.List;
 
 import javax.annotation.security.PermitAll;
 
-import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.router.BeforeEnterEvent;
-import com.vaadin.flow.router.BeforeEnterObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -31,10 +27,7 @@ import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.dom.ElementFactory;
 import com.vaadin.flow.component.avatar.Avatar;
-import com.vaadin.flow.component.details.Details;
-import com.vaadin.flow.router.Route;
 import com.vaadin.flow.router.RouterLink;
-// import com.vaadin.flow.component.cookieconsent.CookieConsent;
 
 import z21.autotask.views.form.AnimalFormView;
 import z21.autotask.views.form.EmployeeFormView;
@@ -45,7 +38,6 @@ import z21.autotask.views.list.EmployeesListView;
 import z21.autotask.views.list.MyTasksListView;
 import z21.autotask.views.list.TasksListView;
 import z21.autotask.entities.Employee;
-import z21.autotask.entities.User;
 import z21.autotask.security.SecurityService;
 import z21.autotask.service.DataService;
 
