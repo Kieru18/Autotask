@@ -18,6 +18,48 @@ BEGIN
     update_emp_status;
 END;
 
+CREATE OR REPLACE PROCEDURE update_emp_status2(p_emp_id NUMBER, p_status_id NUMBER) AS
+is_p_emp_id_valid BOOLEAN := FALSE;
+is_p_status_id_valid BOOLEAN := FALSE;
+BEGIN
+    FOR r_emp IN (SELECT employee_id AS id FROM employees)
+    LOOP
+        IF r_emp.id = p_emp_id THEN
+            is_p_emp_id_valid := TRUE;
+        END IF;
+    END LOOP;
+    
+    FOR r_status IN (SELECT status_id AS id FROM emp_status)
+    LOOP
+        IF r_status.id = p_status_id THEN
+            is_p_status_id_valid := TRUE;
+        END IF;
+    END LOOP;
+    IF is_p_emp_id_valid AND is_p_status_id_valid THEN
+        UPDATE employees SET status_id = p_status_id WHERE employee_id = p_emp_id;
+        dbms_output.put_line('Successfully changed employee: ' || p_emp_id || ' status to : '  || p_status_id|| ' id');
+    ELSE
+        dbms_output.put_line('Couldnt change employee status. Status id invalid or employee id invalid');
+    END IF;
+END;
+
+
+CREATE OR REPLACE TRIGGER update_after_start_of_a_task
+AFTER UPDATE ON tasks FOR EACH ROW
+BEGIN
+    IF :old.date_start IS NULL AND :new.date_start IS NOT NULL THEN
+        FOR r_emp IN (SELECT employee_id AS id FROM emp_assignments WHERE task_id = :old.task_id)
+        LOOP
+            update_emp_status2(r_emp.id, 2);
+        END LOOP;
+    END IF;
+END;
+
+
+BEGIN
+    update_emp_status;
+END;
+
 
 CREATE OR REPLACE PROCEDURE change_animal_enclosure(p_animal_id NUMBER, p_new_location_id   NUMBER) AS
 is_loc_valid BOOLEAN := FALSE;
@@ -37,7 +79,7 @@ BEGIN
             dbms_output.put_line('Animal is Valid');
         END IF;
     END LOOP;
-    IF is_loc_valid AND is_animal_valid AND p_new_location_id NOT IN (3,4,5,14,15,16,17,18) THEN
+    IF is_loc_valid AND is_animal_valid AND p_new_location_id NOT IN (3,4,5,14,15,16,17,18) THEN -- NUMBERS IN BRACKETS REPRESENT LOCATIONS NOT FOR ANIMALS, like cafe, toilets etc.
         UPDATE animals SET location_id = p_new_location_id WHERE animal_id = p_animal_id;
         dbms_output.put_line('Successfully changed animal: ' || p_animal_id || ' to location: '  || p_new_location_id);
     ELSE
@@ -97,5 +139,6 @@ BEGIN
     SELECT animal_id, calc_number_animal_tasks(animal_id) INTO v_id, v_result FROM animals FETCH NEXT 1 ROWS ONLY;
     dbms_output.put_line('Animal: '|| v_id|| ' has: ' || v_result|| ' assigned tasks');
 END;
+
 
 
