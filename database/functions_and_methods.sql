@@ -9,7 +9,7 @@ BEGIN
     
     FOR r_emp IN (SELECT UNIQUE(employee_id) AS id FROM emp_assignments e_a JOIN tasks t USING(task_id) WHERE t.status_id = 2)
     LOOP
-        UPDATE employees SET status_id = 2 WHERE employee_id = r_emp.id;
+        UPDATE employees SET status_id = 2 WHERE employee_id = r_emp.id; -- unavailable
     END LOOP;
 END;
 
@@ -50,11 +50,24 @@ BEGIN
     IF :old.date_start IS NULL AND :new.date_start IS NOT NULL THEN
         FOR r_emp IN (SELECT employee_id AS id FROM emp_assignments WHERE task_id = :old.task_id)
         LOOP
-            update_emp_status2(r_emp.id, 2);
+            update_emp_status2(r_emp.id, 2); -- unavailable
         END LOOP;
     END IF;
 END;
 
+
+ALTER TRIGGER update_after_start_of_a_task ENABLE;
+
+
+BEGIN
+    update_emp_status2(3, 1);
+    commit;
+END;
+
+UPDATE tasks SET date_end = null WHERE task_id = 9;
+UPDATE tasks SET date_end = '16-JAN-23' WHERE task_id = 9;
+UPDATE tasks SET date_start = '27-FEB-22' WHERE task_id = 9;
+UPDATE tasks SET date_start = null WHERE task_id = 9;
 
 BEGIN
     update_emp_status;
@@ -139,6 +152,5 @@ BEGIN
     SELECT animal_id, calc_number_animal_tasks(animal_id) INTO v_id, v_result FROM animals FETCH NEXT 1 ROWS ONLY;
     dbms_output.put_line('Animal: '|| v_id|| ' has: ' || v_result|| ' assigned tasks');
 END;
-
 
 
