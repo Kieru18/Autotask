@@ -1,4 +1,4 @@
--- Uaktualnij status pracownika w zależności od tego czy zadanie do niego przypisane jest ongoing
+-- Update employee status depending on whether the task assigned to him is ongoing
 
 CREATE OR REPLACE PROCEDURE update_emp_status AS
 BEGIN
@@ -9,7 +9,7 @@ BEGIN
     
     FOR r_emp IN (SELECT UNIQUE(employee_id) AS id FROM emp_assignments e_a JOIN tasks t USING(task_id) WHERE t.status_id = 2)
     LOOP
-        UPDATE employees SET status_id = 2 WHERE employee_id = r_emp.id; -- unavailable
+        UPDATE employees SET status_id = 2 WHERE employee_id = r_emp.id; --unavailable
     END LOOP;
 END;
 
